@@ -17,22 +17,17 @@ import view.HomePageUI;
  */
 public class EmployeeCntl {
     
-    private EmployeeList employeeList;
     private HomePageUI homeUI;
     private Employee employee;
     private int currentIndex = 0;
     ArrayList<Employee> employeeArrayList;
-    private EmployeeListCntl listController;
 
-    /**
-     * 
-     * @param listController
-     
-     */
-    public EmployeeCntl (EmployeeListCntl listController){
-      
+    public EmployeeCntl(HomePageUI homeUI, Employee employee, ArrayList<Employee> employeeArrayList) {
+        this.homeUI = homeUI;
+        this.employee = employee;
+        this.employeeArrayList = employeeArrayList;
     }
-    
+  
     /**
     * A place to add buttons and action listeners to UI
     */
