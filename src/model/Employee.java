@@ -11,7 +11,8 @@ package model;
 public class Employee {
     private String firstName, lastName, userName, pw, department; 
     private int employeeID; 
-    private int numLeaveDays; 
+    private int numLeaveDays;
+    
 
     /**
      * This is the default constructor 
@@ -27,11 +28,13 @@ public class Employee {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
+        this.department = department; 
         this.pw = pw;
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays; 
+        
     }
-  
+    
     public String getFirstName() {
         return firstName;
     }
