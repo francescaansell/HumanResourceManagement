@@ -7,6 +7,9 @@ package model;
 
 import java.util.ArrayList;
 import controller.LoginCntl;
+import model.EmployeeList;
+import view.LoginUI;
+import model.Employee;
 
 /**
  *
@@ -14,28 +17,28 @@ import controller.LoginCntl;
  */
 public class TestHarness {
     public TestHarness() {
-        //testClassHierarchy();
-        //testInterface();
+        testLoginCntl();
     }
     
-    public void testInterface(){
+    public void testLoginCntl(){
         //ArrayList<Joinable> organizations = new ArrayList<>();
-        LoginCntl loginController = new LoginCntl(Employeelist)
-        Address add1 = new Address(206, "Hub Floor 2", "University Park", "PA", "16802");
-        Address add2 = new Address(314, "Hub Floor 3", "University Park", "PA", "16802");
-        Address add3 = new Address(111, "Hub Floor 1", "University Park", "PA", "16802");
-        Address add4 = new Address(242, "Hub Floor 2", "University Park", "PA", "16802");
-        Joinable org1 = new Service("THON org", "THON special interest org", "thon@psu.edu", "Raise money FTK", "@THON", "service", add1);
-        Joinable org2 = new Fitness("Club Sport", "expert", "Hockey", "clubhockey@psu.edu", "Play hockey against other club teams", "@PSUclubhockey", "fitness", add2);
-        Joinable org3 = new Service("Sustainability org", "Days for girls", "daysforgirls@psu.edu", "Sew reusable kits", "@DFGPennState", "service", add3);
-        Joinable org4 = new Fitness("Dance Team", "beginner", "Ballroom dance", "ballroom@psu.edu", "Learn how to ballroom dance", "@PSUballroom", "fitness", add4);
-        organizations.add(org1);
-        organizations.add(org2);
-        organizations.add(org3);
-        organizations.add(org4);
-        for (Joinable organization : organizations) {
-            organization.joinOrg();
-            organization.print(); 
+        ArrayList<Employee> emp = new ArrayList<>();
+        LoginCntl loginController = new LoginCntl(new EmployeeList(emp));
+//        Address add1 = new Address(206, "Hub Floor 2", "University Park", "PA", "16802");
+//        Address add2 = new Address(314, "Hub Floor 3", "University Park", "PA", "16802");
+//        Address add3 = new Address(111, "Hub Floor 1", "University Park", "PA", "16802");
+//        Address add4 = new Address(242, "Hub Floor 2", "University Park", "PA", "16802");
+//        Joinable org1 = new Service("THON org", "THON special interest org", "thon@psu.edu", "Raise money FTK", "@THON", "service", add1);
+//        Joinable org2 = new Fitness("Club Sport", "expert", "Hockey", "clubhockey@psu.edu", "Play hockey against other club teams", "@PSUclubhockey", "fitness", add2);
+//        Joinable org3 = new Service("Sustainability org", "Days for girls", "daysforgirls@psu.edu", "Sew reusable kits", "@DFGPennState", "service", add3);
+//        Joinable org4 = new Fitness("Dance Team", "beginner", "Ballroom dance", "ballroom@psu.edu", "Learn how to ballroom dance", "@PSUballroom", "fitness", add4);
+//        organizations.add(org1);
+//        organizations.add(org2);
+//        organizations.add(org3);
+//        organizations.add(org4);
+//        for (Joinable organization : organizations) {
+//            organization.joinOrg();
+//            organization.print(); 
         }
     }   
     
@@ -100,4 +103,4 @@ public class TestHarness {
 //        System.out.println(date1.toString());
 //    }
     
-}
+//}
