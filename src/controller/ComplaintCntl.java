@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller; 
-import java.util.*;
+import view.*;
 import model.*; 
 
 
@@ -14,6 +14,7 @@ import model.*;
 public class ComplaintCntl {
     private ApproveComplaint approveComplaint; 
     private Employee employee; 
+    private MyComplaintsUI myComplaintsUI; 
 
     public ComplaintCntl(ApproveComplaint approveComplaint, Employee employee) {
         this.approveComplaint = approveComplaint;

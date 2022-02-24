@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-import model.*; 
-import controller.*; 
 
 
 /**
@@ -13,21 +11,16 @@ import controller.*;
  */
 public class ApproveTimesheet {
     private Boolean approved; 
+    private TimeSubmission timeSubmission; 
     
-    private Employee employee; 
-    private TimeSubmission timeSubmission;
-    private TimeSheetCntl timeSheetCntl; 
-    
-
     /**
      * This is the default constructor for this class
      * @param approved
      * @param timeSubmission
      */
-    public ApproveTimesheet(Boolean approved, TimeSubmission timeSubmission, TimeSheetCntl timeSheetCntl) {
+    public ApproveTimesheet(Boolean approved, TimeSubmission timeSubmission) {
         this.approved = approved;
-        this.timeSubmission = timeSubmission;
-        this.timeSheetCntl = timeSheetCntl; 
+        this.timeSubmission = timeSubmission; 
     }
 
     /**
@@ -39,7 +32,7 @@ public class ApproveTimesheet {
        
     /**
      * This return wethers the TimeSheet has been approved 
-     * @return 
+     * @return approval status
      */
     public Boolean approvalStatus() {
         return approved;
@@ -52,24 +45,40 @@ public class ApproveTimesheet {
      */
     public PreviousTimesheets getPreviousTimeSheet(Employee employee){
         //return employee.getPreviousTimesheet(); 
-        PreviousTimesheets previousTimesheets = new PreviousTimesheets(this.timeSheetCntl); 
+        PreviousTimesheets previousTimesheets = new PreviousTimesheets(); 
         return previousTimesheets; 
     }
-    
+
+    /**
+     * Will check and make sure all requirements are meet to approve Time Sheet, will use attribute timeSubmission
+     * @param employee
+     * @return 
+     */
+    public Boolean checkRequirements(Employee employee){
+        PreviousTimesheets previousTimesheets = this.getPreviousTimeSheet(employee); 
+        if (previousTimesheets != null){
+            approveTimeSheet();
+        } else {
+            
+        }
+        return this.approvalStatus();        
+    }
+
+    public Boolean getApproved() {
+        return approved;
+    }
+
+    public void setApproved(Boolean approved) {
+        this.approved = approved;
+    }
+
     public TimeSubmission getTimeSubmission() {
         return timeSubmission;
     }
 
     public void setTimeSubmission(TimeSubmission timeSubmission) {
         this.timeSubmission = timeSubmission;
-    }  
-
-    public Employee getEmployee() {
-        return employee;
     }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+    
     
 }
