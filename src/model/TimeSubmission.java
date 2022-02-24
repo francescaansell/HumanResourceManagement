@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import model.*; 
 
 /**
  * This class will be used to create an instance of a time submission
