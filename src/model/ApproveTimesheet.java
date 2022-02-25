@@ -4,7 +4,6 @@
  */
 package model;
 
-
 /**
  *
  * @author Group 1 HRM
@@ -31,10 +30,10 @@ public class ApproveTimesheet {
     }
        
     /**
-     * This return wethers the TimeSheet has been approved 
+     * This return wether the TimeSheet has been approved 
      * @return approval status
      */
-    public Boolean approvalStatus() {
+    public Boolean getApproved() {
         return approved;
     }
     
@@ -61,13 +60,10 @@ public class ApproveTimesheet {
         } else {
             
         }
-        return this.approvalStatus();        
+        return this.getApproved();        
     }
-
-    public Boolean getApproved() {
-        return approved;
-    }
-
+    
+ 
     public void setApproved(Boolean approved) {
         this.approved = approved;
     }

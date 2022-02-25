@@ -9,7 +9,7 @@ import java.util.*;
  * @author Group 1 HRM
  */
 public class PreviousTimesheets {
-    private Integer prevTotalHoursWorked; 
+    //private Integer prevTotalHoursWorked; 
     private Date startTimeFrame; 
     private Date endTimeFrame; 
     
@@ -23,7 +23,7 @@ public class PreviousTimesheets {
      * @param employee
      */
     public PreviousTimesheets(Integer totalHoursWorked, Date startTimeFrame, Date endTimeFrame, Employee employee) {        
-        this.prevTotalHoursWorked = totalHoursWorked;
+        //this.prevTotalHoursWorked = totalHoursWorked;
         this.startTimeFrame = startTimeFrame;
         this.endTimeFrame = endTimeFrame;
         this.employee = employee;
@@ -33,12 +33,17 @@ public class PreviousTimesheets {
      * This is an empty constructor that sets all attributes to default values
      */
     public PreviousTimesheets() {
-        this.prevTotalHoursWorked = 0;
+        //this.prevTotalHoursWorked = 0;
         this.startTimeFrame = new Date();
         this.endTimeFrame = new Date();
         this.employee = new Employee("First Name", "Last Name", "username",  "password", "department", 0, 0);
     }
     
+    public int calcTotalHours(){
+        return 1; 
+    }
+    
+    /*
     public Integer getPrevTotalHoursWorked() {
         return prevTotalHoursWorked;
     }
@@ -46,7 +51,8 @@ public class PreviousTimesheets {
     public void setPrevTotalHoursWorked(Integer prevTotalHoursWorked) {
         this.prevTotalHoursWorked = prevTotalHoursWorked;
     }
-
+    */
+    
     public Date getStartTimeFrame() {
         return startTimeFrame;
     }
