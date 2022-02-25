@@ -4,14 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/PreviousTimesheets.java</file>
-            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/controller/LoginCntl.java</file>
-            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/Complaint.java</file>
-            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/VacationEligibility.java</file>
-            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/VacationRequest.java</file>
+            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/controller/TimeSheetCntl.java</file>
             <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/TimeSubmission.java</file>
             <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/ApproveTimesheet.java</file>
-            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/EmployeeList.java</file>
-            <file>file:/C:/Users/frank/Documents/code/ist412/HumanResourceManagement/src/model/Employee.java</file>
         </group>
     </open-files>
 </project-private>

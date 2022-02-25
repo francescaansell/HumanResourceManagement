@@ -22,7 +22,16 @@ public class EmployeeList {
 
 
     /**
-     * This is the default constructor (eventually we will be pulling from a file here) 
+     * This is the constructor used if there is already a list of employees
+     * @param listofEmployees 
+     */
+    
+    public EmployeeList(ArrayList<Employee> listOfEmployees) {
+        this.listOfEmployees = listOfEmployees;
+    }
+
+    /**
+     * This is the empty constructor (eventually we will be pulling from a file here) 
      */
     public EmployeeList() {
         this.readEmplListFile();
@@ -88,13 +97,5 @@ public class EmployeeList {
         return listOfEmployees;
     }
     
-    /**
-     * This constructor will be used is there is already a list of employees 
-     * @param listofEmployees 
-     */
-    /*
-    public EmployeeList(ArrayList<Employee> listofEmployees) {
-        this.listofEmployees = listofEmployees;
-    }
-*/
+    
 }
