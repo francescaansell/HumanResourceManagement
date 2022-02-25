@@ -29,7 +29,7 @@ public class Employee {
         this.lastName = lastName;
         this.userName = userName;
         this.department = department; 
-        this.pw = pw;
+        this.pw = pw; //not sure how we navigate this when creating complaint and needing to know this info... maybe we need one general employee class and one for HR employees eyes only?
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays; 
         
@@ -59,14 +59,6 @@ public class Employee {
         this.userName = userName;
     }
 
-    public String getPw() {
-        return pw;
-    }
-
-    public void setPw(String pw) {
-        this.pw = pw;
-    }
-
     public int getEmployeeID() {
         return employeeID;
     }
@@ -75,21 +67,6 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public int getNumLeaveDays() {
-        return numLeaveDays;
-    }
-
-    public void setNumLeaveDays(int numLeaveDays) {
-        this.numLeaveDays = numLeaveDays;
-    }
     
     
 
