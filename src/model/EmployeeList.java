@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class EmployeeList {
     private ArrayList<Employee> listOfEmployees = new ArrayList<>();
-    private String emplFileName = "employees.ser";
+    private String emplFileName;
 
 
     /**
@@ -27,6 +27,7 @@ public class EmployeeList {
      */
     
     public EmployeeList(ArrayList<Employee> listOfEmployees) {
+        this.emplFileName = "employees.ser";
         this.listOfEmployees = listOfEmployees;
     }
 
@@ -34,6 +35,7 @@ public class EmployeeList {
      * This is the empty constructor (eventually we will be pulling from a file here) 
      */
     public EmployeeList() {
+        this.emplFileName = "employees.ser";
         this.readEmplListFile();
         if(listOfEmployees.isEmpty() || listOfEmployees == null){
             createList();

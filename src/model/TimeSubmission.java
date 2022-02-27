@@ -41,6 +41,10 @@ public class TimeSubmission {
     public Date getStartTimeFrame() {
         return startTimeFrame;
     }
+
+    public void setStartTimeFrame(Date startTimeFrame) {
+        this.startTimeFrame = startTimeFrame;
+    }
     
     public Date getEndTimeFrame() {
         return endTimeFrame;
