@@ -21,9 +21,9 @@ public class TestHarness {
     }
     
     public void testLoginCntl(){
-        //ArrayList<Joinable> organizations = new ArrayList<>();
-        ArrayList<Employee> emp = new ArrayList<>();
-        LoginCntl loginController = new LoginCntl(new EmployeeList(emp));
+    
+        LoginCntl loginController = new LoginCntl(new EmployeeList());
+        
 //        Address add1 = new Address(206, "Hub Floor 2", "University Park", "PA", "16802");
 //        Address add2 = new Address(314, "Hub Floor 3", "University Park", "PA", "16802");
 //        Address add3 = new Address(111, "Hub Floor 1", "University Park", "PA", "16802");

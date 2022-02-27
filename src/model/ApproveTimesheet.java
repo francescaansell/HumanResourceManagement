@@ -5,7 +5,7 @@
 package model;
 
 /**
- *
+ * This class will be used to approve the time sheet 
  * @author Group 1 HRM
  */
 public class ApproveTimesheet {
