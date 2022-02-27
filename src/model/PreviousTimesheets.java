@@ -12,21 +12,18 @@ public class PreviousTimesheets {
     //private Integer prevTotalHoursWorked; 
     private Date startTimeFrame; 
     private Date endTimeFrame; 
-    
-    private Employee employee; 
+   
    
     /**
      * This is the default constructor for this class 
      * @param totalHoursWorked
      * @param startTimeFrame
      * @param endTimeFrame
-     * @param employee
      */
-    public PreviousTimesheets(Integer totalHoursWorked, Date startTimeFrame, Date endTimeFrame, Employee employee) {        
+    public PreviousTimesheets(Integer totalHoursWorked, Date startTimeFrame, Date endTimeFrame) {        
         //this.prevTotalHoursWorked = totalHoursWorked;
         this.startTimeFrame = startTimeFrame;
         this.endTimeFrame = endTimeFrame;
-        this.employee = employee;
     }
     
     /** 
@@ -36,7 +33,6 @@ public class PreviousTimesheets {
         //this.prevTotalHoursWorked = 0;
         this.startTimeFrame = new Date();
         this.endTimeFrame = new Date();
-        this.employee = new Employee("First Name", "Last Name", "username",  "password", "department", 0, 0);
     }
     
     public int calcTotalHours(){
@@ -69,11 +65,5 @@ public class PreviousTimesheets {
         this.endTimeFrame = endTimeFrame;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }    
 }

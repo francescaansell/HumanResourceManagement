@@ -44,10 +44,10 @@ public class EmployeeList {
     }
 
     public void createList(){
-        Employee employee1 = new Employee("Hannah", "Kitchell", "hk123", "password1", "Customer Relations", 12345, 10);
-        Employee employee2 = new Employee("Frankie", "Ansell", "fa234", "password2", "Human Resources", 12346, 15);
-        Employee employee3 = new Employee("Jen", "Hodsdon", "jh345", "password3", "Delivery Management", 12347, 21);
-        Employee employee4 = new Employee("Vince", "Semrau", "vs456", "password4", "Accounting", 12348, 7);
+        Employee employee1 = new Employee("Hannah", "Kitchell", "hk123", "password1", "Customer Relations", 12345, 10, true);
+        Employee employee2 = new Employee("Frankie", "Ansell", "fa234", "password2", "Human Resources", 12346, 15, true);
+        Employee employee3 = new Employee("Jen", "Hodsdon", "jh345", "password3", "Delivery Management", 12347, 21, true);
+        Employee employee4 = new Employee("Vince", "Semrau", "vs456", "password4", "Accounting", 12348, 7, true);
     }
     
     public void readEmplListFile(){

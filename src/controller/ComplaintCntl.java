@@ -12,20 +12,20 @@ import model.*;
  * @author Group 1 HRM
  */
 public class ComplaintCntl {
-    private ApproveComplaint approveComplaint; 
+    private CloseComplaint approveComplaint; 
     private Employee employee; 
     private MyComplaintsUI myComplaintsUI; 
 
-    public ComplaintCntl(ApproveComplaint approveComplaint, Employee employee) {
+    public ComplaintCntl(CloseComplaint approveComplaint, Employee employee) {
         this.approveComplaint = approveComplaint;
         this.employee = employee;
     }
 
-    public ApproveComplaint getApproveComplaint() {
+    public CloseComplaint getApproveComplaint() {
         return approveComplaint;
     }
 
-    public void setApproveComplaint(ApproveComplaint approveComplaint) {
+    public void setApproveComplaint(CloseComplaint approveComplaint) {
         this.approveComplaint = approveComplaint;
     }
 
