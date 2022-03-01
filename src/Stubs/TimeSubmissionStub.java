@@ -1,5 +1,6 @@
-package model; 
+package Stubs; 
 import java.util.*; 
+import model.*; 
 public class TimeSubmissionStub extends TimeSubmission{
 
     public TimeSubmissionStub(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee) {

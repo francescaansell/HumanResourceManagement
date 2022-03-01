@@ -1,7 +1,8 @@
-package controller;
+package Stubs;
 
-import model.TimeSubmission;
-import view.MyHoursUI;
+import model.*;
+import view.*;
+import controller.*; 
 
 public class TimeSheetCntlStub extends TimeSheetCntl{
 

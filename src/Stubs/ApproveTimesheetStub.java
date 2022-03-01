@@ -1,4 +1,6 @@
-package model;
+package Stubs;
+
+import model.*; 
 public class ApproveTimesheetStub extends ApproveTimesheet{
     
     public ApproveTimesheetStub(Boolean approved, TimeSubmission timeSubmission) {

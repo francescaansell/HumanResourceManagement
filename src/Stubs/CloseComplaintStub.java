@@ -1,42 +1,34 @@
-package model;
+package Stubs;
+
+import model.*; 
 
 
-/**
- * 
- * @author Group 1 HRM
- */
-public class CloseComplaint {
+public class CloseComplaintStub extends CloseComplaint {
     private Boolean approved; 
     private Complaint complaint;
     
-    /**
-     * This is the default constructor for this class 
-     * @param complaint 
-     * @param approved 
-     */
-    public CloseComplaint(Boolean approved, Complaint complaint){
-        this.approved = approved; 
-        this.complaint = complaint;
+    
+    public CloseComplaintStub(Boolean approved, Complaint complaint){
+        super(approved, complaint);
     }
      /*
     idea for testharness:
     //concern, when populating this stuff would we need to include their available days? and their password? gonna alter in employee
     CloseComplaint complaint = new CloseComplaint(new Complaint(new Employee("hannah","kitchell","h123","password","IT","12345",7), Date openDate, new Employee("jen","hodsdon","j123","password","IT","54321",3), Boolean open);
     */
-    
+
+    @Override
     public void approveComplaint(){
         this.approved = true; 
     }
     
+    @Override
     public Boolean getApproved(){
         return approved; 
     }
     
     
-    /**
-     * Will check and make sure all requirements are meet to close complaint
-     * @return 
-     */
+    @Override
     public Boolean checkRequirements(){
         
         if (this.complaint != null){
@@ -47,19 +39,18 @@ public class CloseComplaint {
         return this.getApproved();   
     }
     
-    /**
-     * Will send out proper response to the complaint in order to correct the issue
-     * @return 
-     */
+    @Override
     public String sendOutResponse(){
         return "Sample Response";
         
     }
 
+    @Override
     public Complaint getComplaint() {
         return complaint;
     }
 
+    @Override
     public void setComplaint(Complaint complaint) {
         this.complaint = complaint;
     }

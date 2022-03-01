@@ -6,7 +6,6 @@ package controller;
 
 import java.util.ArrayList;
 import model.Employee;
-import model.EmployeeList;
 import view.LoginUI;
 
 
@@ -16,8 +15,7 @@ import view.LoginUI;
  * @author Group1HRM
  */
 public class LoginCntl {
-    EmployeeList currentEmployeeList; 
-    LoginUI employeeUI; 
+    LoginUI view; 
     ArrayList<Employee> listOfEmployee = new ArrayList<>(); 
 
     /**
@@ -25,8 +23,9 @@ public class LoginCntl {
      * @param currentEmployeeList current list of employees 
      * @param employeeUI this the instance of the UI
      */
-    public LoginCntl(EmployeeList currentEmployeeList) {
-        this.currentEmployeeList = currentEmployeeList;
+    public LoginCntl(LoginUI view) {
+        this.view = view; 
+        
     }
     
     /**

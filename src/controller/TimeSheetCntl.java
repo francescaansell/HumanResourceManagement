@@ -23,7 +23,7 @@ public class TimeSheetCntl {
     }
 
     public void updateView(){
-        view.printHoursDetails(timeSubmission.getEmployee(), timeSubmission.getEndTimeFrame(), timeSubmission.getStartTimeFrame(), timeSubmission.getTotalHours()); 
+        //view.printHoursDetails(timeSubmission.getEmployee(), timeSubmission.getStartTimeFrame(), timeSubmission.getEndTimeFrame(), timeSubmission.getTotalHours()); 
     }
     
 }

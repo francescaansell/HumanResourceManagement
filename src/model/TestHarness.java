@@ -6,14 +6,13 @@
 package model;
 
 import java.util.ArrayList;
-import controller.LoginCntl;
-import model.EmployeeList;
-import view.LoginUI;
-import model.Employee;
+import controller.*;
+import view.*;
+import model.*;
 
 /**
  *
- * @author njspo
+ * @author Group 1 HRM
  */
 public class TestHarness {
     public TestHarness() {
@@ -22,7 +21,6 @@ public class TestHarness {
     
     public void testLoginCntl(){
     
-        LoginCntl loginController = new LoginCntl(new EmployeeList());
         
 //        Address add1 = new Address(206, "Hub Floor 2", "University Park", "PA", "16802");
 //        Address add2 = new Address(314, "Hub Floor 3", "University Park", "PA", "16802");
