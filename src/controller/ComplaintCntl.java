@@ -12,30 +12,17 @@ import model.*;
  * @author Group 1 HRM
  */
 public class ComplaintCntl {
-    private CloseComplaint approveComplaint; 
-    private Employee employee; 
-    private MyComplaintsUI myComplaintsUI; 
+    public Complaint complaint; 
+    public Employee employee; 
+    public MyComplaintsUI view; 
 
-    public ComplaintCntl(CloseComplaint approveComplaint, Employee employee) {
-        this.approveComplaint = approveComplaint;
+    public ComplaintCntl(Complaint complaint, Employee employee, MyComplaintsUI view) {
+        this.complaint = complaint;
         this.employee = employee;
+        this.view = view; 
     }
 
-    public CloseComplaint getApproveComplaint() {
-        return approveComplaint;
-    }
 
-    public void setApproveComplaint(CloseComplaint approveComplaint) {
-        this.approveComplaint = approveComplaint;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
     
     
     
