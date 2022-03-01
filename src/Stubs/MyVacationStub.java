@@ -4,13 +4,11 @@ import java.util.*;
 import model.*; 
 import view.*; 
 
-public class MyHoursStub extends MyHoursUI{
+public class MyVacationStub extends MyVacationUI{
     @Override
-    public void printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee){
-        System.out.println("total hours: " + totalHours); 
-        System.out.println("Start Date: " + startTimeFrame);
-        System.out.println("End Date: " + endTimeFrame); 
-        System.out.println("Employee " + employee); 
+    public void printVacationDetails(boolean approved, int numDaysRequested, Employee assignmedEmployee, VacationEligibility vacationEligibility){
+        System.out.println("MyVacationStub");
+        
     }   
 }
 

@@ -10,3 +10,6 @@ public class LoginCntlStub extends LoginCntl{
     }
     
 }
+
+//Not sure she does not have a Login Control Stub 
+//Should we imitate her authenticate ?

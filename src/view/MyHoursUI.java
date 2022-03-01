@@ -11,3 +11,12 @@ public class MyHoursUI {
     public void printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee){
     }
 }
+
+/*
+package facultyview;
+public class CourseView {
+      public void printCourseDetails(String FacultyName, String CourseName, String CourseId, String CourseCategory){
+          //To print Faculty Course Details on Portal
+       }
+}
+*/
