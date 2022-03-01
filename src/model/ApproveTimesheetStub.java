@@ -41,7 +41,5 @@ public class ApproveTimesheetStub extends ApproveTimesheet{
     @Override
     public void setTimeSubmission(TimeSubmission timeSubmission) {
         this.timeSubmission = timeSubmission;
-    }
-    
-    
+    }   
 }

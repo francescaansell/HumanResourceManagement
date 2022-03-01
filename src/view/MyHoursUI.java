@@ -9,9 +9,5 @@ package view;
  * @author Group1HRM
  */
 public class MyHoursUI {
-
-    public MyHoursUI() {
-    }
-    
-    
+        
 }
