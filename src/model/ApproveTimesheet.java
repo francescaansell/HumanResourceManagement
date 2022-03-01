@@ -73,8 +73,9 @@ public class ApproveTimesheet {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public String toString()
+    {
+        return "ApproveTimesheet{" + "approved=" + approved + ", timeSubmission=" + timeSubmission + '}';
     }
     
     

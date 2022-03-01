@@ -123,14 +123,9 @@ public class Employee {
         this.numLeaveDays = numLeaveDays;
     }
 
-    
-    
-
     @Override
-    public String toString() {
-        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", employeeID=" + employeeID + '}';
+    public String toString()
+    {
+        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", department=" + department + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", fullTime=" + fullTime + ", previousTimesheets=" + previousTimesheets + '}';
     }
-    
-   
-    
 }

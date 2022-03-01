@@ -60,8 +60,9 @@ public class TimeSubmission {
     }
     
     @Override
-    public String toString() {
-        return super.toString();
+    public String toString()
+    {
+        return "TimeSubmission{" + "totalHours=" + totalHours + ", startTimeFrame=" + startTimeFrame + ", endTimeFrame=" + endTimeFrame + ", employee=" + employee + '}';
     }
     
     
