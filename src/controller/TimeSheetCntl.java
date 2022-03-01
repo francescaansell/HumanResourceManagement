@@ -1,3 +1,4 @@
+//done
 package controller;
 import model.*; 
 import view.*; 
@@ -42,10 +43,10 @@ public class TimeSheetCntl {
     public Integer getTotalHours(){
         return timeSubmission.getTotalHours(); 
     }
-    
+
 
     public void updateView(){
-        //printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee)
+        //public void printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee)
         view.printHoursDetails(timeSubmission.getTotalHours(), timeSubmission.getStartTimeFrame(), timeSubmission.getEndTimeFrame(), timeSubmission.getEmployee()); 
     }
     

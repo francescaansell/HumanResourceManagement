@@ -3,7 +3,12 @@ import model.*;
 import view.*; 
 import controller.*; 
 public class LeaveCntlStub extends LeaveCntl{
-    public LeaveCntlStub(Employee employee, VacationRequest vacationRequest, MyVacationUI view){
-        super(employee, vacationRequest, view);
+    public LeaveCntlStub(VacationRequest vacationRequest, MyVacationUI view){
+        super(vacationRequest, view);
+    }
+    @Override 
+    public void updateView(){
+        // public void printVacationDetails(boolean approved, int numDaysRequested, Employee emmployee, VacationEligibility vacationEligibility)
+        view.printVacationDetails(vacationRequest.getApproved(), vacationRequest.getNumDaysRequested(), vacationRequest.getAssignedEmployee(), vacationRequest.getVacationEligibility(), vacationRequest.getRequestingEmployee());
     }
 }

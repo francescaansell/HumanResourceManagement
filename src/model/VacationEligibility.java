@@ -1,14 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//FIX
 package model;
 
 
 
 /**
  *
- * @author Vincent
+ * @author Group 1 HRM
  */
 public class VacationEligibility {
 
@@ -39,6 +36,8 @@ public class VacationEligibility {
         numPurchasedDays += hours;
         //Increment the employees number of purchased PTO that is used to calcualte total PTO
     }
+
+
 
    
 }

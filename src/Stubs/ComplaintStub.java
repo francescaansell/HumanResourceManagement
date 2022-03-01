@@ -1,3 +1,5 @@
+//done 
+
 package Stubs;
 
 import java.util.*;
@@ -5,12 +7,48 @@ import model.*;
 
 
 public class ComplaintStub extends Complaint {
-    private Employee assignedEmployee; 
-    private Date openDate; 
-    private Employee claimant;
-    private Boolean open; 
 
     public ComplaintStub(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open) {
         super(assignedEmployee, openDate, claimant, open);
+    }   
+
+    @Override
+    public Boolean getOpen() {
+        return open;
+    }
+
+    @Override
+    public void setOpen(Boolean open) {
+        this.open = open;
+    }
+
+    @Override
+    public Employee getClaimant() {
+        return claimant;
+    }
+
+    @Override
+    public void setClaimant(Employee claimant) {
+        this.claimant = claimant;
+    }
+
+    @Override
+    public Date getOpenDate() {
+        return openDate;
+    }
+
+    @Override
+    public void setOpenDate(Date openDate) {
+        this.openDate = openDate;
+    }
+
+    @Override
+    public Employee getAssignedEmployee() {
+        return assignedEmployee;
+    }
+
+    @Override
+    public void setAssignedEmployee(Employee assignedEmployee) {
+        this.assignedEmployee = assignedEmployee;
     }   
 }

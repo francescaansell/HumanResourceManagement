@@ -1,3 +1,4 @@
+//done 
 package Stubs;
 
 import view.*; 
@@ -5,21 +6,15 @@ import model.*;
 import controller.*; 
 public class ComplaintCntlStub extends ComplaintCntl{
 
-    public ComplaintCntlStub(Complaint complaint, Employee employee, MyComplaintsUI view) {
-        super(complaint, employee, view);   
+    public ComplaintCntlStub(Complaint complaint, MyComplaintsUI view) {
+        super(complaint, view);   
+    }
+
+    @Override 
+    public void updateView(){
+        //public void printComplaintDetails(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open)
+        view.printComplaintDetails(complaint.getAssignedEmployee(), complaint.getOpenDate(), complaint.getClaimant(), complaint.getOpen()); 
     }
 }
 
-/*
-package facultyview;
-public class CourseControllerStub extends CourseController {
-    public CourseControllerStub(Faculty fac, Course model, CourseView view) {
-        super(fac, model, view);
-    }
-    @Override
-    public void updateView(){                
-        view.printCourseDetails(Fac.getName(), model.getName(), model.getId(), model.getCategory());
-        } 
-    }
-*/
 
