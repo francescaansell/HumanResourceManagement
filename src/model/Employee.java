@@ -27,7 +27,7 @@ public class Employee {
      * @param numLeaveDays the number of leave days an employee has left 
      * @param department the department in which the employee works for 
      */
-    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, Boolean fullTime, PreviousTimesheets previousTimesheets) {
+    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, PreviousTimesheets previousTimesheets, Boolean fullTime) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -40,6 +40,18 @@ public class Employee {
         
     }
     
+    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, Boolean fullTime) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.department = department; 
+        this.pw = pw; 
+        this.employeeID = employeeID;
+        this.numLeaveDays = numLeaveDays; 
+        this.fullTime = fullTime; 
+        this.previousTimesheets = new PreviousTimesheets(); 
+        
+    }
     
     /**
      * This is the empty constructor for the employee class

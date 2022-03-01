@@ -59,7 +59,10 @@ public class TimeSubmission {
         this.employee = employee;
     }
     
-    
+    @Override
+    public String toString() {
+        return super.toString();
+    }
     
     
 }

@@ -68,5 +68,9 @@ public class VacationRequest {
     public Employee getRequestingEmployee(){
         return this.requestingEmployee; 
     }
-    
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
