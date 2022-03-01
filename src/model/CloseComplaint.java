@@ -59,6 +59,9 @@ public class CloseComplaint {
         this.complaint = complaint;
     }
     
-    
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
 

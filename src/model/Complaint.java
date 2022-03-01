@@ -61,7 +61,10 @@ public class Complaint {
         this.assignedEmployee = assignedEmployee;
     }   
 
-    
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
 
 

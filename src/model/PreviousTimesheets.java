@@ -61,5 +61,9 @@ public class PreviousTimesheets {
         this.endTimeFrame = endTimeFrame;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 
 }

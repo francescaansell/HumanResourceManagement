@@ -37,9 +37,10 @@ public class VacationEligibility {
         //Increment the employees number of purchased PTO that is used to calcualte total PTO
     }
 
-
-
-   
+    @Override
+    public String toString() {
+        return super.toString();
+    }  
 }
 
 

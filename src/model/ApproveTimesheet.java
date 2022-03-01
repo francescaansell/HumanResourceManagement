@@ -72,7 +72,10 @@ public class ApproveTimesheet {
         this.timeSubmission = timeSubmission;
     }
 
-    
+    @Override
+    public String toString() {
+        return super.toString();
+    }
     
     
 }
