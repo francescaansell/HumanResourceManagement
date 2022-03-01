@@ -62,8 +62,9 @@ public class PreviousTimesheets {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public String toString()
+    {
+        return "PreviousTimesheets{" + "startTimeFrame=" + startTimeFrame + ", endTimeFrame=" + endTimeFrame + '}';
     }
 
 }

@@ -60,8 +60,9 @@ public class CloseComplaint {
     }
     
     @Override
-    public String toString() {
-        return super.toString();
+    public String toString()
+    {
+        return "CloseComplaint{" + "approved=" + approved + ", complaint=" + complaint + '}';
     }
 }
 
