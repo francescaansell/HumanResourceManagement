@@ -9,12 +9,16 @@ package model;
  *@author Group1HRM 
  */
 public class Employee {
-    private String firstName, lastName, userName, pw, department; 
-    private int employeeID; 
-    private int numLeaveDays;
-    private Boolean fullTime; 
+    protected String firstName;
+    protected String lastName;
+    protected String userName;
+    protected String pw;
+    protected String department; 
+    protected int employeeID; 
+    protected int numLeaveDays;
+    protected Boolean fullTime; 
     
-    private PreviousTimesheets previousTimesheets; 
+    protected PreviousTimesheets previousTimesheets; 
     
 
     /**
@@ -121,6 +125,22 @@ public class Employee {
 
     public void setNumLeaveDays(int numLeaveDays) {
         this.numLeaveDays = numLeaveDays;
+    }
+
+    public Boolean getFullTime(){
+        return this.fullTime; 
+    }
+
+    public void setFullTime(Boolean fullTime){
+        this.fullTime = true;
+    }
+
+    public void setPreviousTimesheets(PreviousTimesheets previousTimesheets){
+        this.previousTimesheets = previousTimesheets; 
+    }
+
+    public PreviousTimesheets getPreviousTimesheets(){
+        return this.previousTimesheets; 
     }
 
     
