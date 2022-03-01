@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 /**
@@ -9,8 +5,8 @@ package model;
  * @author Group 1 HRM
  */
 public class ApproveTimesheet {
-    private Boolean approved; 
-    private TimeSubmission timeSubmission; 
+    public Boolean approved; 
+    public TimeSubmission timeSubmission; 
     
     /**
      * This is the default constructor for this class
@@ -75,6 +71,8 @@ public class ApproveTimesheet {
     public void setTimeSubmission(TimeSubmission timeSubmission) {
         this.timeSubmission = timeSubmission;
     }
+
+    
     
     
 }
