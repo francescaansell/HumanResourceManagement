@@ -9,9 +9,9 @@ package model;
  * @author Group1HRM
  */
 public class VacationRequest {
-    private boolean approved; 
-    private int numDaysRequested;
-    private Employee assignedEmployee;
+    protected boolean approved; 
+    protected int numDaysRequested;
+    protected Employee assignedEmployee;
 
     /**
      * This is the default constructor 
