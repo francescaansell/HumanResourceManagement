@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
+import model.*; 
+import view.*; 
 
 /**
  *
- * @author frank
+ * @author Group 1 HRM
  */
-public class TimeSheetCntl {
+public class TimeSheetCntl { 
+    public TimeSubmission timeSubmission; //her model  
+    public MyHoursUI view; 
+
+    public TimeSheetCntl(TimeSubmission timeSubmission, MyHoursUI view) {
+        this.timeSubmission = timeSubmission;
+        this.view = view;
+    }
+
+    public Employee getTimeSubmissionEmployee(){
+        return timeSubmission.getEmployee(); 
+    }
+    public Integer getTotalHours(){
+        return timeSubmission.getTotalHours(); 
+    }
+
+    public void updateView(){
+        view.printHoursDetails(timeSubmission.getEmployee(), timeSubmission.getEndTimeFrame(), timeSubmission.getStartTimeFrame(), timeSubmission.getTotalHours()); 
+    }
     
 }

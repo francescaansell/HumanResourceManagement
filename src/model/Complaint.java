@@ -22,7 +22,7 @@ public class Complaint {
      * @param assignedEmployee the employee assigned to the complaint
      * @param openDate the date the complaint was opened 
      * @param claimant the employee making the complaint
-     * @param open wether or not the complaint is currently open
+     * @param open whether or not the complaint is currently open
      */
     public Complaint(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open) {
         this.assignedEmployee = assignedEmployee;

@@ -25,9 +25,8 @@ public class LoginCntl {
      * @param currentEmployeeList current list of employees 
      * @param employeeUI this the instance of the UI
      */
-    public LoginCntl(EmployeeList currentEmployeeList, LoginUI employeeUI) {
+    public LoginCntl(EmployeeList currentEmployeeList) {
         this.currentEmployeeList = currentEmployeeList;
-        this.employeeUI = employeeUI;
     }
     
     /**

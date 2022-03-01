@@ -1,59 +1,52 @@
 package model; 
 import java.util.*; 
+public class TimeSubmissionStub extends TimeSubmission{
 
-/**
- * This class will be used to create an instance of a time submission
- * @author Group1HRM
- */
-public class TimeSubmission {
-    public int totalHours;
-    public Date startTimeFrame; 
-    public Date endTimeFrame; 
-    public Employee employee;
-
-    public TimeSubmission(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee) {
-        this.totalHours = totalHours;
-        this.startTimeFrame = startTimeFrame;
-        this.endTimeFrame = endTimeFrame;
-        this.employee = employee;
+    public TimeSubmissionStub(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee) {
+        super(totalHours, startTimeFrame, endTimeFrame, employee); 
     }
     
-    /**
-     * This method will be used to calculate the total number of hours worked by the employee within the time frame given 
-     * @return 
-     */
+    @Override
     public int calculateTotalHours(){
         return 1; 
     }
 
+    @Override
     public int getTotalHours() {
         return totalHours;
     }
 
+    @Override
     public void setTotalHours(int totalHours) {
         this.totalHours = totalHours;
     }
 
+    @Override
     public Date getStartTimeFrame() {
         return startTimeFrame;
     }
 
+    @Override
     public void setStartTimeFrame(Date startTimeFrame) {
         this.startTimeFrame = startTimeFrame;
     }
     
+    @Override
     public Date getEndTimeFrame() {
         return endTimeFrame;
     }
 
+    @Override
     public void setEndTimeFrame(Date endTimeFrame) {
         this.endTimeFrame = endTimeFrame;
     }
 
+    @Override
     public Employee getEmployee() {
         return employee;
     }
 
+    @Override
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
