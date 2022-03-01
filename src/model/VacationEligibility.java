@@ -38,9 +38,10 @@ public class VacationEligibility {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
-    }  
+    public String toString()
+    {
+        return "VacationEligibility{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", department=" + department + ", timeWorked=" + timeWorked + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", numPurchasedDays=" + numPurchasedDays + ", numTotPTO=" + numTotPTO + '}';
+    } 
 }
 
 

@@ -62,8 +62,9 @@ public class Complaint {
     }   
 
     @Override
-    public String toString() {
-        return super.toString();
+    public String toString()
+    {
+        return "Complaint{" + "assignedEmployee=" + assignedEmployee + ", openDate=" + openDate + ", claimant=" + claimant + ", open=" + open + '}';
     }
 }
 

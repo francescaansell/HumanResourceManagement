@@ -70,7 +70,8 @@ public class VacationRequest {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public String toString()
+    {
+        return "VacationRequest{" + "approved=" + approved + ", numDaysRequested=" + numDaysRequested + ", assignedEmployee=" + assignedEmployee + ", requestingEmployee=" + requestingEmployee + ", vacationEligibility=" + vacationEligibility + '}';
     }
 }
