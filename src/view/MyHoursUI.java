@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//done
 package view;
 
 import model.*; 
@@ -12,6 +9,15 @@ import java.util.*;
  * @author Group1HRM
  */
 public class MyHoursUI {
-    public void printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee)
+    public void printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee){
     }
 }
+
+/*
+package facultyview;
+public class CourseView {
+      public void printCourseDetails(String FacultyName, String CourseName, String CourseId, String CourseCategory){
+          //To print Faculty Course Details on Portal
+       }
+}
+*/

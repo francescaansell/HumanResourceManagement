@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package model;
+package Stubs;
 
-/**
- * This class will be used to make an instance of an Employee and Store any information about that employee
- *@author Group1HRM 
- */
-public class Employee {
+import model.*; 
+public class EmployeeStub extends Employee {
     private String firstName, lastName, userName, pw, department; 
     private int employeeID; 
     private int numLeaveDays;
@@ -17,17 +10,7 @@ public class Employee {
     private PreviousTimesheets previousTimesheets; 
     
 
-    /**
-     * This is the default constructor 
-     * @param firstName employee first name
-     * @param lastName employee last name
-     * @param userName employee user name
-     * @param pw employee password
-     * @param employeeID employee ID number
-     * @param numLeaveDays the number of leave days an employee has left 
-     * @param department the department in which the employee works for 
-     */
-    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, Boolean fullTime, PreviousTimesheets previousTimesheets) {
+    public EmployeeStub(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, PreviousTimesheets previousTimesheets, Boolean fullTime) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -40,11 +23,7 @@ public class Employee {
         
     }
     
-    
-    /**
-     * This is the empty constructor for the employee class
-     */
-    public Employee() {
+    public EmployeeStub() {
         this.firstName = "First";
         this.lastName = "Last";
         this.userName = "username";
@@ -110,15 +89,4 @@ public class Employee {
     public void setNumLeaveDays(int numLeaveDays) {
         this.numLeaveDays = numLeaveDays;
     }
-
-    
-    
-
-    @Override
-    public String toString() {
-        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", employeeID=" + employeeID + '}';
-    }
-    
-   
-    
 }

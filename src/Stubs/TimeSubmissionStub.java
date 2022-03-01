@@ -1,5 +1,7 @@
-package model; 
+//done
+package Stubs; 
 import java.util.*; 
+import model.*; 
 public class TimeSubmissionStub extends TimeSubmission{
 
     public TimeSubmissionStub(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee) {
@@ -49,9 +51,38 @@ public class TimeSubmissionStub extends TimeSubmission{
     @Override
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-    
-    
-    
-    
+    }   
 }
+
+/*
+package facultyview;
+public class CourseStub extends Course {
+    public CourseStub(String id) {
+        super(id);
+    }
+    @Override
+    public String getId() {
+        return CourseId;
+        }
+    @Override
+    public void setId(String id) {
+        CourseId = id;
+        }
+    @Override
+    public String getName() {
+        return CourseName;
+        }
+    @Override
+    public void setName(String name) {
+        this.CourseName = name;
+        }
+    @Override
+    public String getCategory() {
+        return CourseCategory;
+        }
+    @Override
+    public void setCategory(String category) {
+        this.CourseCategory = category;
+        }  
+    }
+*/

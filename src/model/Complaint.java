@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//done
 package model;
 
 import java.util.Date;
@@ -12,10 +9,10 @@ import java.util.Date;
  * @author Group1HRM
  */
 public class Complaint {
-    private Employee assignedEmployee; 
-    private Date openDate; 
-    private Employee claimant;
-    private Boolean open; 
+    protected Employee assignedEmployee; 
+    protected Date openDate; 
+    protected Employee claimant;
+    protected Boolean open; 
 
     /**
      * This is the default constructor
@@ -25,9 +22,46 @@ public class Complaint {
      * @param open whether or not the complaint is currently open
      */
     public Complaint(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open) {
-        this.assignedEmployee = assignedEmployee;
-        this.openDate = openDate;
-        this.claimant = claimant;
+        this.setAssignedEmployee(assignedEmployee);
+        this.setOpenDate(openDate);
+        this.setClaimant(claimant);
+        this.setOpen(open);
+
+    }
+
+    public Boolean getOpen() {
+        return open;
+    }
+
+    public void setOpen(Boolean open) {
         this.open = open;
+    }
+
+    public Employee getClaimant() {
+        return claimant;
+    }
+
+    public void setClaimant(Employee claimant) {
+        this.claimant = claimant;
+    }
+
+    public Date getOpenDate() {
+        return openDate;
+    }
+
+    public void setOpenDate(Date openDate) {
+        this.openDate = openDate;
+    }
+
+    public Employee getAssignedEmployee() {
+        return assignedEmployee;
+    }
+
+    public void setAssignedEmployee(Employee assignedEmployee) {
+        this.assignedEmployee = assignedEmployee;
     }   
+
+    
 }
+
+

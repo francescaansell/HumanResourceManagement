@@ -1,3 +1,4 @@
+//done
 package model; 
 import java.util.*; 
 
@@ -62,3 +63,36 @@ public class TimeSubmission {
     
     
 }
+
+
+
+/* 
+package facultyview;
+public class Course {
+    protected String CourseName;
+    protected String CourseId;
+    protected String CourseCategory;
+    public Course(String id){
+        this.CourseId = id;
+        }
+    public String getId() {
+        return CourseId;
+        }
+    public void setId(String id) {
+        this.CourseId = id;
+        }
+    public String getName() {
+        return CourseName;
+        }
+    public void setName(String name) {
+        this.CourseName = name;
+        }
+    public String getCategory() {
+        return CourseCategory;
+        }
+    public void setCategory(String category) {
+        this.CourseCategory = category;
+        }  
+    }
+*/
+

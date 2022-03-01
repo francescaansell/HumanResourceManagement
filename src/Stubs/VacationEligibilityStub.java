@@ -1,5 +1,8 @@
-package model;
+//FIX
 
+package Stubs;
+
+import model.*; 
 public class VacationEligibilityStub extends VacationEligibility{
 
     @Override

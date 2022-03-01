@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 import java.util.ArrayList;
-import model.Employee;
-import model.EmployeeList;
-import view.HomePageUI;
 
-
+import model.*;
+import view.*;
 
 /**
  *
@@ -17,21 +11,17 @@ import view.HomePageUI;
  */
 public class EmployeeCntl {
     
-    private HomePageUI homeUI;
-    private Employee employee;
-    private int currentIndex = 0;
-    ArrayList<Employee> employeeArrayList;
+    public Employee employee;
+    public EmployeeUI view; 
 
-    public EmployeeCntl(HomePageUI homeUI, Employee employee, ArrayList<Employee> employeeArrayList) {
-        this.homeUI = homeUI;
+ 
+    public EmployeeCntl(Employee employee, EmployeeUI view) {
         this.employee = employee;
-        this.employeeArrayList = employeeArrayList;
+        this.view = view; 
     }
   
-    /**
-    * A place to add buttons and action listeners to UI
-    */
-    public void setupNewUI(){
+
+    public void updateView(){
     
     }
    
