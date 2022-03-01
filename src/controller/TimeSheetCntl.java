@@ -21,8 +21,9 @@ public class TimeSheetCntl {
     public Integer getTotalHours(){
         return timeSubmission.getTotalHours(); 
     }
-    
+
     public void updateView(){
-        view.printTimeSheetDetails(timeSubmission.getEmployee(), timeSubmission.getEndTimeFrame(), timeSubmission.getStartTimeFrame(), timeSubmission.getTotalHours()); 
+        view.printHoursDetails(timeSubmission.getEmployee(), timeSubmission.getEndTimeFrame(), timeSubmission.getStartTimeFrame(), timeSubmission.getTotalHours()); 
     }
+    
 }
