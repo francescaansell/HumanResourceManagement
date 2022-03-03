@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.*;
 import Stubs.EmployeeUIStub;
 import Stubs.LoginUIStub;
+import Stubs.MyComplaintsStub;
+import Stubs.MyHoursStub;
+import Stubs.MyVacationStub;
+import Stubs.VacationRequestStub;
 import controller.*;
 import view.*;
 import model.*;
@@ -19,7 +23,7 @@ import model.*;
  */
 public class TestHarness {
      
-    private static Employee retriveEmployeeFromDatabase(String courseid){
+    private static Employee retriveEmployeeFromDatabase(String login){
         Employee employee = new Employee();
         employee.setFirstName("Vincent");
         employee.setLastName("Semrau");
@@ -51,8 +55,8 @@ public class TestHarness {
         return timeSubmission;
        
     }
-    private static VacationRequest retreiveVacationRequestFromDatabase(String login){
-        VacationRequest vacationRequest = new VacationRequest(false, 4, new Employee(), new VacationEligibility(), new Employee());
+    private static VacationRequest retreiveVacationRequestFromDatabase(Employee employee){
+        VacationRequest vacationRequest = new VacationRequest(false, 4, employee, new VacationEligibility(), new Employee());
         vacationRequest.setApproved(false);
         vacationRequest.setAssignedEmployee(new Employee());
         vacationRequest.setNumDaysRequested(5);
@@ -66,23 +70,33 @@ public class TestHarness {
     //Main method
     public static void main(String[] args) {
 
-        EmployeeUI eView = new EmployeeUIStub();
-        LoginUI lView = new LoginUIStub(); 
-        Employee employee1 = new Employee("Vincent", "Semrau", "vss5123", "12345", "Human Resources", 180880, 14, true);
-        Employee employee2 = new Employee("Frankie", "Ansell", "kla349", "12345", "Human Resources", 179384, 5, false);
+        //EmployeeUI eView = new EmployeeUIStub();
+        LoginUIStub lView = new LoginUIStub(); 
+        EmployeeUIStub empView = new EmployeeUIStub();
+        MyComplaintsStub cmpView = new MyComplaintsStub();
+        MyHoursStub hoursView = new MyHoursStub();
+        MyVacationStub vacView = new MyVacationStub(); 
 
+        
+        Employee emp = retriveEmployeeFromDatabase(lView.getLogin());
 
+        Employee employee = new Employee();
+        Complaint cmp = retrieveComplaintFromDatabase(employee);
+        VacationRequest vac = retreiveVacationRequestFromDatabase(employee);
+    
+        
+        System.out.println();
+        EmployeeCntl empCntl = new EmployeeCntl(emp, empView);
+        empCntl.updateView(); 
 
-        // loginView lview = new loginViewStub();
-        // Faculty fac = retriveFacultyFromDatabase(lview.getLogin());
-        // if(fac.authenticate(lview.getPwd())){
-        //     Course model  = retriveCourseFromDatabase(fac.getCourseID());
-        //     CourseView view = new CourseViewStub();
-        //     CourseControllerStub controller = new CourseControllerStub(fac, model, view);
-        //     controller.updateView();
-        //     }
-        // else
-        //     System.out.println("Invalid Login/Password");
+        System.out.println();
+        ComplaintCntl cmpCntl = new ComplaintCntl(cmp, cmpView); 
+        cmpCntl.updateView();
+
+        System.out.println();
+        LeaveCntl leaveCntl = new LeaveCntl(vac, vacView);
+        leaveCntl.updateView(); 
+     
         }
 
         
