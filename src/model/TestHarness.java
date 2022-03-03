@@ -15,10 +15,22 @@ import model.*;
  * @author Group 1 HRM
  */
 public class TestHarness {
+    
     public TestHarness() {
         testLoginCntl();
     }
     
+    //Main method
+    public static void main(String[] args) {
+        // public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, PreviousTimesheets previousTimesheets, Boolean fullTime) {
+
+        
+        // Employee employee1 = new Employee("Vincent", "Semrau", "vss5123", "12345", "Human Resources", 180880, 14, null, true);
+        // Employee employee2 = new Employee("Frankie", "Ansell", "kla349", "12345", "Human Resources", 179384, 5, null, false);
+
+        
+
+    }
     public void testLoginCntl(){
     
         

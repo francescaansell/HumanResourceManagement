@@ -12,7 +12,7 @@ public class EmployeeCntlStub extends EmployeeCntl{
 
     @Override 
     public void updateView(){
-        //view.printCourseDetails
+        view.printEmployeeDetails(employee.getFirstName(), employee.getLastName(), employee.getUserName(), employee.getDepartment(), employee.getEmployeeID(), employee.getFullTime());
     }
     
 }

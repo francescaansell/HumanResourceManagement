@@ -1,17 +1,10 @@
 package view;
 
-import controller.EmployeeCntl;
 
 public class EmployeeUI {
 
-    EmployeeCntl employeeCntl; 
+    public void printEmployeeDetails(String firstName, String lastName, String userName, String department, int employeeID, Boolean fullTime){
 
-    public EmployeeUI(EmployeeCntl employeeCntl){
-        this.employeeCntl = employeeCntl; 
-    }
-
-    public void printEmployeeDetails(){
-        
     }
     
 }
