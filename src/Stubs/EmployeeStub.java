@@ -7,7 +7,7 @@ public class EmployeeStub extends Employee {
         super(firstName, lastName, userName, pw, department, employeeID, numLeaveDays, previousTimesheets, fullTime);
     }
     
-   
+
     @Override
     public String getFirstName() {
         return firstName;

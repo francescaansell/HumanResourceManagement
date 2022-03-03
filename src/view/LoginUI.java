@@ -1,7 +1,6 @@
 package view;
 
-import controller.LoginCntl;
-
+import java.util.Scanner;
 
 /**
  * This class will function as the user interface for the Employee Login
@@ -9,14 +8,26 @@ import controller.LoginCntl;
  */
 public class LoginUI {
 
-    LoginCntl loginCntl; 
+    protected String login; 
+    protected String pw; 
+
     
-    /**
-     * This is the default constructor 
-     * @param loginCntl 
-     */
-    public LoginUI(LoginCntl loginCntl) {
-        this.loginCntl = loginCntl;
+    
+    public LoginUI() {
+       
+    }
+
+    public String getLogin(){
+        return login; 
+    }
+    public void setLogin(String login){
+        this.login = login; 
+    }
+    public String getPw(){
+        return pw; 
+    }
+    public void setPw(String pw){
+        this.pw = pw; 
     }
       
 }
