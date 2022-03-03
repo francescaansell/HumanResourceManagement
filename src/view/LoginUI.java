@@ -11,10 +11,7 @@ public class LoginUI {
     protected String login; 
     protected String pw; 
 
-    
-    
-    public LoginUI() {
-       
+    public LoginUI() {       
     }
 
     public String getLogin(){
@@ -28,6 +25,5 @@ public class LoginUI {
     }
     public void setPw(String pw){
         this.pw = pw; 
-    }
-      
+    }   
 }

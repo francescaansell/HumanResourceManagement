@@ -5,12 +5,11 @@ import java.util.Scanner;
 import view.LoginUI;
 
 public class LoginUIStub extends LoginUI {
-
-    public void loginUIStub(){
+    public LoginUIStub(){
         Scanner scn = new Scanner(System.in);
-        System.out.println("hi");
+        System.out.print("Enter LoginID: ");
         this.login = scn.next();
-        System.out.println("\nEnter Password: ");
+        System.out.print("\nEnter Password: ");
         //Read Password
         this.pw = scn.next();
             
