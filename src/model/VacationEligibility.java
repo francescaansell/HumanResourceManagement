@@ -14,6 +14,7 @@ public class VacationEligibility {
     protected int numLeaveDays;   //Paid Time Off based off of fulltime/parttime(PTO)
     protected int numPurchasedDays; ////Paid Time Off that has been purchased by employee
     protected int numTotPTO;
+    public Employee employee; // we need to have these variables above be an instance of employee so that VacationEligibility utilizies the employee class data
 
     //Empty Constructor
     public VacationEligibility(){

@@ -94,7 +94,7 @@ public class TestHarness {
         cmpCntl.updateView();
 
         System.out.println();
-        LeaveCntl leaveCntl = new LeaveCntl(vac, vacView);
+        VacationCntl leaveCntl = new VacationCntl(vac, vacView);
         leaveCntl.updateView(); 
      
         }

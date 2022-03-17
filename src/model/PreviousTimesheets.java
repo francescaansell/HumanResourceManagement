@@ -8,6 +8,7 @@ public class PreviousTimesheets {
     //private Integer prevTotalHoursWorked; 
     public Date startTimeFrame; 
     public Date endTimeFrame; 
+    public Employee employee;
    
    
     /**
