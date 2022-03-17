@@ -9,8 +9,10 @@ import view.*;
  */
 public class EmployeeCntl {
     
+    public LoginUI login;
     public Employee employee;
     public EmployeeUI view; 
+    
 
  
     public EmployeeCntl(Employee employee, EmployeeUI view) {
