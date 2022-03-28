@@ -8,8 +8,8 @@ import model.*;
 
 public class ComplaintStub extends Complaint {
 
-    public ComplaintStub(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open) {
-        super(assignedEmployee, openDate, claimant, open);
+    public ComplaintStub(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open, Boolean approved) {
+        super(assignedEmployee, openDate, claimant, open, approved);
     }   
 
     @Override

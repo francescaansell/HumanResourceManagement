@@ -2,6 +2,7 @@ package controller;
 
 import model.*;
 import view.*;
+import java.util.*; 
 
 /**
  *
@@ -50,7 +51,7 @@ public class EmployeeCntl {
         employee.setFullTime(fullTime);
     }
 
-    public void setPreviousTimesheets(PreviousTimesheets previousTimesheets){
+    public void setPreviousTimesheets(ArrayList<TimeSheet> previousTimesheets){
         employee.setPreviousTimesheets(previousTimesheets);
     }
 
@@ -86,7 +87,7 @@ public class EmployeeCntl {
         return employee.getFullTime();
     }
 
-    public PreviousTimesheets getPreviousTimesheets(){
+    public ArrayList<TimeSheet>  getPreviousTimesheets(){
         return employee.getPreviousTimesheets();
     }
 
