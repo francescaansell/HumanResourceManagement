@@ -2,36 +2,33 @@ package model;
 
 public class Role {
     public String rolename; 
-    public int roleID; 
-    public String[] roleOptions; 
+    public String accessLevel; 
 
-    public Role(String rolename, int roleID, String[] roleOptions){
+    public Role(String roleName, String accessLevel){
         rolename = this.rolename; 
-        roleID = this.roleID; 
-        roleOptions = this.roleOptions; 
+        accessLevel = this.accessLevel;  
     }
 
-    public int getRoleID() {
-        return roleID;
-    }
-    public String[] getRoleOptions() {
-        return roleOptions;
-    }
-    public String getRolename() {
+    
+    public String getRoleName() {
         return rolename;
     }
-    public void setRoleID(int roleID) {
-        this.roleID = roleID;
-    }
-    public void setRoleOptions(String[] roleOptions) {
-        this.roleOptions = roleOptions;
-    }
-    public void setRolename(String rolename) {
+
+    public void setRoleName(String roleName) {
         this.rolename = rolename;
     }
+
+    public String getAccessLevel() {
+        return accessLevel;
+    }
+
+    public void setAccessLevel(String accessLevel) {
+        this.accessLevel = accessLevel;
+    }
+
     @Override
     public String toString() {
-        return "Role Name: " + this.rolename + " RoleID: " + this.roleID + " RoleOptions: " + this.roleOptions;
+        return "Role Name: " + this.rolename + " Access Groups: " + this.accessLevel;
     }
 
     
