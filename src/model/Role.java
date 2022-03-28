@@ -1,21 +1,27 @@
 package model;
+import java.util.*; 
 
-public class Role {
-    public String rolename; 
+public class Role extends Employee{
+    public String roleName; 
     public String accessLevel; 
 
+    public Role(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, String roleName, String accessLevel){
+        super(firstName, lastName, userName, pw, department, employeeID, numLeaveDays, previousTimesheets, fullTime);
+        this.roleName = roleName;
+        this.accessLevel = accessLevel;
+    }
+
     public Role(String roleName, String accessLevel){
-        rolename = this.rolename; 
+        roleName = this.roleName; 
         accessLevel = this.accessLevel;  
     }
 
-    
     public String getRoleName() {
-        return rolename;
+        return roleName;
     }
 
     public void setRoleName(String roleName) {
-        this.rolename = rolename;
+        this.roleName = roleName;
     }
 
     public String getAccessLevel() {
@@ -28,8 +34,7 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Role Name: " + this.rolename + " Access Groups: " + this.accessLevel;
-    }
-
-    
+        return super.toString() + "\n" + "Role Name: " + this.roleName + " Access Groups: " + this.accessLevel; 
+        //super.toString will put all of the Employee class attributes, then manually added the Role classattributes
+    }    
 }
