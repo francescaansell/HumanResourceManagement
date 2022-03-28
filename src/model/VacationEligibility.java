@@ -14,6 +14,7 @@ public class VacationEligibility {
     protected int numLeaveDays;   //Paid Time Off based off of fulltime/parttime(PTO)
     protected int numPurchasedDays; ////Paid Time Off that has been purchased by employee
     protected int numTotPTO;
+    protected Employee employee; 
 
     //Empty Constructor
     public VacationEligibility(){

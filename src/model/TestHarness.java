@@ -38,7 +38,7 @@ public class TestHarness {
     }
 
     private static Complaint retrieveComplaintFromDatabase(Employee employee){
-        Complaint complaint = new Complaint(new Employee(), new Date(), new Employee(), false);
+        Complaint complaint = new Complaint(new Employee(), new Date(), new Employee(), false, null);
         complaint.setAssignedEmployee(new Employee());
         complaint.setOpenDate(new Date());
         complaint.setClaimant(new Employee());
@@ -46,8 +46,8 @@ public class TestHarness {
         return complaint; 
     }
 
-    private static TimeSubmission retrieveTimeSubmissionFromDatabase(Employee employee){
-        TimeSubmission timeSubmission = new TimeSubmission(0, new Date(), new Date(), new Employee());
+    private static TimeSheet retrieveTimeSubmissionFromDatabase(Employee employee){
+        TimeSheet timeSubmission = new TimeSheet(0, new Date(), new Date(), new Employee(), null);
         timeSubmission.setEmployee(new Employee());
         timeSubmission.setStartTimeFrame(new Date());
         timeSubmission.setEndTimeFrame(new Date());

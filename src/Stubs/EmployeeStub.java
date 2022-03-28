@@ -1,9 +1,10 @@
 package Stubs;
 
 import model.*; 
+import java.util.*; 
 public class EmployeeStub extends Employee {
 
-    public EmployeeStub(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, PreviousTimesheets previousTimesheets, Boolean fullTime) {
+    public EmployeeStub(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime) {
         super(firstName, lastName, userName, pw, department, employeeID, numLeaveDays, previousTimesheets, fullTime);
     }
     
@@ -89,12 +90,12 @@ public class EmployeeStub extends Employee {
     }
 
     @Override
-    public void setPreviousTimesheets(PreviousTimesheets previousTimesheets){
-        this.previousTimesheets = previousTimesheets; 
+    public void setPreviousTimesheets(ArrayList<TimeSheet> previousTimesheets){
+        this.previousTimeSheets = previousTimesheets; 
     }
 
     @Override
-    public PreviousTimesheets getPreviousTimesheets(){
-        return this.previousTimesheets; 
+    public ArrayList<TimeSheet> getPreviousTimesheets(){
+        return this.previousTimeSheets; 
     }
 }

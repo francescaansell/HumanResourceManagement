@@ -13,6 +13,7 @@ public class Complaint {
     protected Date openDate; 
     protected Employee claimant;
     protected Boolean open; 
+    protected Boolean approved; 
 
     /**
      * This is the default constructor
@@ -20,12 +21,14 @@ public class Complaint {
      * @param openDate the date the complaint was opened 
      * @param claimant the employee making the complaint
      * @param open whether or not the complaint is currently open
+     * @param approved 
      */
-    public Complaint(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open) {
-        this.setAssignedEmployee(assignedEmployee);
-        this.setOpenDate(openDate);
-        this.setClaimant(claimant);
-        this.setOpen(open);
+    public Complaint(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open, Boolean approved) {
+        this.assignedEmployee = assignedEmployee; 
+        this.openDate = openDate; 
+        this.claimant = claimant; 
+        this.open = open; 
+        this.approved = approved; 
 
     }
 
@@ -60,6 +63,24 @@ public class Complaint {
     public void setAssignedEmployee(Employee assignedEmployee) {
         this.assignedEmployee = assignedEmployee;
     }   
+
+    public void approveComplaint(){
+
+    }
+
+    public Boolean getApproved() {
+        return approved;
+    }
+    
+    public Boolean checkRequirements(){
+        return true; 
+    }
+    
+    public String sendOutResponse(){
+        return ""; 
+    }
+
+
 
     @Override
     public String toString()
