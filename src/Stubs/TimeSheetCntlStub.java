@@ -7,7 +7,7 @@ import controller.*;
 
 public class TimeSheetCntlStub extends TimeSheetCntl{
 
-    public TimeSheetCntlStub(TimeSubmission timeSubmission, MyHoursUI view) {
+    public TimeSheetCntlStub(TimeSheet timeSubmission, MyHoursUI view) {
         super(timeSubmission, view);
     }
     @Override 
