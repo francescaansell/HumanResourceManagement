@@ -97,8 +97,8 @@ public class TestHarness extends JFrame {
         cmpCntl.updateView();
 
         System.out.println();
-        LeaveCntl leaveCntl = new LeaveCntl(vac, vacView);
-        leaveCntl.updateView(); 
+        VacationCntl vacationCntl = new VacationCntl(vac, vacView);
+        vacationCntl.updateView(); 
      
         LoginFrame frame = new LoginFrame();
         frame.setTitle("Login Form");
