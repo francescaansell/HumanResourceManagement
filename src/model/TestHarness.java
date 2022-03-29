@@ -6,6 +6,9 @@
 package model;
 
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
 import java.util.*;
 import Stubs.EmployeeUIStub;
 import Stubs.LoginUIStub;
@@ -21,7 +24,7 @@ import model.*;
  *
  * @author Group 1 HRM
  */
-public class TestHarness {
+public class TestHarness extends JFrame {
      
     private static Employee retriveEmployeeFromDatabase(String login){
         Employee employee = new Employee();
@@ -97,10 +100,14 @@ public class TestHarness {
         LeaveCntl leaveCntl = new LeaveCntl(vac, vacView);
         leaveCntl.updateView(); 
      
-        }
+        LoginFrame frame = new LoginFrame();
+        frame.setTitle("Login Form");
+        frame.setVisible(true);
+        frame.setBounds(10, 10, 370, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
 
-        
-        
+        }
 
     }
   
