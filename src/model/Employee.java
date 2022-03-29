@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
+import java.util.*; 
 
 /**
  * This class will be used to make an instance of an Employee and Store any information about that employee
@@ -17,8 +14,9 @@ public class Employee {
     protected int employeeID; 
     protected int numLeaveDays;
     protected Boolean fullTime; 
+    protected ArrayList<TimeSheet> previousTimeSheets; 
     
-    protected PreviousTimesheets previousTimesheets; 
+    
     
 
     /**
@@ -30,17 +28,18 @@ public class Employee {
      * @param employeeID employee ID number
      * @param numLeaveDays the number of leave days an employee has left 
      * @param department the department in which the employee works for 
+     * @param previousTimeSheets 
      */
-    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, PreviousTimesheets previousTimesheets, Boolean fullTime) {
+    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.department = department; 
         this.pw = pw; 
         this.employeeID = employeeID;
-        this.numLeaveDays = numLeaveDays; 
-        this.previousTimesheets = previousTimesheets; 
+        this.numLeaveDays = numLeaveDays;  
         this.fullTime = fullTime; 
+        this.previousTimeSheets = previousTimesheets; 
         
     }
     
@@ -53,7 +52,8 @@ public class Employee {
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays; 
         this.fullTime = fullTime; 
-        this.previousTimesheets = new PreviousTimesheets(); 
+        this.previousTimeSheets = new ArrayList<TimeSheet>(); 
+  
         
     }
     
@@ -68,7 +68,7 @@ public class Employee {
         this.pw = "pw"; //not sure how we navigate this when creating complaint and needing to know this info... maybe we need one general employee class and one for HR employees eyes only?
         this.employeeID = 0123;
         this.numLeaveDays = 1; 
-        this.previousTimesheets = new PreviousTimesheets(); 
+        this.previousTimeSheets = new ArrayList<TimeSheet>(); 
         
     }
     public String getFirstName() {
@@ -135,17 +135,17 @@ public class Employee {
         this.fullTime = true;
     }
 
-    public void setPreviousTimesheets(PreviousTimesheets previousTimesheets){
-        this.previousTimesheets = previousTimesheets; 
+    public void setPreviousTimesheets(ArrayList<TimeSheet> previousTimesheets){
+        this.previousTimeSheets = previousTimesheets; 
     }
 
-    public PreviousTimesheets getPreviousTimesheets(){
-        return this.previousTimesheets; 
+    public ArrayList<TimeSheet> getPreviousTimesheets(){
+        return this.previousTimeSheets; 
     }
 
     @Override
     public String toString()
     {
-        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", department=" + department + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", fullTime=" + fullTime + ", previousTimesheets=" + previousTimesheets + '}';
+        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", department=" + department + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", fullTime=" + fullTime + ", previousTimesheets=" + previousTimeSheets + '}';
     }
 }

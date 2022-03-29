@@ -9,10 +9,10 @@ import java.util.*;
  * @author Group 1 HRM
  */
 public class TimeSheetCntl { 
-    public TimeSubmission timeSubmission; 
+    public TimeSheet timeSubmission; 
     public MyHoursUI view; 
 
-    public TimeSheetCntl(TimeSubmission timeSubmission, MyHoursUI view) {
+    public TimeSheetCntl(TimeSheet timeSubmission, MyHoursUI view) {
         this.timeSubmission = timeSubmission;
         this.view = view;
     }
