@@ -2,8 +2,8 @@ package Stubs;
 import model.*;
 import view.*; 
 import controller.*; 
-public class LeaveCntlStub extends LeaveCntl{
-    public LeaveCntlStub(VacationRequest vacationRequest, MyVacationUI view){
+public class VacationCntlStub extends VacationCntl{
+    public VacationCntlStub(VacationRequest vacationRequest, MyVacationUI view){
         super(vacationRequest, view);
     }
     @Override 

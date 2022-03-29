@@ -7,11 +7,11 @@ import view.*;
  *
  * @author Group 1 HRM
  */
-public class LeaveCntl {
+public class VacationCntl {
     public VacationRequest vacationRequest; //her model
     public MyVacationUI view; 
  
-    public LeaveCntl(VacationRequest vacationRequest, MyVacationUI view) {
+    public VacationCntl(VacationRequest vacationRequest, MyVacationUI view) {
         this.vacationRequest = vacationRequest;
         this.view = view; 
     }
