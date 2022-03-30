@@ -1,15 +1,11 @@
 package view;
 
-// import java.util.Scanner;
 import javax.swing.*;
 
 import controller.LoginCntl;
 
 import java.awt.*;
-// import java.awt.event.ActionEvent;
-// import java.awt.event.ActionListener;
-// import java.io.File;
-// import java.io.IOException;
+
 
 /**
  * This class will function as the user interface for the Employee Login
@@ -31,6 +27,7 @@ public class LoginUI extends JFrame  {
     public JButton requestAccessButton = new JButton("Request New Account");
     public JCheckBox showPassword = new JCheckBox("Show Password");
     private LoginCntl loginCntl;
+
 
     public LoginUI(LoginCntl loginCntl) {   
         this.loginCntl = loginCntl; 
@@ -77,6 +74,7 @@ public class LoginUI extends JFrame  {
     public JButton getRequestAccessButton(){
         return requestAccessButton; 
     }
+    
     //JFrame 
     public void setLayoutManager() {
         container.setLayout(null);
@@ -91,8 +89,6 @@ public class LoginUI extends JFrame  {
         loginButton.setBounds(50, 300, 100, 30);
         resetButton.setBounds(200, 300, 100, 30);
         requestAccessButton.setBounds(70, 350, 200, 30);
-
-
     }
 
     public void addComponentsToContainer() {
@@ -105,11 +101,4 @@ public class LoginUI extends JFrame  {
         container.add(resetButton);
         container.add(requestAccessButton);
     }
-
-    
-
-
-    
-    
-
 }

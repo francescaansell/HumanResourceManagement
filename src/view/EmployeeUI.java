@@ -1,89 +1,95 @@
 package view;
 
-import java.util.Scanner;
 import javax.swing.*;
+
+import controller.EmployeeCntl;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
 import model.*;
 
-public class EmployeeUI {
-    protected Employee employee;
+import javax.swing.*; 
 
-    Container container = getContentPane();
-    JLabel usernameLabel = new JLabel("USERNAME");
-    JLabel passwordLabel = new JLabel("PASSWORD");
-    JTextField usernameTextField = new JTextField();
-    JPasswordField passwordField = new JPasswordField();
-    JButton loginButton = new JButton("LOGIN");
-    JButton resetButton = new JButton("RESET");
-    JButton requestAccessButton = new JButton("Request New Account");
-    JCheckBox showPassword = new JCheckBox("Show Password");
-
-    public EmployeeUI(){
-        setLayoutManager();
-        setLocationAndSize();
-        addComponentsToContainer();
-    }
-
-    private Container getContentPane() {
-        return null;
-    }
-
-    public JButton getLoginBtn(){
-        return loginButton;
-    }
-
-    public JTextField getUsernameTextField(){
-        return usernameTextField;
-    }
-
-    public JPasswordField getPasswordField(){
-        return passwordField;
-    }
-
-    public JButton getResetButton(){
-        return resetButton; 
-    }
-
-    public JCheckBox getShowPassword(){
-        return  showPassword;
-    }
-
-    public JButton getRequestAccessButton(){
-        return requestAccessButton; 
-    }
-    //JFrame 
-    public void setLayoutManager() {
-        container.setLayout(null);
-    }
-
-    public void setLocationAndSize() {
-        usernameLabel.setBounds(50, 150, 100, 30);
-        passwordLabel.setBounds(50, 220, 100, 30);
-        usernameTextField.setBounds(150, 150, 150, 30);
-        passwordField.setBounds(150, 220, 150, 30);
-        showPassword.setBounds(150, 250, 150, 30);
-        loginButton.setBounds(50, 300, 100, 30);
-        resetButton.setBounds(200, 300, 100, 30);
-        requestAccessButton.setBounds(70, 350, 200, 30);
-
-
-    }
-
-    public void addComponentsToContainer() {
-        container.add(usernameLabel);
-        container.add(passwordLabel);
-        container.add(usernameTextField);
-        container.add(passwordField);
-        container.add(showPassword);
-        container.add(loginButton);
-        container.add(resetButton);
-        container.add(requestAccessButton);
-    }
+public class EmployeeUI extends JFrame{
 
     
+    //Frame
+    Container container = getContentPane();
+    public JButton submit;
+    private JLabel fnamelabel;
+    private JLabel lnamelabel;
+    private JTextField fname;
+    private JTextField lname;
+    private JLabel usernamelabel;
+    private JTextField username;
+    private JLabel passwordlabel;
+    private JTextField password;
+    private JCheckBox fullTime;
+    
+
+    private EmployeeCntl employeeCntl; 
+
+    public EmployeeUI(EmployeeCntl employeeCntl){
+        this.employeeCntl = employeeCntl; 
+
+        submit = new JButton ("Submit");
+        fnamelabel = new JLabel ("First Name");
+        lnamelabel = new JLabel ("Last Name");
+        fname = new JTextField (5);
+        lname = new JTextField (5);
+        usernamelabel = new JLabel ("Username");
+        username = new JTextField (5);
+        passwordlabel = new JLabel ("Password");
+        password = new JTextField (5);
+        fullTime = new JCheckBox ("Full Time");
+
+        setPreferredSize (new Dimension (816, 589));
+        setLayout (null);
+
+        //add components
+        add (submit);
+        add (fnamelabel);
+        add (lnamelabel);
+        add (fname);
+        add (lname);
+        add (usernamelabel);
+        add (username);
+        add (passwordlabel);
+        add (password);
+        add (fullTime);
+
+        //set component bounds (only needed by Absolute Positioning)
+        submit.setBounds (105, 360, 140, 20);
+        fnamelabel.setBounds (105, 30, 100, 25);
+        lnamelabel.setBounds (105, 85, 100, 25);
+        fname.setBounds (105, 60, 135, 25);
+        lname.setBounds (105, 115, 135, 25);
+        usernamelabel.setBounds (105, 155, 100, 25);
+        username.setBounds (105, 185, 135, 25);
+        passwordlabel.setBounds (105, 220, 100, 25);
+        password.setBounds (105, 245, 135, 25);
+        fullTime.setBounds (100, 290, 100, 25);
+    }
+
+    //Getters for EmployeeCntl to acsess things
+    public String getUsername(){
+        return username.getText(); 
+    }
+    public String getPassword(){
+        return password.getText(); 
+    }
+    public String getFirstName(){
+        return fname.getText(); 
+    }
+    public String getLastName(){
+        return lname.getText(); 
+    }
+    public Boolean getFullTime(){
+        //return JCheckBox.isSelected(); 
+        return false; 
+    }
+    public JButton getSubmitBtn(){
+        return submit; 
+    }
+  
 }
