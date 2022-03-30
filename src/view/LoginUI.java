@@ -1,12 +1,15 @@
 package view;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 import javax.swing.*;
+
+import controller.LoginCntl;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+// import java.awt.event.ActionEvent;
+// import java.awt.event.ActionListener;
+// import java.io.File;
+// import java.io.IOException;
 
 /**
  * This class will function as the user interface for the Employee Login
@@ -19,16 +22,19 @@ public class LoginUI extends JFrame  {
 
     //Frame
     Container container = getContentPane();
-    JLabel usernameLabel = new JLabel("USERNAME");
-    JLabel passwordLabel = new JLabel("PASSWORD");
-    JTextField usernameTextField = new JTextField();
-    JPasswordField passwordField = new JPasswordField();
-    JButton loginButton = new JButton("LOGIN");
-    JButton resetButton = new JButton("RESET");
-    JButton requestAccessButton = new JButton("Request New Account");
-    JCheckBox showPassword = new JCheckBox("Show Password");
+    public JLabel usernameLabel = new JLabel("USERNAME");
+    public JLabel passwordLabel = new JLabel("PASSWORD");
+    public JTextField usernameTextField = new JTextField();
+    public JPasswordField passwordField = new JPasswordField();
+    public JButton loginButton = new JButton("LOGIN");
+    public JButton resetButton = new JButton("RESET");
+    public JButton requestAccessButton = new JButton("Request New Account");
+    public JCheckBox showPassword = new JCheckBox("Show Password");
+    private LoginCntl loginCntl;
 
-    public LoginUI() {   
+    public LoginUI(LoginCntl loginCntl) {   
+        this.loginCntl = loginCntl; 
+        
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();  

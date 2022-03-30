@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package HumanResourceManagement.design;
 
 import javax.swing.JFrame;
-import model.LoginFrame;
+import view.LoginUI;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
@@ -20,12 +16,12 @@ public class HumanResourceManagement {
     public static void main(String[] args){
     
         //Create LoginFrame GUI for users to login or create an account
-        LoginFrame frame = new LoginFrame();
-        frame.setTitle("Login Form");
-        frame.setVisible(true);
-        frame.setBounds(10, 10, 370, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        // LoginUI frame = new LoginUI();
+        // frame.setTitle("Login Form");
+        // frame.setVisible(true);
+        // frame.setBounds(10, 10, 370, 600);
+        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // frame.setResizable(false);
         
 
         //Create file that will contain Employees' usernames and passwords

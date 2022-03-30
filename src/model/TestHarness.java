@@ -5,20 +5,20 @@
  */
 package model;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
 import java.util.*;
-import Stubs.EmployeeUIStub;
-import Stubs.LoginUIStub;
-import Stubs.MyComplaintsStub;
-import Stubs.MyHoursStub;
-import Stubs.MyVacationStub;
-import Stubs.VacationRequestStub;
-import controller.*;
-import view.*;
-import model.*;
+// import Stubs.EmployeeUIStub;
+// import Stubs.LoginUIStub;
+// import Stubs.MyComplaintsStub;
+// import Stubs.MyHoursStub;
+// import Stubs.MyVacationStub;
+// import Stubs.VacationRequestStub;
+// import controller.*;
+// import view.*;
+// import model.*;
 
 /**
  *
@@ -100,12 +100,7 @@ public class TestHarness extends JFrame {
         // VacationCntl vacationCntl = new VacationCntl(vac, vacView);
         // vacationCntl.updateView(); 
      
-        LoginFrame frame = new LoginFrame();
-        frame.setTitle("Login Form");
-        frame.setVisible(true);
-        frame.setBounds(10, 10, 370, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+      
 
         }
 
