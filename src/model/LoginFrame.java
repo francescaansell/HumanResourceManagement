@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class LoginFrame extends JFrame implements ActionListener {
 
@@ -14,10 +16,11 @@ public class LoginFrame extends JFrame implements ActionListener {
     JPasswordField passwordField = new JPasswordField();
     JButton loginButton = new JButton("LOGIN");
     JButton resetButton = new JButton("RESET");
+    JButton requestAccessButton = new JButton("Request New Account");
     JCheckBox showPassword = new JCheckBox("Show Password");
 
 
-    LoginFrame() {
+    public LoginFrame() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -37,6 +40,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         showPassword.setBounds(150, 250, 150, 30);
         loginButton.setBounds(50, 300, 100, 30);
         resetButton.setBounds(200, 300, 100, 30);
+        requestAccessButton.setBounds(70, 350, 200, 30);
 
 
     }
@@ -49,12 +53,14 @@ public class LoginFrame extends JFrame implements ActionListener {
         container.add(showPassword);
         container.add(loginButton);
         container.add(resetButton);
+        container.add(requestAccessButton);
     }
 
     public void addActionEvent() {
         loginButton.addActionListener(this);
         resetButton.addActionListener(this);
         showPassword.addActionListener(this);
+        requestAccessButton.addActionListener(this);
     }
 
 
@@ -86,5 +92,6 @@ public class LoginFrame extends JFrame implements ActionListener {
 
         }
     }
+
 
 }
