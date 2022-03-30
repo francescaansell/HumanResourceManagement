@@ -1,7 +1,5 @@
 package controller;
 
-import view.EmployeeUI;
-import view.LoginUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,9 +8,16 @@ import javax.swing.JOptionPane;
 
 import model.Employee;
 
+import view.EmployeeUI;
+import view.LoginUI;
+
 public class LoginCntl implements ActionListener{
 
-    private LoginUI loginUI; 
+    public LoginUI loginUI;
+    public EmployeeUI employeeUI;  
+
+    EmployeeCntl employeeCntl; 
+    NavigationCntl naCntl; 
 
     public LoginCntl(){
         loginUI = new LoginUI(this);
@@ -20,22 +25,14 @@ public class LoginCntl implements ActionListener{
         loginUI.setVisible(true);
         loginUI.setBounds(10, 10, 370, 600);
         loginUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loginUI.setResizable(false);
-        // addActionEvent();
+        loginUI.setResizable(true);
         loginUI.loginButton.addActionListener(this);
         loginUI.resetButton.addActionListener(this);
         loginUI.showPassword.addActionListener(this);
         loginUI.requestAccessButton.addActionListener(this);
+   
     }
-
-    // public void addActionEvent() {
-    //     loginUI.getLoginBtn().addActionListener(this);
-    //     loginUI.getResetButton().addActionListener(this);
-    //     loginUI.getShowPassword().addActionListener(this);
-    //     loginUI.getRequestAccessButton().addActionListener(this);
-    // }
-
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginUI.getLoginBtn()) {
@@ -44,10 +41,14 @@ public class LoginCntl implements ActionListener{
         
             usernameText = loginUI.getUsernameTextField().getText();
             passwordText = String.valueOf(loginUI.getPasswordField().getPassword());
-            if (usernameText.equalsIgnoreCase("vss5123") && passwordText.equalsIgnoreCase("12345")) {
-                JOptionPane.showMessageDialog(this.loginUI, this, "Login Successful", 0);
+
+            //TODO NEED TO PARSE FILE HERE POSSIBLEY HASHMAP IN THAT FILE THAT HAS USERNAME
+            if (usernameText.equalsIgnoreCase("abc") && passwordText.equalsIgnoreCase("12345")) {
+                JOptionPane.showMessageDialog(this.loginUI, "Login Successful");
+                NavigationCntl navCntl = new NavigationCntl(); 
+                loginUI.dispose(); 
             } else {
-                JOptionPane.showMessageDialog(this.loginUI, this, "Invalid Username or Password", 0);
+                JOptionPane.showMessageDialog(this.loginUI, "Invalid Username or Password", "Login", JOptionPane.ERROR_MESSAGE);
             }
 
         }
@@ -65,14 +66,12 @@ public class LoginCntl implements ActionListener{
 
         }
         if (e.getSource() == loginUI.getRequestAccessButton()) {
-            //JOptionPane.showMessageDialog(this.loginUI, this, "Request Access", 0);
-           
+            JOptionPane.showMessageDialog(this.loginUI, "Request New Account");
+
+            EmployeeCntl EmployeeCntl = new EmployeeCntl();
             loginUI.dispose(); 
 
-            Employee employee = new Employee();
-
-            EmployeeCntl emplCntl = new EmployeeCntl(employee, new EmployeeUI());
-
+           
             
         }
     }

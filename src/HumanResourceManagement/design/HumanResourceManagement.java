@@ -14,16 +14,6 @@ import controller.*;
  */
 public class HumanResourceManagement {
     public static void main(String[] args){
-    
-        //Create LoginFrame GUI for users to login or create an account
-        // LoginUI frame = new LoginUI();
-        // frame.setTitle("Login Form");
-        // frame.setVisible(true);
-        // frame.setBounds(10, 10, 370, 600);
-        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // frame.setResizable(false);
-        
-
         //Create file that will contain Employees' usernames and passwords
         try{
             File employeeLogins = new File("LoginData.txt");
@@ -42,7 +32,7 @@ public class HumanResourceManagement {
         //Write the admin users to the file that was just created
         try {
             FileWriter fWriter = new FileWriter("LoginData.txt");
-            fWriter.write("vss5123");
+            fWriter.write("abc");
             fWriter.write("12345");
             fWriter.close();
         } catch (IOException writeError) {

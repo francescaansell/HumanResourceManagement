@@ -16,9 +16,6 @@ public class Employee {
     protected Boolean fullTime; 
     protected ArrayList<TimeSheet> previousTimeSheets; 
     
-    
-    
-
     /**
      * This is the default constructor 
      * @param firstName employee first name
@@ -53,7 +50,6 @@ public class Employee {
         this.numLeaveDays = numLeaveDays; 
         this.fullTime = fullTime; 
         this.previousTimeSheets = new ArrayList<TimeSheet>(); 
-  
         
     }
     
