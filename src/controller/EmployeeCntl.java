@@ -94,11 +94,11 @@ public class EmployeeCntl {
 
 
     public void updateView(){
-        view.printEmployeeDetails(employee.getFirstName(), employee.getLastName(), employee.getUserName(), employee.getDepartment(), employee.getEmployeeID(), employee.getFullTime());
+       // view.printEmployeeDetails(employee.getFirstName(), employee.getLastName(), employee.getUserName(), employee.getDepartment(), employee.getEmployeeID(), employee.getFullTime());
     }
    
     //    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, PreviousTimesheets previousTimesheets, Boolean fullTime) {
 
-
+    
  }
 
