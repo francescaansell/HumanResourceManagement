@@ -15,7 +15,8 @@ public class Employee {
     protected int numLeaveDays;
     protected Boolean fullTime; 
     protected ArrayList<TimeSheet> previousTimeSheets; 
-    public Role role; 
+    protected Role role; 
+
     
     /**
      * This is the default constructor 
@@ -28,17 +29,20 @@ public class Employee {
      * @param department the department in which the employee works for 
      * @param previousTimeSheets 
      */
-    public Employee(String firstName, String lastName, String userName, String pw, Department department,
+    public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role,
      int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.department = department; 
+        this.role = role; 
         this.pw = pw; 
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays;  
         this.fullTime = fullTime; 
         this.previousTimeSheets = previousTimesheets; 
+
+      
         
     }
     
@@ -52,20 +56,21 @@ public class Employee {
         
 
         //null for now 
-        this.department = null; 
-        this.role = null; 
+        this.department = null;  
         this.employeeID = 0;
         this.numLeaveDays = 0;  
         this.previousTimeSheets = null; 
+        this.role = null; 
 
     }
 
     //Information Supervisor Can Enter
-    public Employee(String firstName, String lastName, String userName, String pw, Department department, int employeeID, int numLeaveDays, Boolean fullTime, ArrayList<TimeSheet> previousTimesheets) {
+    public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role, int employeeID, int numLeaveDays, Boolean fullTime, ArrayList<TimeSheet> previousTimesheets) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        this.department = department; 
+        this.department = department;
+        this.role = role;  
         this.pw = pw; 
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays; 
@@ -82,7 +87,8 @@ public class Employee {
         this.lastName = "Last";
         this.userName = "username";
         this.department = new Department(); 
-        this.pw = "pw"; //not sure how we navigate this when creating complaint and needing to know this info... maybe we need one general employee class and one for HR employees eyes only?
+        this.role = new Role(); 
+        this.pw = "pw"; 
         this.employeeID = 0123;
         this.numLeaveDays = 1; 
         this.previousTimeSheets = new ArrayList<TimeSheet>(); 
@@ -161,12 +167,10 @@ public class Employee {
         return this.previousTimeSheets; 
     }
 
-    // employee should not be an attribute 
-    // public String getRole() {
-    //     String roleName = this.role.getRoleName();
-    //     System.out.println(roleName);
-    //     return roleName; 
-    // }
+    public String getRole() {
+     
+        return role.getRoleName(); 
+    }
 
     @Override
     public String toString()

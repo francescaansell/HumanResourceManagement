@@ -20,30 +20,48 @@ import model.Employee;
  */
 public class EmployeeCntl implements ActionListener{
     
+    public UserList userList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
+    public UpdateList updateList; 
+    ArrayList<Employee> listOfUsers; 
+
 
  
     public EmployeeCntl() {
         employeeUI = new EmployeeUI(this); 
-        employeeUI.setTitle("Login Form");
+        employeeUI.setTitle("New Employee Form");
         employeeUI.setVisible(true);
         employeeUI.setBounds(10, 10, 370, 600);
         employeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         employeeUI.setResizable(true);
         employeeUI.submit.addActionListener(this); 
+
+        userList = new UserList();
+        listOfUsers = userList.getUserList(); 
+
     
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Employee employee = new Employee(); 
-        if (e.getSource() == employeeUI.getSubmitBtn()){
         
+        if (e.getSource() == employeeUI.getSubmitBtn()){
+            Employee employee = new Employee(); 
+            
             employee.setUserName(employeeUI.getUsername());
             employee.setFirstName(employeeUI.getPassword());
             employee.setLastName(employeeUI.getLastName());
-            JOptionPane.showMessageDialog(this.employeeUI, employee.toString());            
+
+            listOfUsers.add(employee);
+            userList.writeUserListFile(); 
+            employeeUI.setVisible(false);
+
+            NavigationCntl navCntl = new NavigationCntl(); 
+
+            
+            
+            
         }
     }
  }

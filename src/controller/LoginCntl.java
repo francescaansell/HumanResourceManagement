@@ -64,22 +64,17 @@ public class LoginCntl implements ActionListener{
                 //System.out.println(employee.getUserName());
                 //System.out.println(employee.getPw());
             
-                if (username.equalsIgnoreCase(employee.getUserName()) && password.equalsIgnoreCase(employee.getPw())) {
-                    JOptionPane.showMessageDialog(this.loginUI, "Login Successful");
-
-
-                    System.out.println(employee.role);
-                    // if (employee.getRole().equals("Supervisor")){
-                    //     //this is a superviosr
-                    //     SupervisorNav superNavCntl = new SupervisorNav(); 
-                    //     loginUI.setVisible(false);
+                if (username.equalsIgnoreCase(employee.getUserName()) && password.equalsIgnoreCase(employee.getPw())) {           
+                    if (employee.getRole().equals("Admin")){
+                        //this is a superviosr
+                        SupervisorNav superNavCntl = new SupervisorNav(); 
+                        loginUI.setVisible(false);
                         
-                    // }else {
-                    //     NavigationCntl navCntl = new NavigationCntl(); 
-                    //     loginUI.setVisible(false); 
-                    // }
-                    
-
+                    }else {
+                        //this is a regular employee
+                        NavigationCntl navCntl = new NavigationCntl(); 
+                        loginUI.setVisible(false); 
+                    }
                 } 
             }//end for loop 
             
@@ -107,10 +102,7 @@ public class LoginCntl implements ActionListener{
             JOptionPane.showMessageDialog(this.loginUI, "Request New Account");
 
             EmployeeCntl EmployeeCntl = new EmployeeCntl();
-            loginUI.dispose(); 
-
-           
-            
+            loginUI.dispose();  
         }
     }
 

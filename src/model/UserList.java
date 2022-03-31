@@ -24,8 +24,8 @@ public class UserList {
     }
     
     public void createList(){
-        
-        Employee employee1 = new Role("Frankie", "Ansell", "frankieansell", "12345", new Department(), 1092148, 0, true, new ArrayList<TimeSheet>(), "Supervisor", "Admin");
+        Role role = new Role("Admin", 10);
+        Employee employee1 = new Employee("Frankie", "Ansell", "frankieansell", "12345", new Department(), role, 1092148, 0, true, new ArrayList<TimeSheet>());
         //Employee employee2 = new Employee("Jen", "B", "jenb", "12345", new Department(), 387952, 0, new ArrayList<TimeSheet>(), true);
         //Employee employee3 = new Employee("Vince", "S", "vinces", "12345", new Department(), 465654, 0, new ArrayList<TimeSheet>(), true);
         userList.add(employee1); 

@@ -23,8 +23,6 @@ public class NavigationCntl implements ActionListener{
     public Employee employee;
     public HomeUI homeUI; 
 
-
- 
     public NavigationCntl() {
         homeUI = new HomeUI(this); 
         homeUI.setTitle("Home Page");

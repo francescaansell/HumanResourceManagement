@@ -2,13 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
-public class Role extends Employee{
+public class Role{
     public String roleName; 
-    public String accessLevel; 
+    public Integer accessLevel; 
 
-    public Role(String firstName, String lastName, String userName, String pw, Department department, 
-                int employeeID, int numLeaveDays, Boolean fullTime, ArrayList<TimeSheet> previousTimesheets, String roleName, String accessLevel){
-        super(firstName, lastName, userName, pw, department, employeeID, numLeaveDays, previousTimesheets, fullTime);
+    public Role(String roleName, Integer accessLevel){
+     
         this.roleName = roleName;
         this.accessLevel = accessLevel;
     }
@@ -16,11 +15,9 @@ public class Role extends Employee{
     public Role(){
         super();
         this.roleName = "role name";
-        this.accessLevel = "green";
+        this.accessLevel = 5;
     }
-
- 
-
+    
     public String getRoleName() {
         return roleName;
     }
@@ -29,11 +26,11 @@ public class Role extends Employee{
         this.roleName = roleName;
     }
 
-    public String getAccessLevel() {
+    public Integer getAccessLevel() {
         return accessLevel;
     }
 
-    public void setAccessLevel(String accessLevel) {
+    public void setAccessLevel(Integer accessLevel) {
         this.accessLevel = accessLevel;
     }
 
