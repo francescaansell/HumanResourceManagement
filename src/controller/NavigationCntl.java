@@ -30,10 +30,18 @@ public class NavigationCntl implements ActionListener{
         homeUI.setBounds(10, 10, 1000, 600);
         homeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeUI.setResizable(true);
+
+        homeUI.LogOut.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == homeUI.getLogOutBtn()){
+            homeUI.setVisible(false);
+
+            LoginCntl loginCntl = new LoginCntl(); 
+
+        }
         
     }
  }

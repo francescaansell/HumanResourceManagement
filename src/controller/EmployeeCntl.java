@@ -49,11 +49,19 @@ public class EmployeeCntl implements ActionListener{
             Employee employee = new Employee(); 
             
             employee.setUserName(employeeUI.getUsername());
-            employee.setFirstName(employeeUI.getPassword());
+            employee.setPw(employeeUI.getPassword());
+            employee.setFirstName(employeeUI.getFirstName());
             employee.setLastName(employeeUI.getLastName());
+            employee.setFullTime(employeeUI.getFullTime());
 
             listOfUsers.add(employee);
             userList.writeUserListFile(); 
+           
+            
+            //New User Does show up in this list 
+            userList.printUserList();
+            
+
             employeeUI.setVisible(false);
 
             NavigationCntl navCntl = new NavigationCntl(); 

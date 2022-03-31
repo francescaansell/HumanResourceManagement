@@ -1,13 +1,14 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*; 
 
-public class Department {
+public class Department implements Serializable{
     public String deptName; 
     public int deptID; 
     public ArrayList<Employee> employeeList; 
 
-    public Department(String deptName, int deptID, ArrayList<Employee> employeeList){
+    public Department(String deptName, int deptID, ArrayList<Employee> employeeList) {
         deptID = this.deptID; 
         deptName = this.deptName; 
         employeeList = this.employeeList; 

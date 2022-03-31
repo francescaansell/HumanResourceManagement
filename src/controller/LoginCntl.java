@@ -36,6 +36,7 @@ public class LoginCntl implements ActionListener{
         loginUI.requestAccessButton.addActionListener(this);
 
         userList = new UserList(); 
+        //issue here?
         listOfEmployees = userList.getUserList(); 
    
     }
