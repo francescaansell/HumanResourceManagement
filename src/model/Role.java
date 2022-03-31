@@ -1,19 +1,25 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Role extends Employee{
     public String roleName; 
     public String accessLevel; 
 
-    public Role(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, Boolean fullTime, String roleName, String accessLevel){
-        super(firstName, lastName, userName, pw, department, employeeID, numLeaveDays, fullTime);
+    public Role(String firstName, String lastName, String userName, String pw, Department department, 
+                int employeeID, int numLeaveDays, Boolean fullTime, ArrayList<TimeSheet> previousTimesheets, String roleName, String accessLevel){
+        super(firstName, lastName, userName, pw, department, employeeID, numLeaveDays, previousTimesheets, fullTime);
         this.roleName = roleName;
         this.accessLevel = accessLevel;
     }
 
-    public Role(String roleName, String accessLevel){
-        roleName = this.roleName; 
-        accessLevel = this.accessLevel;  
+    public Role(){
+        super();
+        this.roleName = "role name";
+        this.accessLevel = "green";
     }
+
+ 
 
     public String getRoleName() {
         return roleName;

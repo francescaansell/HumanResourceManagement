@@ -10,11 +10,12 @@ public class Employee {
     protected String lastName;
     protected String userName;
     protected String pw;
-    protected String department; 
+    protected Department department; 
     protected int employeeID; 
     protected int numLeaveDays;
     protected Boolean fullTime; 
     protected ArrayList<TimeSheet> previousTimeSheets; 
+    public Role role; 
     
     /**
      * This is the default constructor 
@@ -27,7 +28,8 @@ public class Employee {
      * @param department the department in which the employee works for 
      * @param previousTimeSheets 
      */
-    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime) {
+    public Employee(String firstName, String lastName, String userName, String pw, Department department,
+     int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -40,7 +42,26 @@ public class Employee {
         
     }
     
-    public Employee(String firstName, String lastName, String userName, String pw, String department, int employeeID, int numLeaveDays, Boolean fullTime) {
+    //Information Employee Can Enter
+    public Employee(String firstName, String lastName, String userName, String pw, Boolean fullTime) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.pw = pw; 
+        this.fullTime = fullTime; 
+        
+
+        //null for now 
+        this.department = null; 
+        this.role = null; 
+        this.employeeID = 0;
+        this.numLeaveDays = 0;  
+        this.previousTimeSheets = null; 
+
+    }
+
+    //Information Supervisor Can Enter
+    public Employee(String firstName, String lastName, String userName, String pw, Department department, int employeeID, int numLeaveDays, Boolean fullTime, ArrayList<TimeSheet> previousTimesheets) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -49,8 +70,8 @@ public class Employee {
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays; 
         this.fullTime = fullTime; 
-        this.previousTimeSheets = new ArrayList<TimeSheet>(); 
-        
+        this.previousTimeSheets = previousTimesheets; 
+    
     }
     
     /**
@@ -60,11 +81,12 @@ public class Employee {
         this.firstName = "First";
         this.lastName = "Last";
         this.userName = "username";
-        this.department = "Delivery Management"; 
+        this.department = new Department(); 
         this.pw = "pw"; //not sure how we navigate this when creating complaint and needing to know this info... maybe we need one general employee class and one for HR employees eyes only?
         this.employeeID = 0123;
         this.numLeaveDays = 1; 
         this.previousTimeSheets = new ArrayList<TimeSheet>(); 
+        this.department = new Department(); 
         
     }
     public String getFirstName() {
@@ -107,11 +129,11 @@ public class Employee {
         this.pw = pw;
     }
 
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
@@ -138,6 +160,13 @@ public class Employee {
     public ArrayList<TimeSheet> getPreviousTimesheets(){
         return this.previousTimeSheets; 
     }
+
+    // employee should not be an attribute 
+    // public String getRole() {
+    //     String roleName = this.role.getRoleName();
+    //     System.out.println(roleName);
+    //     return roleName; 
+    // }
 
     @Override
     public String toString()

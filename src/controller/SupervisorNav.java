@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.*;
 import view.*;
 import java.util.*; 
@@ -14,20 +15,13 @@ import javax.swing.JOptionPane;
 
 import model.Employee;
 
-/**
- *
- * @author Group1HRM
- */
-public class NavigationCntl implements ActionListener{
-    
-    public Employee employee;
-    public HomeUI homeUI; 
+public class SupervisorNav extends NavigationCntl{
 
-
- 
-    public NavigationCntl() {
-        homeUI = new HomeUI(this); 
-        homeUI.setTitle("Home Page");
+    public Employee employee; 
+    public SupervisorHomeUI superHomeUI; 
+    public SupervisorNav(){
+        homeUI = new HomeUI(this);
+        homeUI.setTitle("Supervisor Home Page");
         homeUI.setVisible(true);
         homeUI.setBounds(10, 10, 1000, 600);
         homeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,4 +32,7 @@ public class NavigationCntl implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
     }
- }
+
+
+    }
+    

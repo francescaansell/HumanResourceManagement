@@ -30,7 +30,7 @@ public class TestHarness extends JFrame {
         Employee employee = new Employee();
         employee.setFirstName("Vincent");
         employee.setLastName("Semrau");
-        employee.setDepartment("Human resources");
+       // employee.setDepartment("Human resources");
         employee.setEmployeeID(180880);
         employee.setNumLeaveDays(14);
         employee.setFullTime(true);

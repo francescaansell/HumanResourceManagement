@@ -13,6 +13,12 @@ public class Department {
         employeeList = this.employeeList; 
     }
 
+    public Department() {
+        deptID = 1; 
+        deptName = "Shipping"; 
+        employeeList = new ArrayList<Employee>(); 
+    }
+
     public void setDeptID(int deptID) {
         this.deptID = deptID;
     }

@@ -1,1 +1,1 @@
-vss512312345
+Employee{firstName=Frankie, lastName=Ansell, userName=frankieansell, pw=12345, department=Department: Shipping Department ID: 1 Employees [], employeeID=1092148, numLeaveDays=0, fullTime=true, previousTimesheets=[]}
