@@ -1,11 +1,12 @@
 package model;
+import java.io.Serializable;
 import java.util.*; 
 
 /**
  * This class will be used to make an instance of an Employee and Store any information about that employee
  *@author Group1HRM 
  */
-public class Employee {
+public class Employee implements Serializable{
     protected String firstName;
     protected String lastName;
     protected String userName;

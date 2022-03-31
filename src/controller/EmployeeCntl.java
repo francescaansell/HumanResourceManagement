@@ -23,7 +23,6 @@ public class EmployeeCntl implements ActionListener{
     public UserList userList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
-    public UpdateList updateList; 
     ArrayList<Employee> listOfUsers; 
 
 

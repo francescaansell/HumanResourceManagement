@@ -99,8 +99,6 @@ public class LoginCntl implements ActionListener{
 
         }
         if (e.getSource() == loginUI.getRequestAccessButton()) {
-            JOptionPane.showMessageDialog(this.loginUI, "Request New Account");
-
             EmployeeCntl EmployeeCntl = new EmployeeCntl();
             loginUI.dispose();  
         }
