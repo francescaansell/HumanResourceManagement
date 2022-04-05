@@ -11,10 +11,10 @@ import javax.swing.JFrame;
  */
 public class EmployeeCntl implements ActionListener{
     
-    public EmployeeList userList; 
+    public EmployeeList employeeList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
-    public ArrayList<Employee> listOfUsers; 
+    //public ArrayList<Employee> listOfEmployees; 
     
     public EmployeeCntl() {
         employeeUI = new EmployeeUI(this); 
@@ -25,8 +25,8 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setResizable(true);
         employeeUI.submit.addActionListener(this); 
 
-        userList = new EmployeeList();
-        //listOfUsers = userList.getUserList(); 
+        employeeList = new EmployeeList();
+        //listOfEmployees = employeeList.getemployeeList(); 
     }
 
     @Override
@@ -41,17 +41,17 @@ public class EmployeeCntl implements ActionListener{
             employee.setLastName(employeeUI.getLastName());
             employee.setFullTime(employeeUI.getFullTime());
 
-            //listOfUsers.add(employee);
-            userList.getemployeeList().add(employee); 
-            userList.writeEmployeeListFile(); 
+            //listOfEmployees.add(employee);
+            employeeList.getemployeeList().add(employee); 
+            employeeList.writeEmployeeListFile(); 
            
-            //New User Does show up in this list 
-            userList.printEmployeeList();
+            //New Employee Does show up in this list 
+            employeeList.printEmployeeList();
 
             employeeUI.setVisible(false);
 
             NavigationCntl navCntl = new NavigationCntl(); 
- 
+
         }
     }
  }
