@@ -1,17 +1,10 @@
 package controller;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import model.*;
-
-import view.EmployeeUI;
-import view.LoginUI;
-
+import view.*; 
 public class LoginCntl implements ActionListener{
 
     public LoginUI loginUI;
@@ -20,7 +13,7 @@ public class LoginCntl implements ActionListener{
     EmployeeCntl employeeCntl; 
     NavigationCntl naCntl; 
 
-    private ArrayList<Employee> listOfEmployees;
+    //private ArrayList<Employee> listOfEmployees;
     public UserList userList; 
 
     public LoginCntl(){
@@ -36,8 +29,7 @@ public class LoginCntl implements ActionListener{
         loginUI.requestAccessButton.addActionListener(this);
 
         userList = new UserList(); 
-        //issue here?
-        listOfEmployees = userList.getUserList(); 
+        //listOfEmployees = userList.getUserList(); 
    
     }
     
@@ -56,7 +48,7 @@ public class LoginCntl implements ActionListener{
 
            
 
-            for (Employee employee : listOfEmployees){
+            for (Employee employee : userList.getUserList()){
 
                 //System.out.print(listOfEmployees);
 
@@ -78,12 +70,9 @@ public class LoginCntl implements ActionListener{
                     }
                 } 
             }//end for loop 
-            
             if (loginUI.isVisible()){
                 JOptionPane.showMessageDialog(this.loginUI, "Invalid Username or Password, create a new account", "Login", JOptionPane.ERROR_MESSAGE);
             }
-            
-            
         }//end if click login 
 
         if (e.getSource() == loginUI.getResetButton()) {
@@ -104,5 +93,4 @@ public class LoginCntl implements ActionListener{
             loginUI.dispose();  
         }
     }
-
 }

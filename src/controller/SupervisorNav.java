@@ -1,20 +1,9 @@
 package controller;
 
-
-import model.*;
 import view.*;
-import java.util.*; 
-
-import view.EmployeeUI;
-import view.LoginUI;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 import model.Employee;
-
 public class SupervisorNav extends NavigationCntl{
 
     public Employee employee; 
@@ -32,7 +21,5 @@ public class SupervisorNav extends NavigationCntl{
     public void actionPerformed(ActionEvent e) {
         
     }
-
-
-    }
+}
     

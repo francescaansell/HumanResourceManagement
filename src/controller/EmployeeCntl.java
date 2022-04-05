@@ -1,19 +1,10 @@
 package controller;
-
 import model.*;
-import view.*;
 import java.util.*; 
-
 import view.EmployeeUI;
-import view.LoginUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-import model.Employee;
-
 /**
  *
  * @author Group1HRM
@@ -23,10 +14,8 @@ public class EmployeeCntl implements ActionListener{
     public UserList userList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
-    ArrayList<Employee> listOfUsers; 
-
-
- 
+    public ArrayList<Employee> listOfUsers; 
+    
     public EmployeeCntl() {
         employeeUI = new EmployeeUI(this); 
         employeeUI.setTitle("New Employee Form");
@@ -37,9 +26,7 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.submit.addActionListener(this); 
 
         userList = new UserList();
-        listOfUsers = userList.getUserList(); 
-
-    
+        //listOfUsers = userList.getUserList(); 
     }
 
     @Override
@@ -54,21 +41,17 @@ public class EmployeeCntl implements ActionListener{
             employee.setLastName(employeeUI.getLastName());
             employee.setFullTime(employeeUI.getFullTime());
 
-            listOfUsers.add(employee);
+            //listOfUsers.add(employee);
+            userList.getUserList().add(employee); 
             userList.writeUserListFile(); 
            
-            
             //New User Does show up in this list 
             userList.printUserList();
-            
 
             employeeUI.setVisible(false);
 
             NavigationCntl navCntl = new NavigationCntl(); 
-
-            
-            
-            
+ 
         }
     }
  }

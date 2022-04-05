@@ -1,7 +1,5 @@
 package model;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Role implements Serializable{
     public String roleName; 

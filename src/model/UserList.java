@@ -25,7 +25,7 @@ public class UserList {
     
     public void createList(){
         Role role = new Role("Admin", 10);
-        Employee employee1 = new Employee("Frankie", "Ansell", "frankieansell", "12345", new Department(), role, 1092148, 0, true, new ArrayList<TimeSheet>());
+        Employee employee1 = new Employee("Frankie", "Ansell", "frankieansell", "12345", new Department(), new Role("Admin", 10), 1092148, 0, true, new ArrayList<TimeSheet>());
         Employee employee2 = new Employee("Jen", "Hod", "jenhod", "12345", new Department(), role, 387952, 0, new ArrayList<TimeSheet>(), true);
         Employee employee3 = new Employee("Vince", "S", "vinces", "12345", new Department(), role, 465654, 0, new ArrayList<TimeSheet>(), true);
         Employee employee4 = new Employee("Hannah", "K", "hannahk", "12345", new Department(), role, 94857, 0, new ArrayList<TimeSheet>(), true);
@@ -45,6 +45,7 @@ public class UserList {
             in = new ObjectInputStream(fis);
             userList = (ArrayList)in.readObject();
             in.close();
+            //if ( ! ((ArrayList)in.readObject()){
             if(!userList.isEmpty()){
                 System.out.println("There were updates in the file");
             }
