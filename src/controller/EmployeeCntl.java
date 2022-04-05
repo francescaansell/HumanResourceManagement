@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  */
 public class EmployeeCntl implements ActionListener{
     
-    public UserList userList; 
+    public EmployeeList userList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
     public ArrayList<Employee> listOfUsers; 
@@ -25,7 +25,7 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setResizable(true);
         employeeUI.submit.addActionListener(this); 
 
-        userList = new UserList();
+        userList = new EmployeeList();
         //listOfUsers = userList.getUserList(); 
     }
 
@@ -42,11 +42,11 @@ public class EmployeeCntl implements ActionListener{
             employee.setFullTime(employeeUI.getFullTime());
 
             //listOfUsers.add(employee);
-            userList.getUserList().add(employee); 
-            userList.writeUserListFile(); 
+            userList.getemployeeList().add(employee); 
+            userList.writeEmployeeListFile(); 
            
             //New User Does show up in this list 
-            userList.printUserList();
+            userList.printEmployeeList();
 
             employeeUI.setVisible(false);
 

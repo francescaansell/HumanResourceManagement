@@ -14,7 +14,7 @@ public class LoginCntl implements ActionListener{
     NavigationCntl naCntl; 
 
     //private ArrayList<Employee> listOfEmployees;
-    public UserList userList; 
+    public EmployeeList userList; 
 
     public LoginCntl(){
         loginUI = new LoginUI(this);
@@ -28,7 +28,7 @@ public class LoginCntl implements ActionListener{
         loginUI.showPassword.addActionListener(this);
         loginUI.requestAccessButton.addActionListener(this);
 
-        userList = new UserList(); 
+        userList = new EmployeeList(); 
         //listOfEmployees = userList.getUserList(); 
    
     }
@@ -48,7 +48,7 @@ public class LoginCntl implements ActionListener{
 
            
 
-            for (Employee employee : userList.getUserList()){
+            for (Employee employee : userList.getemployeeList()){
 
                 //System.out.print(listOfEmployees);
 
