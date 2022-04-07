@@ -1,9 +1,10 @@
 package controller;
-import model.*;
-import java.util.*; 
+import model.*; 
 import view.EmployeeUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 /**
  *
@@ -11,10 +12,10 @@ import javax.swing.JFrame;
  */
 public class EmployeeCntl implements ActionListener{
     
-    public EmployeeList employeeList; 
+    public PendingEmployeeList employeeList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
-    //public ArrayList<Employee> listOfEmployees; 
+    public ArrayList<Employee> listOfEmployees; 
     
     public EmployeeCntl() {
         employeeUI = new EmployeeUI(this); 
@@ -25,8 +26,8 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setResizable(true);
         employeeUI.submit.addActionListener(this); 
 
-        employeeList = new EmployeeList();
-        //listOfEmployees = employeeList.getemployeeList(); 
+        employeeList = new PendingEmployeeList();
+        listOfEmployees = employeeList.getemployeeList(); 
     }
 
     @Override
@@ -41,8 +42,7 @@ public class EmployeeCntl implements ActionListener{
             employee.setLastName(employeeUI.getLastName());
             employee.setFullTime(employeeUI.getFullTime());
 
-            //listOfEmployees.add(employee);
-            employeeList.getemployeeList().add(employee); 
+            listOfEmployees.add(employee); 
             employeeList.writeEmployeeListFile(); 
            
             //New Employee Does show up in this list 

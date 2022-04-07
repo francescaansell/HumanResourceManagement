@@ -2,7 +2,6 @@
 package view;
 
 import model.*; 
-import java.util.*;
 import controller.*;
 import javax.swing.*; 
 import java.awt.*; 
@@ -23,12 +22,7 @@ public class MyHoursUI extends JFrame{
         
         setPreferredSize(new Dimension(816, 589)); 
         setLayout (null); 
-
-
-        
-
     }
-
    
 }
 

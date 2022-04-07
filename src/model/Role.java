@@ -12,7 +12,6 @@ public class Role implements Serializable{
     }
 
     public Role(){
-        super();
         this.roleName = "role name";
         this.accessLevel = 5;
     }
@@ -36,6 +35,6 @@ public class Role implements Serializable{
     @Override
     public String toString() {
         return super.toString() + "\n" + "Role Name: " + this.roleName + " Access Groups: " + this.accessLevel; 
-        //super.toString will put all of the Employee class attributes, then manually added the Role classattributes
+ 
     }    
 }

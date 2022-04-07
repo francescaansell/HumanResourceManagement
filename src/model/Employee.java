@@ -17,6 +17,7 @@ public class Employee implements Serializable{
     protected Boolean fullTime; 
     protected ArrayList<TimeSheet> previousTimeSheets; 
     protected Role role; 
+    protected Integer supervisorID; 
 
     
     /**
@@ -31,7 +32,7 @@ public class Employee implements Serializable{
      * @param previousTimeSheets 
      */
     public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role,
-     int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime) {
+     int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, Integer supervisorID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -42,18 +43,18 @@ public class Employee implements Serializable{
         this.numLeaveDays = numLeaveDays;  
         this.fullTime = fullTime; 
         this.previousTimeSheets = previousTimesheets; 
-
-      
+        this.supervisorID = supervisorID; 
         
     }
     
     //Information Employee Can Enter
-    public Employee(String firstName, String lastName, String userName, String pw, Boolean fullTime) {
+    public Employee(String firstName, String lastName, String userName, String pw, Boolean fullTime, Integer supervisorID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.pw = pw; 
         this.fullTime = fullTime; 
+        this.supervisorID = supervisorID; 
         
 
         //null for now 
@@ -94,6 +95,7 @@ public class Employee implements Serializable{
         this.numLeaveDays = 1; 
         this.previousTimeSheets = new ArrayList<TimeSheet>(); 
         this.department = new Department(); 
+
         
     }
     public String getFirstName() {
@@ -170,12 +172,12 @@ public class Employee implements Serializable{
 
     public String getRole() {
      
-        return role.getRoleName(); 
+        return "role";  
     }
 
     @Override
     public String toString()
     {
-        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", department=" + department + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", fullTime=" + fullTime + ", previousTimesheets=" + previousTimeSheets + '}';
+        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", department=" + department + ", role=" + getRole() + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", fullTime=" + fullTime + ", previousTimesheets=" + previousTimeSheets + '}';
     }
 }

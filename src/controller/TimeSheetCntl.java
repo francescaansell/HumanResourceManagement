@@ -1,4 +1,3 @@
-//done
 package controller;
 import model.*; 
 import view.*; 
@@ -25,9 +24,6 @@ public class TimeSheetCntl implements ActionListener{
         myHoursUI.setBounds(10, 10, 370, 600);
         myHoursUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myHoursUI.setResizable(true);
-        
-
-        
     }
 
     @Override

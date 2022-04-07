@@ -7,11 +7,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-public class EmployeeList {
+
+
+public class PendingEmployeeList {
     public ArrayList<Employee> employeeList = new ArrayList<>();
-    public String employeesFileName = "Employees.ser";
+    public String employeesFileName = "PendingEmployees.ser";
     
-    public EmployeeList(){
+    public PendingEmployeeList(){
         FileInputStream fis = null;
         ObjectInputStream in = null;
         try{
@@ -57,21 +59,13 @@ public class EmployeeList {
                 ex.printStackTrace();
             }
         }
-        //printEmployeeList();
+        printEmployeeList();
     }
     
     public void createList(){
-        Role role = new Role("Admin", 10);
-        Employee employee1 = new Employee("Frankie", "Ansell", "frankieansell", "12345", new Department(), new Role("Admin", 10), 1092148, 0, true, new ArrayList<TimeSheet>());
-        Employee employee2 = new Employee("Jen", "Hod", "jenhod", "12345", new Department(), role, 387952, 0, new ArrayList<TimeSheet>(), true, 0);
-        Employee employee3 = new Employee("Vince", "S", "vinces", "12345", new Department(), role, 465654, 0, new ArrayList<TimeSheet>(), true, 0);
-        Employee employee4 = new Employee("Hannah", "K", "hannahk", "12345", new Department(), role, 94857, 0, new ArrayList<TimeSheet>(), true, 0);
-        employeeList.add(employee1); 
-        employeeList.add(employee2);
-        employeeList.add(employee3);
-        employeeList.add(employee4); 
-        //employeeList.add(employee2); 
-        //employeeList.add(employee3); 
+        Employee employee = new Employee();
+        employeeList.add(employee); 
+       
     }
     
     public void writeEmployeeListFile(){
@@ -89,6 +83,7 @@ public class EmployeeList {
     }
     
     public void printEmployeeList(){
+        System.out.println("Pending Employee List PrintEmployeList()-----------------");
         for (Employee employee : employeeList) {
             System.out.println(employee.toString());
         }
@@ -97,4 +92,19 @@ public class EmployeeList {
     public ArrayList<Employee> getemployeeList(){
         return employeeList;
     }
+
+    public Integer getSize(){
+        return employeeList.size(); 
+    }
+
+    public ArrayList<String> getStringList(){
+        ArrayList<String> employeeNames = new ArrayList<>(); 
+        for (Employee employee : employeeList){
+            employeeNames.add(employee.getLastName());
+
+        }
+        return employeeNames; 
+    }
+
+  
 }

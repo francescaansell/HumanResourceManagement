@@ -1,6 +1,8 @@
 package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.*;
@@ -9,12 +11,11 @@ public class LoginCntl implements ActionListener{
 
     public LoginUI loginUI;
     public EmployeeUI employeeUI;  
-
     EmployeeCntl employeeCntl; 
-    NavigationCntl naCntl; 
-
-    //private ArrayList<Employee> listOfEmployees;
-    public EmployeeList userList; 
+    NavigationCntl navCntl; 
+    SupervisorNavCntl supervisorNavCntl; 
+    private ArrayList<Employee> listOfEmployees;
+    public EmployeeList employeeList; 
 
     public LoginCntl(){
         loginUI = new LoginUI(this);
@@ -28,8 +29,8 @@ public class LoginCntl implements ActionListener{
         loginUI.showPassword.addActionListener(this);
         loginUI.requestAccessButton.addActionListener(this);
 
-        userList = new EmployeeList(); 
-        //listOfEmployees = userList.getUserList(); 
+        employeeList = new EmployeeList(); 
+        listOfEmployees = employeeList.getemployeeList(); 
    
     }
     
@@ -38,40 +39,39 @@ public class LoginCntl implements ActionListener{
         if (e.getSource() == loginUI.getLoginBtn()) {
             String username;
             String password;
-        
             username = loginUI.getUsernameTextField().getText();
             password = String.valueOf(loginUI.getPasswordField().getPassword());
-
-
-            System.out.println("USERNAME" + username);
-            System.out.println("PW" + password); 
-
-           
-
-            for (Employee employee : userList.getemployeeList()){
+            //System.out.println("USERNAME" + username);
+            //System.out.println("PW" + password); 
+            for (Employee employee : employeeList.getemployeeList()){
 
                 //System.out.print(listOfEmployees);
-
-                System.out.println("For loop");
-
+                //System.out.println("For loop");
                 //System.out.println(employee.getUserName());
                 //System.out.println(employee.getPw());
             
                 if (username.equalsIgnoreCase(employee.getUserName()) && password.equalsIgnoreCase(employee.getPw())) {           
                     if (employee.getRole().equals("Admin")){
                         //this is a superviosr
-                        SupervisorNav superNavCntl = new SupervisorNav(); 
+                        //System.out.println("Supervisor");
+                        SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(); 
                         loginUI.setVisible(false);
                         
-                    }else {
+                    } else if (employee.getRole().equals("Pending")){
+                        //this is an employee that is pending
+                        JOptionPane.showMessageDialog(this.loginUI, "Your account is still pending", "Login", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
+                    else {
                         //this is a regular employee
+                        //System.out.println("Employee");
                         NavigationCntl navCntl = new NavigationCntl(); 
                         loginUI.setVisible(false); 
                     }
                 } 
             }//end for loop 
             if (loginUI.isVisible()){
-                JOptionPane.showMessageDialog(this.loginUI, "Invalid Username or Password, create a new account", "Login", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.loginUI, "Invalid Username or Password, create a new account or wait while your are approved", "Login", JOptionPane.ERROR_MESSAGE);
             }
         }//end if click login 
 
