@@ -1,18 +1,9 @@
 package view;
-
 import javax.swing.*;
-
 import controller.EmployeeCntl;
-
 import java.awt.*;
 
-import model.*;
-
-import javax.swing.*; 
-
 public class EmployeeUI extends JFrame{
-
-    
     //Frame
     Container container = getContentPane();
     public JButton submit;
@@ -25,8 +16,6 @@ public class EmployeeUI extends JFrame{
     private JLabel passwordlabel;
     private JTextField password;
     private JCheckBox fullTime;
-    
-
     private EmployeeCntl employeeCntl; 
 
     public EmployeeUI(EmployeeCntl employeeCntl){

@@ -9,7 +9,7 @@ package model;
 
 import javax.swing.JFrame;
 
-import java.util.*;
+//import java.util.*;
 // import Stubs.EmployeeUIStub;
 // import Stubs.LoginUIStub;
 // import Stubs.MyComplaintsStub;
@@ -26,47 +26,47 @@ import java.util.*;
  */
 public class TestHarness extends JFrame {
      
-    private static Employee retriveEmployeeFromDatabase(String login){
-        Employee employee = new Employee();
-        employee.setFirstName("Vincent");
-        employee.setLastName("Semrau");
-       // employee.setDepartment("Human resources");
-        employee.setEmployeeID(180880);
-        employee.setNumLeaveDays(14);
-        employee.setFullTime(true);
-        employee.setUserName("vss5123");
-        employee.setPw("12345");
-        return employee;
+    // private static Employee retriveEmployeeFromDatabase(String login){
+    //     Employee employee = new Employee();
+    //     employee.setFirstName("Vincent");
+    //     employee.setLastName("Semrau");
+    //    // employee.setDepartment("Human resources");
+    //     employee.setEmployeeID(180880);
+    //     employee.setNumLeaveDays(14);
+    //     employee.setFullTime(true);
+    //     employee.setUserName("vss5123");
+    //     employee.setPw("12345");
+    //     return employee;
 
-    }
+    // }
 
-    private static Complaint retrieveComplaintFromDatabase(Employee employee){
-        Complaint complaint = new Complaint(new Employee(), new Date(), new Employee(), false, null);
-        complaint.setAssignedEmployee(new Employee());
-        complaint.setOpenDate(new Date());
-        complaint.setClaimant(new Employee());
-        complaint.setOpen(false);
-        return complaint; 
-    }
+    // private static Complaint retrieveComplaintFromDatabase(Employee employee){
+    //     Complaint complaint = new Complaint(new Employee(), new Date(), new Employee(), false, null);
+    //     complaint.setAssignedEmployee(new Employee());
+    //     complaint.setOpenDate(new Date());
+    //     complaint.setClaimant(new Employee());
+    //     complaint.setOpen(false);
+    //     return complaint; 
+    // }
 
-    private static TimeSheet retrieveTimeSubmissionFromDatabase(Employee employee){
-        TimeSheet timeSubmission = new TimeSheet(0, new Date(), new Date(), new Employee(), null);
-        timeSubmission.setEmployee(new Employee());
-        timeSubmission.setStartTimeFrame(new Date());
-        timeSubmission.setEndTimeFrame(new Date());
-        timeSubmission.setTotalHours(0);
-        return timeSubmission;
+    // private static TimeSheet retrieveTimeSubmissionFromDatabase(Employee employee){
+    //     TimeSheet timeSubmission = new TimeSheet(0, new Date(), new Date(), new Employee(), null);
+    //     timeSubmission.setEmployee(new Employee());
+    //     timeSubmission.setStartTimeFrame(new Date());
+    //     timeSubmission.setEndTimeFrame(new Date());
+    //     timeSubmission.setTotalHours(0);
+    //     return timeSubmission;
        
-    }
-    private static VacationRequest retreiveVacationRequestFromDatabase(Employee employee){
-        VacationRequest vacationRequest = new VacationRequest(false, 4, employee, new VacationEligibility(), new Employee());
-        vacationRequest.setApproved(false);
-        vacationRequest.setAssignedEmployee(new Employee());
-        vacationRequest.setNumDaysRequested(5);
-        vacationRequest.setRequestingEmployee(new Employee());
-        vacationRequest.setVacationEleigibility(new VacationEligibility());
-        return vacationRequest;
-    }
+    // }
+    // private static VacationRequest retreiveVacationRequestFromDatabase(Employee employee){
+    //     VacationRequest vacationRequest = new VacationRequest(false, 4, employee, new VacationEligibility(), new Employee());
+    //     vacationRequest.setApproved(false);
+    //     vacationRequest.setAssignedEmployee(new Employee());
+    //     vacationRequest.setNumDaysRequested(5);
+    //     vacationRequest.setRequestingEmployee(new Employee());
+    //     vacationRequest.setVacationEleigibility(new VacationEligibility());
+    //     return vacationRequest;
+    // }
 
     
 

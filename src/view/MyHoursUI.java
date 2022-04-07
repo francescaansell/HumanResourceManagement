@@ -2,22 +2,27 @@
 package view;
 
 import model.*; 
-import java.util.*; 
+import controller.*;
+import javax.swing.*; 
+import java.awt.*; 
+
 
 /**
  * This class will function as the user interface for entering hours 
  * @author Group1HRM
  */
-public class MyHoursUI {
-    public void printHoursDetails(int totalHours, Date startTimeFrame, Date endTimeFrame, Employee employee){
+public class MyHoursUI extends JFrame{
+    Container container = getContentPane(); 
+
+    private TimeSheetCntl timeSheetCntl; 
+    
+
+    public MyHoursUI(TimeSheetCntl timeSheetCntl){
+        this.timeSheetCntl = timeSheetCntl; 
+        
+        setPreferredSize(new Dimension(816, 589)); 
+        setLayout (null); 
     }
+   
 }
 
-/*
-package facultyview;
-public class CourseView {
-      public void printCourseDetails(String FacultyName, String CourseName, String CourseId, String CourseCategory){
-          //To print Faculty Course Details on Portal
-       }
-}
-*/

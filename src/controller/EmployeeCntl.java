@@ -1,32 +1,23 @@
 package controller;
-
-import model.*;
-import view.*;
-import java.util.*; 
-
+import model.*; 
 import view.EmployeeUI;
-import view.LoginUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-import model.Employee;
-
 /**
  *
  * @author Group1HRM
  */
 public class EmployeeCntl implements ActionListener{
     
-    public UserList userList; 
+    public EmployeeList employeeList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
-    ArrayList<Employee> listOfUsers; 
-
-
- 
+    public ArrayList<Employee> listOfEmployees; 
+    public LoginCntl loginCntl; 
+    
     public EmployeeCntl() {
         employeeUI = new EmployeeUI(this); 
         employeeUI.setTitle("New Employee Form");
@@ -36,10 +27,8 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setResizable(true);
         employeeUI.submit.addActionListener(this); 
 
-        userList = new UserList();
-        listOfUsers = userList.getUserList(); 
-
-    
+        employeeList = new EmployeeList();
+        listOfEmployees = employeeList.getemployeeList(); 
     }
 
     @Override
@@ -54,21 +43,16 @@ public class EmployeeCntl implements ActionListener{
             employee.setLastName(employeeUI.getLastName());
             employee.setFullTime(employeeUI.getFullTime());
 
-            listOfUsers.add(employee);
-            userList.writeUserListFile(); 
+            listOfEmployees.add(employee); 
+            employeeList.writeEmployeeListFile(); 
            
-            
-            //New User Does show up in this list 
-            userList.printUserList();
-            
+            //New Employee Does show up in this list 
+            employeeList.printEmployeeList();
 
             employeeUI.setVisible(false);
 
-            NavigationCntl navCntl = new NavigationCntl(); 
+            LoginCntl loginCntl = new LoginCntl(); 
 
-            
-            
-            
         }
     }
  }

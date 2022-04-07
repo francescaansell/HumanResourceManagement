@@ -1,7 +1,5 @@
 package model;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Role implements Serializable{
     public String roleName; 
@@ -14,7 +12,6 @@ public class Role implements Serializable{
     }
 
     public Role(){
-        super();
         this.roleName = "role name";
         this.accessLevel = 5;
     }
