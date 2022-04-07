@@ -12,10 +12,11 @@ import javax.swing.JFrame;
  */
 public class EmployeeCntl implements ActionListener{
     
-    public PendingEmployeeList employeeList; 
+    public EmployeeList employeeList; 
     public Employee employee;
     public EmployeeUI employeeUI;  
     public ArrayList<Employee> listOfEmployees; 
+    public LoginCntl loginCntl; 
     
     public EmployeeCntl() {
         employeeUI = new EmployeeUI(this); 
@@ -26,7 +27,7 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setResizable(true);
         employeeUI.submit.addActionListener(this); 
 
-        employeeList = new PendingEmployeeList();
+        employeeList = new EmployeeList();
         listOfEmployees = employeeList.getemployeeList(); 
     }
 
@@ -50,7 +51,7 @@ public class EmployeeCntl implements ActionListener{
 
             employeeUI.setVisible(false);
 
-            NavigationCntl navCntl = new NavigationCntl(); 
+            LoginCntl loginCntl = new LoginCntl(); 
 
         }
     }

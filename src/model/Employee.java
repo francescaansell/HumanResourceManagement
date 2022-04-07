@@ -62,7 +62,8 @@ public class Employee implements Serializable{
         this.employeeID = 0;
         this.numLeaveDays = 0;  
         this.previousTimeSheets = null; 
-        this.role = null; 
+        this.role = new Role();
+        this.role.setRoleName("Pending");  
 
     }
 
@@ -90,6 +91,7 @@ public class Employee implements Serializable{
         this.userName = "username";
         this.department = new Department(); 
         this.role = new Role(); 
+        this.role.setRoleName("Pending"); 
         this.pw = "pw"; 
         this.employeeID = 0123;
         this.numLeaveDays = 1; 
@@ -172,7 +174,7 @@ public class Employee implements Serializable{
 
     public String getRole() {
      
-        return "role";  
+        return role.getRoleName(); 
     }
 
     @Override
