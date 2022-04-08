@@ -19,12 +19,18 @@ public class SupervisorNavCntl implements ActionListener{
         supervisorHomeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         supervisorHomeUI.setResizable(true);
         supervisorHomeUI.onboardEmployee.addActionListener(this); 
+        supervisorHomeUI.logOut.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == supervisorHomeUI.onboardEmployee){
+            supervisorHomeUI.setVisible(false);
             OnboardCntl onboardCntl = new OnboardCntl(); 
+        }
+        if (e.getSource() == supervisorHomeUI.logOut){
+            supervisorHomeUI.setVisible(false);
+            LoginCntl loginCntl = new LoginCntl(); 
         }
         
     }

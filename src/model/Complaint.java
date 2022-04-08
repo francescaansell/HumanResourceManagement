@@ -14,6 +14,7 @@ public class Complaint {
     protected Employee claimant;
     protected Boolean open; 
     protected Boolean approved; 
+    protected String description; 
 
     /**
      * This is the default constructor

@@ -10,8 +10,8 @@ import view.*;
 public class LoginCntl implements ActionListener{
 
     public LoginUI loginUI;
-    public EmployeeUI employeeUI;  
-    EmployeeCntl employeeCntl; 
+    public RequestAccountUI employeeUI;  
+    RequestAccountCntl requestAccountCntl; 
     NavigationCntl navCntl; 
     SupervisorNavCntl supervisorNavCntl; 
     private ArrayList<Employee> listOfEmployees;
@@ -39,14 +39,15 @@ public class LoginCntl implements ActionListener{
         if (e.getSource() == loginUI.getLoginBtn()) {
             String username;
             String password;
+
             username = loginUI.getUsernameTextField().getText();
             password = String.valueOf(loginUI.getPasswordField().getPassword());
+
             //System.out.println("USERNAME" + username);
             //System.out.println("PW" + password); 
+            
             for (Employee employee : employeeList.getemployeeList()){
 
-                //System.out.print(listOfEmployees);
-                //System.out.println("For loop");
                 //System.out.println(employee.getUserName());
                 //System.out.println(employee.getPw());
             
@@ -89,7 +90,7 @@ public class LoginCntl implements ActionListener{
 
         }
         if (e.getSource() == loginUI.getRequestAccessButton()) {
-            EmployeeCntl EmployeeCntl = new EmployeeCntl();
+            RequestAccountCntl requestAccountCntl = new RequestAccountCntl();
             loginUI.dispose();  
         }
     }

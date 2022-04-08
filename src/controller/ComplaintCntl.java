@@ -2,19 +2,29 @@
 package controller; 
 import view.*;
 import model.*; 
-import java.util.*; 
+import java.util.*;
+
+import javax.swing.JFrame;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener; 
 
 /**
  *
  * @author Group 1 HRM
  */
-public class ComplaintCntl {
-    protected Complaint complaint; 
-    protected MyComplaintsUI view; 
+public class ComplaintCntl implements ActionListener {
+    public Complaint complaint; 
+    public MyComplaintsUI myComplaintsUI; 
 
-    public ComplaintCntl(Complaint complaint, MyComplaintsUI view) {
-        this.complaint = complaint;
-        this.view = view; 
+    public ComplaintCntl() {
+        myComplaintsUI = new MyComplaintsUI(this);
+        myComplaintsUI.setTitle("My Complaints"); 
+        myComplaintsUI.setVisible (true);
+        myComplaintsUI.setBounds(10, 10, 1000, 600);
+        myComplaintsUI.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        myComplaintsUI.setResizable(true);
+        myComplaintsUI.back.addActionListener(this); 
     }
 
     public void setAssignedEmployee(Employee assignedEmployee){
@@ -43,8 +53,13 @@ public class ComplaintCntl {
         return complaint.getOpen(); 
     }    
 
-    public void updateView(){
-        //public void printComplaintDetails(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open)
-        view.printComplaintDetails(complaint.getAssignedEmployee(), complaint.getOpenDate(), complaint.getClaimant(), complaint.getOpen());
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == myComplaintsUI.getBack()){
+            myComplaintsUI.setVisible(false); 
+            NavigationCntl navigationCntl = new NavigationCntl(); //return to home page 
+        }
+        
     }
 }

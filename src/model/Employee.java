@@ -177,6 +177,10 @@ public class Employee implements Serializable{
         return role.getRoleName(); 
     }
 
+    public void setRole(String roleName){
+        role.setRoleName(roleName);
+    }
+
     @Override
     public String toString()
     {

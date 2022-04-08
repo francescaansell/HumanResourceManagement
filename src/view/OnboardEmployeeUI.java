@@ -17,20 +17,20 @@ public class OnboardEmployeeUI extends JFrame{
     
 
     private JLabel chooseEmployee;
-
     public EmployeeList employeeList;
-    
-
-
     public JList jList; 
     public JButton getPendingEmployees; 
-    public JTextField textField; 
+    public JTextField employeeNameField; 
     private JLabel firstName;
-    private JTextField firstNameField;
+    public JTextField firstNameField;
     private JLabel lastName;
-    private JTextField lastNameField;
+    public JTextField lastNameField;
     private JLabel id;
     private JTextField idField;
+    public JButton approve; 
+    public JTextField roleField; 
+    public JButton back; 
+    public JLabel role; 
 
     public OnboardEmployeeUI(OnboardCntl onboardCntl){
                
@@ -40,13 +40,19 @@ public class OnboardEmployeeUI extends JFrame{
         //jList = new JList(pendingEmployees);
         getPendingEmployees = new JButton("Get Employee"); 
         chooseEmployee = new JLabel ("Enter an employees last name to search for their pending account");
-        textField = new JTextField(); 
+        employeeNameField = new JTextField(); 
         firstName = new JLabel ("First Name");
         firstNameField = new JTextField (5);
         lastName = new JLabel ("Last Name");
         lastNameField = new JTextField (5);
         id = new JLabel ("ID");
         idField = new JTextField (5);
+        approve = new JButton ("Approve"); 
+        role = new JLabel ("Role"); 
+        roleField = new JTextField(); 
+        back = new JButton("Back"); 
+
+
 
         //adjust size and set layout
         setPreferredSize (new Dimension (816, 589));
@@ -56,26 +62,44 @@ public class OnboardEmployeeUI extends JFrame{
         //add (jList);
         add (chooseEmployee);
         add (getPendingEmployees);
-        add (textField); 
+        add (employeeNameField); 
         add (firstName);
         add (firstNameField);
         add (lastName);
         add (lastNameField);
         add (id);
         add (idField);
+        add (approve); 
+        add (roleField); 
+        add (back); 
+        add (role);
+
 
 
 
         //set component bounds (only needed by Absolute Positioning)
-        textField.setBounds (25, 55, 125, 125);
-        chooseEmployee.setBounds (25, 15, 380, 30);
-        getPendingEmployees.setBounds (25, 300, 390, 30);
+
+        back.setBounds(5, 5, 100, 100);
+
+        chooseEmployee.setBounds (5, 120, 400, 10); //Label
+        employeeNameField.setBounds (5, 140, 125, 25);
+
+        getPendingEmployees.setBounds (25, 300, 390, 30); //Buttons
+        approve.setBounds (25, 340, 390, 30); //Buttons
+        
         firstName.setBounds (625, 20, 100, 25);
         firstNameField.setBounds (625, 50, 100, 25);
+
         lastName.setBounds (625, 85, 100, 25);
         lastNameField.setBounds (625, 120, 100, 25);
+
         id.setBounds (625, 165, 100, 25);
         idField.setBounds (625, 200, 100, 25);
+
+        role.setBounds(625, 260, 100, 25);
+        roleField.setBounds (625, 290, 165, 20);
+
+        
     }
 
     /*
@@ -86,18 +110,7 @@ public class OnboardEmployeeUI extends JFrame{
         this.jList =jList; 
     }
     */
-    public JButton getJButton(){
-        return getPendingEmployees; 
-    }
-    public JTextField getTextField(){
-        return textField; 
-    }
-    public JTextField getFirstNameField(){
-        return firstNameField; 
-    }
-    public JTextField getLastNameField(){
-        return lastNameField; 
-    }
+
     public void setFirstNameField(String str){
         this.firstNameField.setText(str);
     }
@@ -105,8 +118,9 @@ public class OnboardEmployeeUI extends JFrame{
         this.lastNameField.setText(str);
     }
     public void setTextField(String str){
-        this.textField.setText(str); 
+        this.employeeNameField.setText(str); 
     }
+
  
 }
 

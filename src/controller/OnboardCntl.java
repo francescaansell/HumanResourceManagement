@@ -2,6 +2,7 @@ package controller;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import view.OnboardEmployeeUI;
 import view.*; 
@@ -31,6 +32,8 @@ public class OnboardCntl implements ActionListener{
         onboardEmployeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         onboardEmployeeUI.setResizable(true);
         onboardEmployeeUI.getPendingEmployees.addActionListener(this);
+        onboardEmployeeUI.approve.addActionListener(this); 
+        onboardEmployeeUI.back.addActionListener(this);
 
         employeeList = new EmployeeList(); 
         listOfEmployees = employeeList.getemployeeList(); 
@@ -39,14 +42,35 @@ public class OnboardCntl implements ActionListener{
 
     @Override 
     public void actionPerformed(ActionEvent e){
-        if (e.getSource() == onboardEmployeeUI.getJButton()){
+        //If users clicks Get Employee to search for an employee
+        if (e.getSource() == onboardEmployeeUI.getPendingEmployees){
             for (Employee employee : employeeList.getemployeeList()){
-                if (employee.getRole().equalsIgnoreCase("Pending") && onboardEmployeeUI.getTextField().getText().equalsIgnoreCase(employee.getLastName())){
+                
+                if (employee.getRole().equalsIgnoreCase("Pending") && onboardEmployeeUI.employeeNameField.getText().equalsIgnoreCase(employee.getLastName())){
                     onboardEmployeeUI.setFirstNameField(employee.getFirstName());
                     onboardEmployeeUI.setLastNameField(employee.getLastName());
-                    onboardEmployeeUI.setTextField(employee.toString());
+                    System.out.println("Found"); 
+                }
+            }
+            if (onboardEmployeeUI.firstNameField.getText().equals("")){
+                JOptionPane.showMessageDialog(this.onboardEmployeeUI, "No Matches", "Onboard Employee", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        if (e.getSource() == onboardEmployeeUI.approve){
+            for (Employee employee : employeeList.getemployeeList()){
+                if (employee.getRole().equalsIgnoreCase("Pending") && onboardEmployeeUI.employeeNameField.getText().equalsIgnoreCase(employee.getLastName())){
+                    employee.setRole(onboardEmployeeUI.roleField.getText());
+                    employeeList.writeEmployeeListFile();
+                    System.out.println("Reassinged role"); 
                 } 
-            }//end for
+                if (onboardEmployeeUI.roleField.getText().equalsIgnoreCase(employee.getRole())){
+                    JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updates Employee Information", "Onboard Employee", JOptionPane.DEFAULT_OPTION);
+                }
+            }
+        }
+        if(e.getSource() == onboardEmployeeUI.back){
+            onboardEmployeeUI.setVisible(false); 
+            SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(); //return to home page 
         }
     }
 }
