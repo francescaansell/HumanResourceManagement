@@ -64,8 +64,7 @@ public class ComplaintList {
     public void createList(){
         Complaint complaint = new Complaint(); 
         complaintList.add(complaint);
-        //employeeList.add(employee2); 
-        //employeeList.add(employee3); 
+        
     }
     
     public void writeComplaintListFile(){
@@ -90,5 +89,14 @@ public class ComplaintList {
     
     public ArrayList<Complaint> getComplaintList(){
         return complaintList;
+    }
+
+    @Override
+    public String toString(){
+        String temp = ""; 
+        for (Complaint complaint : complaintList){
+            temp += complaint.toString() + "\n";
+        }
+        return temp; 
     }
 }

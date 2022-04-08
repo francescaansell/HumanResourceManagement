@@ -30,7 +30,7 @@ public class SupervisorComplaintCntl implements ActionListener {
         supervisorComplaintUI.getRetrieveComplaintsBtn().addActionListener(this);
         this.employee = employee; 
 
-        ComplaintList complaintList = new ComplaintList(); 
+        complaintList = new ComplaintList(); 
     }
 
 
@@ -41,12 +41,14 @@ public class SupervisorComplaintCntl implements ActionListener {
             SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(employee); //return to home page 
         }
         if(e.getSource() == supervisorComplaintUI.getRetrieveComplaintsBtn()){
-            String temp = "";
+           
             //TODO add functionality if the complaint is assigned to them or not 
+            /*
             for (Complaint complaint: complaintList.getComplaintList()){
-                temp += complaint.toString(); 
+                if the comlaint belongs to them
             }
-            supervisorComplaintUI.setTextField(temp); 
+            */
+            supervisorComplaintUI.setTextField(complaintList.toString()); 
       
         }
         

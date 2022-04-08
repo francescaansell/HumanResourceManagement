@@ -1,6 +1,5 @@
 package view;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import controller.*;
 
@@ -25,10 +24,9 @@ public class SupervisorComplaintUI extends JFrame {
         add (textField);
    
         //set component bounds (only needed by Absolute Positioning)
-        
         backBtn.setBounds(5, 5, 100, 100);
         retrieveComplaintsBtn.setBounds (300, 300, 140, 20);
-        textField.setBounds(300, 5, 200, 200);
+        textField.setBounds(110, 5, 800, 200);
         
     }
 
@@ -41,12 +39,7 @@ public class SupervisorComplaintUI extends JFrame {
     public void setTextField(String str){
         this.textField.setText(str); 
     }
-
-  
-
     public JButton getBack(){
         return backBtn; 
     }
-
- 
 }
