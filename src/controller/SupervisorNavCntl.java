@@ -18,13 +18,27 @@ public class SupervisorNavCntl implements ActionListener{
         supervisorHomeUI.setBounds(10, 10, 1000, 600);
         supervisorHomeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         supervisorHomeUI.setResizable(true);
-        supervisorHomeUI.onboardEmployee.addActionListener(this); 
+        supervisorHomeUI.getOnboardEmployeeBtn().addActionListener(this); 
+        supervisorHomeUI.getLogOutBtn().addActionListener(this);
+        supervisorHomeUI.getComplaintsBtn().addActionListener(this);
+        supervisorHomeUI.getVacationApprButton().addActionListener(this);
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == supervisorHomeUI.onboardEmployee){
+        if (e.getSource() == supervisorHomeUI.getOnboardEmployeeBtn()){
+            supervisorHomeUI.setVisible(false);
             OnboardCntl onboardCntl = new OnboardCntl(); 
+        }
+        if (e.getSource() == supervisorHomeUI.getLogOutBtn()){
+            supervisorHomeUI.setVisible(false);
+            LoginCntl loginCntl = new LoginCntl(); 
+        }
+        if (e.getSource() == supervisorHomeUI.getComplaintsBtn()){
+            supervisorHomeUI.setVisible(false);
+            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(employee); 
+
         }
         
     }

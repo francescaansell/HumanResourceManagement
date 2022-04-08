@@ -13,23 +13,30 @@ public class NavigationCntl implements ActionListener{
     public Employee employee;
     public HomeUI homeUI; 
 
-    public NavigationCntl() {
+    public NavigationCntl(Employee employee) {
         homeUI = new HomeUI(this); 
         homeUI.setTitle("Home Page");
         homeUI.setVisible(true);
         homeUI.setBounds(10, 10, 1000, 600);
         homeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeUI.setResizable(true);
-        homeUI.LogOut.addActionListener(this);
+        homeUI.logOutBtn.addActionListener(this);
+        homeUI.hoursBtn.addActionListener(this); 
+        homeUI.complaintsBtn.addActionListener(this); 
+        homeUI.employeeBtn.addActionListener(this); 
+        this.employee = employee; 
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == homeUI.getLogOutBtn()){
+        if (e.getSource() == homeUI.logOutBtn){
             homeUI.setVisible(false);
-
-            LoginCntl loginCntl = new LoginCntl(); 
-
+            LoginCntl loginCntl = new LoginCntl(); //return to login screen
+        }
+        if (e.getSource() == homeUI.complaintsBtn){
+            homeUI.setVisible(false);
+            ComplaintCntl complaintCntl = new ComplaintCntl(employee); 
         }
         
     }

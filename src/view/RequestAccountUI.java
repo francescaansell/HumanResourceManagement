@@ -1,12 +1,12 @@
 package view;
 import javax.swing.*;
-import controller.EmployeeCntl;
+import controller.*;
 import java.awt.*;
 
-public class EmployeeUI extends JFrame{
+public class RequestAccountUI extends JFrame{
     //Frame
     Container container = getContentPane();
-    public JButton submit;
+    private JButton submit;
     private JLabel fnamelabel;
     private JLabel lnamelabel;
     private JTextField fname;
@@ -16,10 +16,10 @@ public class EmployeeUI extends JFrame{
     private JLabel passwordlabel;
     private JTextField password;
     private JCheckBox fullTime;
-    private EmployeeCntl employeeCntl; 
+    private RequestAccountCntl requestAccountCntl; 
 
-    public EmployeeUI(EmployeeCntl employeeCntl){
-        this.employeeCntl = employeeCntl; 
+    public RequestAccountUI(RequestAccountCntl requestAccountCntl){
+        this.requestAccountCntl = requestAccountCntl; 
 
         submit = new JButton ("Submit");
         fnamelabel = new JLabel ("First Name");
@@ -60,7 +60,7 @@ public class EmployeeUI extends JFrame{
         fullTime.setBounds (100, 290, 100, 25);
     }
 
-    //Getters for EmployeeCntl to acsess things
+    //Getters for requestAccountCntl to acsess things
     public String getUsername(){
         return username.getText(); 
     }

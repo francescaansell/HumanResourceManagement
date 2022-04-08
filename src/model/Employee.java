@@ -177,9 +177,13 @@ public class Employee implements Serializable{
         return role.getRoleName(); 
     }
 
+    public void setRole(String roleName){
+        role.setRoleName(roleName);
+    }
+
     @Override
     public String toString()
     {
-        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", pw=" + pw + ", department=" + department + ", role=" + getRole() + ", employeeID=" + employeeID + ", numLeaveDays=" + numLeaveDays + ", fullTime=" + fullTime + ", previousTimesheets=" + previousTimeSheets + '}';
+        return "Employee{" + firstName + ", " + lastName + ", " + department + ", " + getRole() + ", " + employeeID +'}';
     }
 }

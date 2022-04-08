@@ -2,49 +2,63 @@
 package controller; 
 import view.*;
 import model.*; 
-import java.util.*; 
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane; 
 
 /**
  *
  * @author Group 1 HRM
  */
-public class ComplaintCntl {
-    protected Complaint complaint; 
-    protected MyComplaintsUI view; 
+public class ComplaintCntl implements ActionListener {
 
-    public ComplaintCntl(Complaint complaint, MyComplaintsUI view) {
-        this.complaint = complaint;
-        this.view = view; 
-    }
+    public Complaint complaint; 
+    public MyComplaintsUI myComplaintsUI; 
+    private Employee employee; 
 
-    public void setAssignedEmployee(Employee assignedEmployee){
-        complaint.setAssignedEmployee(assignedEmployee);
-    }
-    public void setClaimant(Employee claimant){
-        complaint.setClaimant(claimant);
-    }
-    public void setOpenDate(Date openDate){
-        complaint.setOpenDate(openDate);
-    }
-    public void setOpen(Boolean open){
-        complaint.setOpen(open);
+    public ComplaintCntl(Employee employee) {
+        myComplaintsUI = new MyComplaintsUI(this);
+        myComplaintsUI.setTitle("My Complaints"); 
+        myComplaintsUI.setVisible (true);
+        myComplaintsUI.setBounds(10, 10, 1000, 600);
+        myComplaintsUI.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        myComplaintsUI.setResizable(true);
+        myComplaintsUI.getBack().addActionListener(this); 
+        myComplaintsUI.getSubmit().addActionListener(this);
+        this.employee = employee; 
     }
 
-    public Employee getAssignedEmployee(){
-        return complaint.getAssignedEmployee(); 
-    }
-    public Employee getClaimant(){
-        return complaint.getClaimant();
-    }
-    public Date getOpenDate(){
-        return complaint.getOpenDate();
-    }
-    public Boolean getOpen(){
-        return complaint.getOpen(); 
-    }    
 
-    public void updateView(){
-        //public void printComplaintDetails(Employee assignedEmployee, Date openDate, Employee claimant, Boolean open)
-        view.printComplaintDetails(complaint.getAssignedEmployee(), complaint.getOpenDate(), complaint.getClaimant(), complaint.getOpen());
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == myComplaintsUI.getBack()){
+            myComplaintsUI.setVisible(false); 
+            NavigationCntl navigationCntl = new NavigationCntl(employee); //return to home page 
+        }
+        if(e.getSource() == myComplaintsUI.getSubmit()){
+            Complaint complaint = new Complaint();
+            //TODO can we keep track of who logged in or do it manually for now 
+            //complaint.setClaimant(claimant)
+
+            //TODO Change this to ArrayList<Employee> at some point if possible
+            complaint.setInvoled(myComplaintsUI.getInvoledField().getText());
+
+            complaint.setOpen(true);
+            complaint.setOpenDate(myComplaintsUI.getDate());
+            complaint.setDescription(myComplaintsUI.getDescriptionField().getText());
+            complaint.setID(); 
+            complaint.setClaimant(employee);
+
+
+            JOptionPane.showMessageDialog(this.myComplaintsUI, "Created Complaint: " + "Compalint", "Complaint", JOptionPane.DEFAULT_OPTION);
+            myComplaintsUI.setInvoledField("");
+            myComplaintsUI.setDescriptionField("");
+            myComplaintsUI.setDate(null);
+          
+        }
+        
     }
 }

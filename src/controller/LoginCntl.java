@@ -1,8 +1,6 @@
 package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.*;
@@ -10,11 +8,11 @@ import view.*;
 public class LoginCntl implements ActionListener{
 
     public LoginUI loginUI;
-    public EmployeeUI employeeUI;  
-    EmployeeCntl employeeCntl; 
+    public RequestAccountUI employeeUI;  
+    RequestAccountCntl requestAccountCntl; 
     NavigationCntl navCntl; 
     SupervisorNavCntl supervisorNavCntl; 
-    private ArrayList<Employee> listOfEmployees;
+ 
     public EmployeeList employeeList; 
 
     public LoginCntl(){
@@ -30,8 +28,6 @@ public class LoginCntl implements ActionListener{
         loginUI.requestAccessButton.addActionListener(this);
 
         employeeList = new EmployeeList(); 
-        listOfEmployees = employeeList.getemployeeList(); 
-   
     }
     
     @Override
@@ -39,14 +35,15 @@ public class LoginCntl implements ActionListener{
         if (e.getSource() == loginUI.getLoginBtn()) {
             String username;
             String password;
+
             username = loginUI.getUsernameTextField().getText();
             password = String.valueOf(loginUI.getPasswordField().getPassword());
+
             //System.out.println("USERNAME" + username);
             //System.out.println("PW" + password); 
+            
             for (Employee employee : employeeList.getemployeeList()){
 
-                //System.out.print(listOfEmployees);
-                //System.out.println("For loop");
                 //System.out.println(employee.getUserName());
                 //System.out.println(employee.getPw());
             
@@ -65,7 +62,7 @@ public class LoginCntl implements ActionListener{
                     else {
                         //this is a regular employee
                         //System.out.println("Employee");
-                        NavigationCntl navCntl = new NavigationCntl(); 
+                        NavigationCntl navCntl = new NavigationCntl(employee); 
                         loginUI.setVisible(false); 
                     }
                 } 
@@ -85,11 +82,9 @@ public class LoginCntl implements ActionListener{
             } else {
                 loginUI.getPasswordField().setEchoChar('*');
             }
-
-
         }
         if (e.getSource() == loginUI.getRequestAccessButton()) {
-            EmployeeCntl EmployeeCntl = new EmployeeCntl();
+            RequestAccountCntl requestAccountCntl = new RequestAccountCntl();
             loginUI.dispose();  
         }
     }
