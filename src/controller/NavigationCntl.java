@@ -13,7 +13,7 @@ public class NavigationCntl implements ActionListener{
     public Employee employee;
     public HomeUI homeUI; 
 
-    public NavigationCntl() {
+    public NavigationCntl(Employee employee) {
         homeUI = new HomeUI(this); 
         homeUI.setTitle("Home Page");
         homeUI.setVisible(true);
@@ -24,6 +24,7 @@ public class NavigationCntl implements ActionListener{
         homeUI.hoursBtn.addActionListener(this); 
         homeUI.complaintsBtn.addActionListener(this); 
         homeUI.employeeBtn.addActionListener(this); 
+        this.employee = employee; 
 
     }
 
@@ -35,7 +36,7 @@ public class NavigationCntl implements ActionListener{
         }
         if (e.getSource() == homeUI.complaintsBtn){
             homeUI.setVisible(false);
-            ComplaintCntl complaintCntl = new ComplaintCntl(); 
+            ComplaintCntl complaintCntl = new ComplaintCntl(employee); 
         }
         
     }

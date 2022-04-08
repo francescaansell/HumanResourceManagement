@@ -20,6 +20,9 @@ public class SupervisorNavCntl implements ActionListener{
         supervisorHomeUI.setResizable(true);
         supervisorHomeUI.getOnboardEmployeeBtn().addActionListener(this); 
         supervisorHomeUI.getLogOutBtn().addActionListener(this);
+        supervisorHomeUI.getComplaintsBtn().addActionListener(this);
+        supervisorHomeUI.getVacationApprButton().addActionListener(this);
+        
     }
 
     @Override
@@ -31,6 +34,11 @@ public class SupervisorNavCntl implements ActionListener{
         if (e.getSource() == supervisorHomeUI.getLogOutBtn()){
             supervisorHomeUI.setVisible(false);
             LoginCntl loginCntl = new LoginCntl(); 
+        }
+        if (e.getSource() == supervisorHomeUI.getComplaintsBtn()){
+            supervisorHomeUI.setVisible(false);
+            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(employee); 
+
         }
         
     }

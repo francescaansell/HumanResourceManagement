@@ -62,7 +62,7 @@ public class LoginCntl implements ActionListener{
                     else {
                         //this is a regular employee
                         //System.out.println("Employee");
-                        NavigationCntl navCntl = new NavigationCntl(); 
+                        NavigationCntl navCntl = new NavigationCntl(employee); 
                         loginUI.setVisible(false); 
                     }
                 } 

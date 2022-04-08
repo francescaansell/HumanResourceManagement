@@ -1,58 +1,114 @@
 package view;
 import java.awt.*;
 import java.awt.event.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Properties;
+
 import javax.swing.*;
-import javax.swing.event.*;
 import controller.*;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.UtilDateModel;
+import org.jdatepicker.impl.JDatePickerImpl;
 
 public class MyComplaintsUI extends JFrame {
-    private JButton submit;
+    private JButton submitBtn;
     private JTextArea descriptionField;
     private JLabel descripition;
     private JTextArea involvedField;
     private JLabel involved;
-    private JTextField dateField;
     private JLabel date;
-    private JButton back; 
+    private JButton backBtn; 
+    public UtilDateModel model; 
+    public JDatePanelImpl datePanel; 
+    public JDatePickerImpl datePicker; 
+ 
+
 
     public MyComplaintsUI(ComplaintCntl complaintCntl) {
         //construct components
-        submit = new JButton ("Submit");
+        submitBtn = new JButton ("Submit");
         descriptionField = new JTextArea (5, 5);
         descripition = new JLabel ("Description");
         involvedField = new JTextArea (5, 5);
         involved = new JLabel ("Persons Involed");
-        dateField = new JTextField (5);
         date = new JLabel ("Date the incident occured");
-        back = new JButton("Back"); 
+        backBtn = new JButton("Back"); 
+
+        model = new UtilDateModel();
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+
+        datePanel = new JDatePanelImpl(model, p);
+        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+
 
         //adjust size and set layout
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
 
         //add components
-        add (submit);
+        add (submitBtn);
         add (descriptionField);
         add (descripition);
         add (involvedField);
         add (involved);
-        add (dateField);
         add (date);
-        add (back); 
+        add (backBtn); 
+        add (datePicker);
 
         //set component bounds (only needed by Absolute Positioning)
-        submit.setBounds (350, 550, 140, 20);
+        
         descriptionField.setBounds (45, 275, 230, 145);
         descripition.setBounds (45, 250, 100, 25);
         involvedField.setBounds (45, 140, 225, 70);
         involved.setBounds (45, 115, 100, 25);
-        dateField.setBounds (360, 140, 165, 20);
+        datePicker.setBounds(360, 140, 200, 30);
+        submitBtn.setBounds (360, 400, 140, 20);
         date.setBounds (360, 115, 165, 25);
-        back.setBounds(5, 5, 100, 100);
+        backBtn.setBounds(5, 5, 100, 100);
+        
+    }
+    public java.util.Date getDate(){
+        java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
+        return selectedDate; 
+        
     }
 
+    public void setDate(String newDate){
+
+        System.out.println("DATE" + newDate); 
+
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z YYYY");
+        try {
+            java.util.Date date = formatter.parse(newDate);
+            System.out.println("DATE IN DATE FORM " + date); 
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } 
+    }
+
+    public JButton getSubmit(){
+        return submitBtn; 
+    }
+    public JTextArea getInvoledField(){
+        return involvedField;
+    }
 
     public JButton getBack(){
-        return back; 
+        return backBtn; 
+    }
+
+    public void setInvoledField(String str){
+        this.involvedField.setText(str);
+    }
+    public void setDescriptionField(String str){
+        this.descriptionField.setText(str);
+    }
+    public JTextArea getDescriptionField(){
+        return descriptionField;
     }
 }

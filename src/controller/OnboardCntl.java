@@ -58,7 +58,7 @@ public class OnboardCntl implements ActionListener{
                     System.out.println("Reassinged role"); 
                 } 
                 if (onboardEmployeeUI.getRoleField().getText().equalsIgnoreCase(employee.getRole())){
-                    JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updates Employee Information", "Onboard Employee", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updates Employee Information: " + employee.toString(), "Onboard Employee", JOptionPane.DEFAULT_OPTION);
                 }
             }
         }
