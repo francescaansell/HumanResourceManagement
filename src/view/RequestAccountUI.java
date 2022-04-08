@@ -6,7 +6,7 @@ import java.awt.*;
 public class RequestAccountUI extends JFrame{
     //Frame
     Container container = getContentPane();
-    public JButton submit;
+    private JButton submit;
     private JLabel fnamelabel;
     private JLabel lnamelabel;
     private JTextField fname;

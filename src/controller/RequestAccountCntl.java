@@ -25,7 +25,7 @@ public class RequestAccountCntl implements ActionListener{
         employeeUI.setBounds(10, 10, 370, 600);
         employeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         employeeUI.setResizable(true);
-        employeeUI.submit.addActionListener(this); 
+        employeeUI.getSubmitBtn().addActionListener(this); 
 
         employeeList = new EmployeeList();
         listOfEmployees = employeeList.getemployeeList(); 

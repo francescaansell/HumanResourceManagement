@@ -1,8 +1,6 @@
 package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.*;
@@ -14,7 +12,7 @@ public class LoginCntl implements ActionListener{
     RequestAccountCntl requestAccountCntl; 
     NavigationCntl navCntl; 
     SupervisorNavCntl supervisorNavCntl; 
-    private ArrayList<Employee> listOfEmployees;
+ 
     public EmployeeList employeeList; 
 
     public LoginCntl(){
@@ -30,8 +28,6 @@ public class LoginCntl implements ActionListener{
         loginUI.requestAccessButton.addActionListener(this);
 
         employeeList = new EmployeeList(); 
-        listOfEmployees = employeeList.getemployeeList(); 
-   
     }
     
     @Override
@@ -86,8 +82,6 @@ public class LoginCntl implements ActionListener{
             } else {
                 loginUI.getPasswordField().setEchoChar('*');
             }
-
-
         }
         if (e.getSource() == loginUI.getRequestAccessButton()) {
             RequestAccountCntl requestAccountCntl = new RequestAccountCntl();

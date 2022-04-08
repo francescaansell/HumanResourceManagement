@@ -13,7 +13,7 @@ public class MyComplaintsUI extends JFrame {
     private JLabel involved;
     private JTextField dateField;
     private JLabel date;
-    public JButton back; 
+    private JButton back; 
 
     public MyComplaintsUI(ComplaintCntl complaintCntl) {
         //construct components

@@ -9,8 +9,8 @@ public class SupervisorHomeUI extends JFrame{
     private JButton vacationApproval;
     private JButton hoursApproval;
     private JButton complaints;
-    public JButton onboardEmployee;
-    public JButton logOut; 
+    private JButton onboardEmployee;
+    private JButton logOut; 
 
     public SupervisorHomeUI(SupervisorNavCntl supervisorNavCntl){
 
@@ -45,6 +45,16 @@ public class SupervisorHomeUI extends JFrame{
     public JButton getVacationApprButton(){
         return vacationApproval; 
     }
+    public JButton getLogOutBtn(){
+        return logOut; 
+    }
+    public JButton getOnboardEmployeeBtn(){
+        return onboardEmployee; 
+    }
+    public JButton getComplaintsBtn(){
+        return complaints; 
+    }
+  
 
 
 }
