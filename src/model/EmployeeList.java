@@ -61,17 +61,17 @@ public class EmployeeList {
     }
     
     public void createList(){
-        Role role = new Role("Admin", 10);
-        Employee employee1 = new Employee("Frankie", "Ansell", "frankieansell", "12345", new Department(), new Role("Admin", 10), 1092148, 0, true, new ArrayList<TimeSheet>());
-        Employee employee2 = new Employee("Jen", "Hod", "jenhod", "12345", new Department(), role, 387952, 0, new ArrayList<TimeSheet>(), true, 0);
-        Employee employee3 = new Employee("Vince", "S", "vinces", "12345", new Department(), role, 465654, 0, new ArrayList<TimeSheet>(), true, 0);
-        Employee employee4 = new Employee("Hannah", "K", "hannahk", "12345", new Department(), role, 94857, 0, new ArrayList<TimeSheet>(), true, 0);
-        employeeList.add(employee1); 
-        employeeList.add(employee2);
-        employeeList.add(employee3);
+        Role admin = new Role("Admin", 10);
+        Employee employee = new Employee("Jen", "Hod", "jenhod", "12345", new Department(), admin, 387952, 0, new ArrayList<TimeSheet>(), true, 0);
+        employeeList.add(employee); 
+
+        Role supervisor= new Role("Supervisor", 20); 
+        Employee employee2 = new Employee("Francesca", "Ansell", "francescaansell", "12345", new Department(), supervisor, 890742, 0, new ArrayList<TimeSheet>(), true, 0); 
+        employeeList.add(employee2); 
+        Employee employee3 = new Employee("Hannah", "K", "hannahk", "12345", new Department(), supervisor, 465546, 0, new ArrayList<TimeSheet>(), true, 0); 
+        employeeList.add(employee3); 
+        Employee employee4 = new Employee("Vincent", "S", "vinces", "12345", new Department(), supervisor, 456456, 0, new ArrayList<TimeSheet>(), true, 0); 
         employeeList.add(employee4); 
-        //employeeList.add(employee2); 
-        //employeeList.add(employee3); 
     }
     
     public void writeEmployeeListFile(){

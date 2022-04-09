@@ -32,6 +32,7 @@ public class LoginCntl implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        //TODO add functionality so that the user can choose to login as supervisor or employee
         if (e.getSource() == loginUI.getLoginBtn()) {
             String username;
             String password;
@@ -48,10 +49,11 @@ public class LoginCntl implements ActionListener{
                 //System.out.println(employee.getPw());
             
                 if (username.equalsIgnoreCase(employee.getUserName()) && password.equalsIgnoreCase(employee.getPw())) {           
-                    if (employee.getRole().equals("Admin")){
+                    if (employee.getRole().equalsIgnoreCase("Admin") || employee.getRole().equalsIgnoreCase("Supervisor")){
                         //this is a superviosr
                         //System.out.println("Supervisor");
-                        SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(); 
+                        System.out.println(employee); 
+                        SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(employee); 
                         loginUI.setVisible(false);
                         
                     } else if (employee.getRole().equals("Pending")){
@@ -62,6 +64,7 @@ public class LoginCntl implements ActionListener{
                     else {
                         //this is a regular employee
                         //System.out.println("Employee");
+                        System.out.println(employee);
                         NavigationCntl navCntl = new NavigationCntl(employee); 
                         loginUI.setVisible(false); 
                     }

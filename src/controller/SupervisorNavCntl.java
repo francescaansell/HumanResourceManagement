@@ -11,7 +11,7 @@ public class SupervisorNavCntl implements ActionListener{
     public SupervisorHomeUI supervisorHomeUI; 
     public OnboardCntl onbaordCntl; 
 
-    public SupervisorNavCntl(){
+    public SupervisorNavCntl(Employee employee){
         supervisorHomeUI = new SupervisorHomeUI(this);
         supervisorHomeUI.setTitle("Supervisor Home Page");
         supervisorHomeUI.setVisible(true);
@@ -22,6 +22,9 @@ public class SupervisorNavCntl implements ActionListener{
         supervisorHomeUI.getLogOutBtn().addActionListener(this);
         supervisorHomeUI.getComplaintsBtn().addActionListener(this);
         supervisorHomeUI.getVacationApprButton().addActionListener(this);
+
+        this.employee = employee; 
+       
         
     }
 
@@ -37,7 +40,7 @@ public class SupervisorNavCntl implements ActionListener{
         }
         if (e.getSource() == supervisorHomeUI.getComplaintsBtn()){
             supervisorHomeUI.setVisible(false);
-            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(employee); 
+            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(this.employee); 
 
         }
         
