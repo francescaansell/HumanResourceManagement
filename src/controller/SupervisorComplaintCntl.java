@@ -6,7 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener; 
+import java.awt.event.ActionListener;
+import java.util.ArrayList; 
 
 /**
  *
@@ -18,6 +19,9 @@ public class SupervisorComplaintCntl implements ActionListener {
     public SupervisorComplaintUI supervisorComplaintUI; 
     private Employee employee; 
     private ComplaintList complaintList; 
+    private SupervisorNavCntl supervisorNavCntl; 
+    private ArrayList<Complaint> assignedComplaints; 
+    private ArrayList<Complaint> listOfComplaints; 
 
     public SupervisorComplaintCntl(Employee employee) {
         supervisorComplaintUI = new SupervisorComplaintUI(this);
@@ -28,9 +32,17 @@ public class SupervisorComplaintCntl implements ActionListener {
         supervisorComplaintUI.setResizable(true);
         supervisorComplaintUI.getBack().addActionListener(this); 
         supervisorComplaintUI.getRetrieveComplaintsBtn().addActionListener(this);
-        this.employee = employee; 
-
+        supervisorComplaintUI.getAssignEmployeeBtn().addActionListener(this); 
+        
         complaintList = new ComplaintList(); 
+        listOfComplaints = complaintList.getComplaintList(); 
+        complaintList.printComplaintList(); 
+
+        this.employee = employee; 
+        System.out.println(this.employee); 
+        assignedComplaints = new ArrayList<Complaint>(); 
+        
+        
     }
 
 
@@ -38,18 +50,21 @@ public class SupervisorComplaintCntl implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == supervisorComplaintUI.getBack()){
             supervisorComplaintUI.setVisible(false); 
-            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(employee); //return to home page 
+            supervisorNavCntl = new SupervisorNavCntl(employee); //return to home page 
         }
         if(e.getSource() == supervisorComplaintUI.getRetrieveComplaintsBtn()){
-           
-            //TODO add functionality if the complaint is assigned to them or not 
-            /*
-            for (Complaint complaint: complaintList.getComplaintList()){
-                if the comlaint belongs to them
+            
+            for (Complaint complaint: listOfComplaints){
+                //System.out.println(complaint.getAssignedEmployee());
+                if ( (complaint.getAssignedEmployee()).equals(this.employee) ){
+                    this.assignedComplaints.add(complaint);
+                }
             }
-            */
-            supervisorComplaintUI.setTextField(complaintList.toString()); 
-      
+            supervisorComplaintUI.setTextField(this.assignedComplaints.toString()); 
+        }
+        //TODO START HERE NEXT TIME so we can assign complaints to people 
+        if (e.getSource() == supervisorComplaintUI.getAssignEmployeeBtn()){
+
         }
         
     }

@@ -43,6 +43,8 @@ public class RequestAccountCntl implements ActionListener{
             employee.setLastName(employeeUI.getLastName());
             employee.setFullTime(employeeUI.getFullTime());
 
+            
+         
             listOfEmployees.add(employee); 
             employeeList.writeEmployeeListFile(); 
            

@@ -184,6 +184,14 @@ public class Employee implements Serializable{
     @Override
     public String toString()
     {
-        return "Employee{" + firstName + ", " + lastName + ", " + department + ", " + getRole() + ", " + employeeID +'}';
+        return "Employee{" + firstName + ", " + lastName + ", " + department.getDeptName() + ", " + getRole() + ", " + employeeID +'}';
+    }
+
+    public Boolean equals(Employee employee){
+        if ( (this.firstName.equals(employee.getFirstName())) && (this.lastName.equals(employee.getLastName())) && (this.employeeID == employee.getEmployeeID()) ){
+            return true; 
+        } else {
+            return false; 
+        }
     }
 }

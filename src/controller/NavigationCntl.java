@@ -24,7 +24,9 @@ public class NavigationCntl implements ActionListener{
         homeUI.hoursBtn.addActionListener(this); 
         homeUI.complaintsBtn.addActionListener(this); 
         homeUI.employeeBtn.addActionListener(this); 
+
         this.employee = employee; 
+        
 
     }
 

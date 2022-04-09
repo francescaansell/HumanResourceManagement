@@ -26,7 +26,6 @@ public class Complaint implements Serializable{
      * @param approved 
      */
     public Complaint(java.util.Date openDate, Employee claimant, Boolean open, Boolean approved, String involved, Integer id) {
-        this.assignedEmployee = assignedEmployee; 
         this.openDate = openDate; 
         this.claimant = claimant; 
         this.open = open; 
@@ -36,6 +35,8 @@ public class Complaint implements Serializable{
 
     }
     public Complaint() {
+
+        //TODO logic error here need to have some sort of admin? 
         this.assignedEmployee = null; 
         this.openDate = new java.util.Date(); 
         this.claimant = new Employee(); 
@@ -57,7 +58,7 @@ public class Complaint implements Serializable{
     }
 
     public Employee getClaimant() {
-        return claimant;
+        return this.claimant;
     }
 
     public void setClaimant(Employee claimant) {
@@ -65,7 +66,7 @@ public class Complaint implements Serializable{
     }
 
     public java.util.Date getOpenDate() {
-        return openDate;
+        return this.openDate;
     }
 
     public void setOpenDate(java.util.Date openDate) {
@@ -73,11 +74,11 @@ public class Complaint implements Serializable{
     }
 
     public Employee getAssignedEmployee() {
-        return assignedEmployee;
+        return this.assignedEmployee;
     }
 
-    public void setAssignedEmployee(Employee assignedEmployee) {
-        this.assignedEmployee = assignedEmployee;
+    public void setAssignedEmployee(Employee assign) {
+        this.assignedEmployee = assign;
     }   
 
     public void approveComplaint(){
@@ -85,7 +86,7 @@ public class Complaint implements Serializable{
     }
 
     public Boolean getApproved() {
-        return approved;
+        return this.approved;
     }
     
     public Boolean checkRequirements(){
@@ -105,8 +106,9 @@ public class Complaint implements Serializable{
     @Override
     public String toString()
     {
-        return "Complaint{" + "Assigned Employee: " + assignedEmployee + ", Open date: " + openDate + ", Claimant: " + claimant.toString() + ", Open: " + open + '}';
+        return "Complaint{" + "Assigned Employee: " + this.assignedEmployee + ", Open date: " + this.openDate + ", Claimant: " + this.claimant + ", Open: " + this.open + '}';
     }
+
     public void setDescription(String text) {
     }
 }

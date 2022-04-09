@@ -5,6 +5,7 @@ import model.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane; 
@@ -18,6 +19,10 @@ public class ComplaintCntl implements ActionListener {
     public Complaint complaint; 
     public MyComplaintsUI myComplaintsUI; 
     private Employee employee; 
+    private EmployeeList employeeList; 
+    public ComplaintList complaintList;
+    private ArrayList<Complaint> listOfComplaints;   
+  
 
     public ComplaintCntl(Employee employee) {
         myComplaintsUI = new MyComplaintsUI(this);
@@ -29,6 +34,9 @@ public class ComplaintCntl implements ActionListener {
         myComplaintsUI.getBack().addActionListener(this); 
         myComplaintsUI.getSubmit().addActionListener(this);
         this.employee = employee; 
+        employeeList = new EmployeeList(); 
+        complaintList = new ComplaintList(); 
+        listOfComplaints = complaintList.getComplaintList(); 
     }
 
 
@@ -40,8 +48,6 @@ public class ComplaintCntl implements ActionListener {
         }
         if(e.getSource() == myComplaintsUI.getSubmit()){
             Complaint complaint = new Complaint();
-            //TODO can we keep track of who logged in or do it manually for now 
-            //complaint.setClaimant(claimant)
 
             //TODO Change this to ArrayList<Employee> at some point if possible
             complaint.setInvoled(myComplaintsUI.getInvoledField().getText());
@@ -50,13 +56,28 @@ public class ComplaintCntl implements ActionListener {
             complaint.setOpenDate(myComplaintsUI.getDate());
             complaint.setDescription(myComplaintsUI.getDescriptionField().getText());
             complaint.setID(); 
-            complaint.setClaimant(employee);
-
-
-            JOptionPane.showMessageDialog(this.myComplaintsUI, "Created Complaint: " + "Compalint", "Complaint", JOptionPane.DEFAULT_OPTION);
+            complaint.setClaimant(employee); 
+          
+            try{
+                for (Employee employee : employeeList.getemployeeList()){
+                    if (employee.getRole().equals("Admin")){
+                        complaint.setAssignedEmployee(employee);
+                    }
+                }
+            } catch (Exception x){
+                System.out.println("ERROR CANNOT FIND ADMIN"); 
+                x.printStackTrace(); 
+            }
+            
+            
+            JOptionPane.showMessageDialog(this.myComplaintsUI, "Created Complaint: " + complaint.toString(), "Complaint", JOptionPane.DEFAULT_OPTION);
             myComplaintsUI.setInvoledField("");
             myComplaintsUI.setDescriptionField("");
-            myComplaintsUI.setDate(null);
+          
+            listOfComplaints.add(complaint);
+            complaintList.writeComplaintListFile();
+            complaintList.printComplaintList();
+            
           
         }
         

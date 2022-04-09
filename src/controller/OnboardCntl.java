@@ -15,7 +15,6 @@ import model.EmployeeList;
 public class OnboardCntl implements ActionListener{
 
     public OnboardEmployeeUI onboardEmployeeUI; 
-    public ArrayList<Employee> listOfEmployees; 
     public Employee employee; 
     public EmployeeList employeeList; 
 
@@ -56,15 +55,13 @@ public class OnboardCntl implements ActionListener{
                     employee.setRole(onboardEmployeeUI.getRoleField().getText());
                     employeeList.writeEmployeeListFile();
                     System.out.println("Reassinged role"); 
-                } 
-                if (onboardEmployeeUI.getRoleField().getText().equalsIgnoreCase(employee.getRole())){
                     JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updates Employee Information: " + employee.toString(), "Onboard Employee", JOptionPane.DEFAULT_OPTION);
-                }
+                } 
             }
         }
         if(e.getSource() == onboardEmployeeUI.getBackBtn()){
             onboardEmployeeUI.setVisible(false); 
-            SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(); //return to home page 
+            SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(employee); //return to home page 
         }
     }
 }

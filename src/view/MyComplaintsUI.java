@@ -84,6 +84,7 @@ public class MyComplaintsUI extends JFrame {
 
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z YYYY");
         try {
+            //TODO issue here 
             java.util.Date date = formatter.parse(newDate);
             System.out.println("DATE IN DATE FORM " + date); 
         } catch (ParseException e) {

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class ComplaintList {
     public ArrayList<Complaint> complaintList = new ArrayList<>();
-    public String employeesFileName = "Complaints.ser";
+    public String complaintsFileName = "Complaints.ser";
     
     public ComplaintList(){
         FileInputStream fis = null;
         ObjectInputStream in = null;
         try{
-            fis = new FileInputStream(this.employeesFileName);
+            fis = new FileInputStream(this.complaintsFileName);
             in = new ObjectInputStream(fis);
             this.complaintList = (ArrayList)in.readObject();
             in.close();
@@ -35,11 +35,11 @@ public class ComplaintList {
             ex.printStackTrace();
         }
         if(complaintList.isEmpty() || complaintList == null){
-            createList();
+            System.out.println("Creating a new list"); 
             writeComplaintListFile();
          
             try{
-                fis = new FileInputStream(employeesFileName);
+                fis = new FileInputStream(complaintsFileName);
                 in = new ObjectInputStream(fis);
                 complaintList = (ArrayList)in.readObject();
                 in.close();
@@ -58,20 +58,14 @@ public class ComplaintList {
                 ex.printStackTrace();
             }
         }
-        //printEmployeeList();
-    }
-    
-    public void createList(){
-        Complaint complaint = new Complaint(); 
-        complaintList.add(complaint);
-        
+        printComplaintList();
     }
     
     public void writeComplaintListFile(){
         FileOutputStream fos = null;
         ObjectOutputStream out = null;
         try{
-            fos = new FileOutputStream(employeesFileName);
+            fos = new FileOutputStream(complaintsFileName);
             out = new ObjectOutputStream(fos);
             out.writeObject(complaintList);
             out.close();
@@ -81,22 +75,15 @@ public class ComplaintList {
         }
     }
     
-    public void printEmployeeList(){
+    public void printComplaintList(){
+        //arraylist size here is 0
         for (Complaint complaint : complaintList) {
             System.out.println(complaint.toString());
         }
+      
     }
     
     public ArrayList<Complaint> getComplaintList(){
         return complaintList;
-    }
-
-    @Override
-    public String toString(){
-        String temp = ""; 
-        for (Complaint complaint : complaintList){
-            temp += complaint.toString() + "\n";
-        }
-        return temp; 
     }
 }

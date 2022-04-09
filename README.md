@@ -11,3 +11,7 @@ At the current state of our application a user can make a new account and then l
 The use case this application is supporting is Create New Employee. (That use case can be tested by clicking request account).
 
 If you make a new account you will be able to login with it. 
+
+
+
+THERE CAN ONLY BE ONE ADMIN ours will be jenhod 12345
