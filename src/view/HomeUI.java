@@ -15,7 +15,7 @@ public class HomeUI extends JFrame{
         vacationBtn = new JButton ("MyVacation");
         hoursBtn = new JButton ("MyHours");
         complaintsBtn = new JButton ("MyComplaints");
-        employeeBtn = new JButton ("Employee");
+        employeeBtn = new JButton ("Update and View Information");
         logOutBtn = new JButton("Log Out"); 
 
         //adjust size and set layout
@@ -34,7 +34,7 @@ public class HomeUI extends JFrame{
         hoursBtn.setBounds (155, 120, 235, 140);
         complaintsBtn.setBounds (475, 120, 235, 140);
         employeeBtn.setBounds (475, 320, 235, 140);
-        logOutBtn.setBounds(5, 5, 100, 100);
+        logOutBtn.setBounds(5, 5, 100, 50);
     }
 
     public JButton getLogOutBtn(){

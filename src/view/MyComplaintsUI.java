@@ -69,7 +69,7 @@ public class MyComplaintsUI extends JFrame {
         datePicker.setBounds(360, 140, 200, 30);
         submitBtn.setBounds (360, 400, 140, 20);
         date.setBounds (360, 115, 165, 25);
-        backBtn.setBounds(5, 5, 100, 100);
+        backBtn.setBounds(5, 5, 100, 50); ;
         
     }
     public java.util.Date getDate(){

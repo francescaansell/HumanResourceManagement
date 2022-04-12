@@ -16,6 +16,7 @@ public class Complaint implements Serializable{
     //TODO GOAL protected ArrayList<Employee> involved; 
     protected String involved; 
     protected Integer id; 
+   
 
     /**
      * This is the default constructor
@@ -25,24 +26,16 @@ public class Complaint implements Serializable{
      * @param open whether or not the complaint is currently open
      * @param approved 
      */
-    public Complaint(java.util.Date openDate, Employee claimant, Boolean open, Boolean approved, String involved, Integer id) {
+    public Complaint(java.util.Date openDate, Employee claimant, Boolean open, Boolean approved, String involved, String description, Integer id) {
         this.openDate = openDate; 
         this.claimant = claimant; 
         this.open = open; 
         this.approved = approved; 
         this.involved = involved; 
         this.id = id; 
+        this.claimant = claimant; 
+        this.description = description; 
 
-    }
-    public Complaint() {
-
-        //TODO logic error here need to have some sort of admin? 
-        this.assignedEmployee = null; 
-        this.openDate = new java.util.Date(); 
-        this.claimant = new Employee(); 
-        this.open = true; 
-        this.approved = true; 
-        this.involved = "";
     }
 
     public void setInvoled(String involved){
@@ -98,6 +91,7 @@ public class Complaint implements Serializable{
     }
     public void setID(){
         Random rand = new Random();
+        //TODO: while complaint in complaint list if id = this id then create a different id 
         this.id = rand.nextInt(10000);
     }
     public Integer getId(){

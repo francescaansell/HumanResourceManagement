@@ -5,7 +5,10 @@ import model.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane; 
@@ -47,7 +50,10 @@ public class ComplaintCntl implements ActionListener {
             NavigationCntl navigationCntl = new NavigationCntl(employee); //return to home page 
         }
         if(e.getSource() == myComplaintsUI.getSubmit()){
-            Complaint complaint = new Complaint();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+            Random rand = new Random();
+            Date date = new Date(System.currentTimeMillis());
+            Complaint complaint = new Complaint(new java.util.Date(formatter.format(date)), employee, true, false, myComplaintsUI.getInvoledField().getText(), myComplaintsUI.getDescriptionField().getText(), rand.nextInt(10000));
 
             //TODO Change this to ArrayList<Employee> at some point if possible
             complaint.setInvoled(myComplaintsUI.getInvoledField().getText());

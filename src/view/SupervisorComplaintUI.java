@@ -33,8 +33,8 @@ public class SupervisorComplaintUI extends JFrame {
         add (assignEmployeeBtn); 
    
         //set component bounds (only needed by Absolute Positioning)
-        backBtn.setBounds(5, 5, 100, 100);
-        retrieveComplaintsBtn.setBounds (5, 115, 100, 100);
+        backBtn.setBounds(5, 5, 100, 50); ;
+        retrieveComplaintsBtn.setBounds (5, 115, 100, 50);
         textField.setBounds(110, 5, 800, 200);
         assignEmployeeField.setBounds(110, 220, 100, 20); 
         assignEmployeeBtn.setBounds(230, 220, 100, 20); 

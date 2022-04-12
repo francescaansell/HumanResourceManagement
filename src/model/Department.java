@@ -16,7 +16,7 @@ public class Department implements Serializable{
 
     public Department() {
         deptID = 1; 
-        deptName = "Shipping"; 
+        deptName = "None"; 
         employeeList = new ArrayList<Employee>(); 
     }
 

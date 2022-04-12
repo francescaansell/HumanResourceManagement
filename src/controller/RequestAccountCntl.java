@@ -35,16 +35,7 @@ public class RequestAccountCntl implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == employeeUI.getSubmitBtn()){
-            Employee employee = new Employee(); 
-            
-            employee.setUserName(employeeUI.getUsername());
-            employee.setPw(employeeUI.getPassword());
-            employee.setFirstName(employeeUI.getFirstName());
-            employee.setLastName(employeeUI.getLastName());
-            employee.setFullTime(employeeUI.getFullTime());
-
-            
-         
+            Employee employee = new Employee(employeeUI.getFirstName(), employeeUI.getLastName(), employeeUI.getUsername(), employeeUI.getPassword());  
             listOfEmployees.add(employee); 
             employeeList.writeEmployeeListFile(); 
            
