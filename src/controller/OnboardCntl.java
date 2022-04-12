@@ -18,7 +18,7 @@ public class OnboardCntl implements ActionListener{
     public Employee employee; 
     public EmployeeList employeeList; 
 
-    public OnboardCntl(){
+    public OnboardCntl(Employee employee){
         onboardEmployeeUI = new OnboardEmployeeUI(this);
         onboardEmployeeUI.setTitle("Onboard New Employee");
         onboardEmployeeUI.setVisible(true);
@@ -39,9 +39,13 @@ public class OnboardCntl implements ActionListener{
         if (e.getSource() == onboardEmployeeUI.getRetrievePendingButton()){
             for (Employee employee : employeeList.getemployeeList()){
                 
-                if (employee.getRole().equalsIgnoreCase("Pending") && onboardEmployeeUI.getEmployeeNameField().getText().equalsIgnoreCase(employee.getLastName())){
+                if (onboardEmployeeUI.getEmployeeNameField().getText().equalsIgnoreCase(employee.getLastName())){
                     onboardEmployeeUI.setFirstNameField(employee.getFirstName());
                     onboardEmployeeUI.setLastNameField(employee.getLastName());
+                    onboardEmployeeUI.setIDField(employee.getEmployeeID());
+                    onboardEmployeeUI.setDepartmentField(employee.getDepartmentName());
+                    onboardEmployeeUI.setRole(employee.getRole());
+                    onboardEmployeeUI.setPayScale(employee.getPayScale());
                     System.out.println("Found"); 
                 }
             }
@@ -53,9 +57,11 @@ public class OnboardCntl implements ActionListener{
             for (Employee employee : employeeList.getemployeeList()){
                 if (employee.getRole().equalsIgnoreCase("Pending") && onboardEmployeeUI.getEmployeeNameField().getText().equalsIgnoreCase(employee.getLastName())){
                     employee.setRole(onboardEmployeeUI.getRoleField().getText());
+                    employee.setDepartment(onboardEmployeeUI.getDepartment());
+                    employee.setPayScale(onboardEmployeeUI.getPayScale());
                     employeeList.writeEmployeeListFile();
-                    System.out.println("Reassinged role"); 
-                    JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updates Employee Information: " + employee.toString(), "Onboard Employee", JOptionPane.DEFAULT_OPTION);
+                    System.out.println("Updated Employee Information"); 
+                    JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updated Employee Information: " + employee.toString(), "Onboard Employee", JOptionPane.DEFAULT_OPTION);
                 } 
             }
         }

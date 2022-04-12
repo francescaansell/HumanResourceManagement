@@ -23,7 +23,7 @@ public class EmployeeUI extends JFrame {
     private JTextField lastNameField;
     private JTextField employeeIdField;
     private JTextField supervisorField;
-    private JTextField fullTimeField;
+    private JCheckBox fullTimeField;
     private JTextField payScaleField;
     private JTextField addressField;
     private JTextField roleField;
@@ -39,7 +39,7 @@ public class EmployeeUI extends JFrame {
         firstNameField = new JTextField (5);
         employeeId = new JLabel ("Employee Id: ");
         supervisor = new JLabel ("Supervisor: ");
-        fullTime = new JLabel ("Full Time: ");
+        fullTime = new JLabel ("Full Time");
         payScale = new JLabel ("Pay Scale: ");
         address = new JLabel ("Address: ");
         role = new JLabel ("Role: ");
@@ -48,7 +48,7 @@ public class EmployeeUI extends JFrame {
         lastNameField = new JTextField (5);
         employeeIdField = new JTextField (5);
         supervisorField = new JTextField (5);
-        fullTimeField = new JTextField (5);
+        fullTimeField = new JCheckBox();
         payScaleField = new JTextField (5);
         addressField = new JTextField (5);
         roleField = new JTextField (5);
@@ -99,7 +99,7 @@ public class EmployeeUI extends JFrame {
         supervisorField.setBounds (105, 305, 170, 25);
 
         fullTime.setBounds (25, 350, 100, 25);
-        fullTimeField.setBounds (105, 350, 170, 25);
+        //fullTimeField.setBounds (105, 350, 170, 25);
 
         payScale.setBounds (25, 395, 100, 25);
         payScaleField.setBounds (105, 395, 170, 25);
@@ -116,18 +116,18 @@ public class EmployeeUI extends JFrame {
         password.setBounds (360, 205, 100, 25);
         passwordField.setBounds (445, 205, 195, 25);
                 
-        backBtn.setBounds(5, 5, 100, 100);
-        updateBtn.setBounds(200, 475, 170, 25); 
+        backBtn.setBounds(5, 5, 100, 50); ;
+        updateBtn.setBounds(360, 475, 170, 25); 
     }
 
     public void setFirstNameField(String str){
         firstNameField.setText(str);
     }
     public void setLastNameField(String str){
-        lastNameField.setText("LAST");
+        lastNameField.setText(str);
     }
     public void setEmployeeIdField(int i){
-        employeeIdField.setText("ID");
+        employeeIdField.setText("" + i);
     }
     public void setRoleField(String str){
         roleField.setText(str);
@@ -142,7 +142,7 @@ public class EmployeeUI extends JFrame {
         passwordField.setText(str); 
     }
     public void setFullTime(Boolean b){
-        fullTimeField.setText(" " + b + " ");
+        fullTime.setVisible(b);
     }
     public void setAddressField(String str){
         addressField.setText(str);
@@ -152,5 +152,8 @@ public class EmployeeUI extends JFrame {
     }
     public JButton getUpdateBtn(){
         return updateBtn; 
+    }
+    public String getAddress(){
+        return addressField.getText(); 
     }
 }

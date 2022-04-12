@@ -18,6 +18,8 @@ public class Employee implements Serializable{
     protected ArrayList<TimeSheet> previousTimeSheets; 
     protected Role role; 
     protected Integer supervisorID; 
+    protected String address; 
+    protected String payscale; 
 
     
     /**
@@ -31,8 +33,10 @@ public class Employee implements Serializable{
      * @param department the department in which the employee works for 
      * @param previousTimeSheets 
      */
+
+     //TODO: make supervisor an employee attrivute or just use there id then search based on ID? thinking second one
     public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role,
-     int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, Integer supervisorID) {
+     int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, Integer supervisorID, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -43,63 +47,34 @@ public class Employee implements Serializable{
         this.numLeaveDays = numLeaveDays;  
         this.fullTime = fullTime; 
         this.previousTimeSheets = previousTimesheets; 
-        this.supervisorID = supervisorID; 
+        this.supervisorID = supervisorID;
+        this.address = address;  
+        //TODO: change later
+        this.payscale = ""; 
         
     }
     
     //Information Employee Can Enter
-    public Employee(String firstName, String lastName, String userName, String pw, Boolean fullTime, Integer supervisorID) {
+    public Employee(String firstName, String lastName, String userName, String pw) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.pw = pw; 
-        this.fullTime = fullTime; 
-        this.supervisorID = supervisorID; 
-        
-
+    
         //null for now 
-        this.department = null;  
+        this.fullTime = null; 
+        this.address = ""; 
+        this.supervisorID = 0; 
+        this.department = new Department();  
         this.employeeID = 0;
         this.numLeaveDays = 0;  
         this.previousTimeSheets = null; 
         this.role = new Role();
         this.role.setRoleName("Pending");  
-
-    }
-
-    //Information Supervisor Can Enter
-    public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role, int employeeID, int numLeaveDays, Boolean fullTime, ArrayList<TimeSheet> previousTimesheets) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.department = department;
-        this.role = role;  
-        this.pw = pw; 
-        this.employeeID = employeeID;
-        this.numLeaveDays = numLeaveDays; 
-        this.fullTime = fullTime; 
-        this.previousTimeSheets = previousTimesheets; 
-    
+        this.employeeID = 2345678;
+        this.payscale = ""; 
     }
     
-    /**
-     * This is the empty constructor for the employee class
-     */
-    public Employee() {
-        this.firstName = "First";
-        this.lastName = "Last";
-        this.userName = "username";
-        this.department = new Department(); 
-        this.role = new Role(); 
-        this.role.setRoleName("Pending"); 
-        this.pw = "pw"; 
-        this.employeeID = 0123;
-        this.numLeaveDays = 1; 
-        this.previousTimeSheets = new ArrayList<TimeSheet>(); 
-        this.department = new Department(); 
-
-        
-    }
     public String getFirstName() {
         return firstName;
     }
@@ -143,9 +118,12 @@ public class Employee implements Serializable{
     public Department getDepartment() {
         return department;
     }
+    public String getDepartmentName(){
+        return department.getDeptName(); 
+    }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartment(String department) {
+        this.department.setDeptName(department); 
     }
 
     public int getNumLeaveDays() {
@@ -181,10 +159,23 @@ public class Employee implements Serializable{
         role.setRoleName(roleName);
     }
 
+    public void setAddress(String str){
+        this.address = str; 
+    }
+    public String getAddress(){
+        return address; 
+    }
+    public void setPayScale(String str){
+        this.payscale = str; 
+    }
+    public String getPayScale(){
+        return this.payscale; 
+    }
+
     @Override
     public String toString()
     {
-        return "Employee{" + firstName + ", " + lastName + ", " + department.getDeptName() + ", " + getRole() + ", " + employeeID +'}';
+        return "Employee{" + firstName + ", " + lastName + '}';
     }
 
     public Boolean equals(Employee employee){

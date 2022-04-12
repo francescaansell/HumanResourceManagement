@@ -7,8 +7,9 @@ import model.*;
 
 public class EmployeeCntl implements ActionListener{
 
-    public Employee employee; 
-    public EmployeeUI employeeUI; 
+    private Employee employee; 
+    private EmployeeUI employeeUI; 
+    private NavigationCntl navigationCntl; 
 
     
     public EmployeeCntl(Employee employee){
@@ -36,8 +37,16 @@ public class EmployeeCntl implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == employeeUI.getUpdateBtn()){
+            System.out.println(employee.getAddress());
+            employee.setAddress(employeeUI.getAddress());
+            System.out.println(employee.getAddress());
             
         }
+        if(e.getSource() == employeeUI.getBackBtn()){
+            employeeUI.setVisible(false);
+            navigationCntl = new NavigationCntl(employee);
+        }
+
     }
     
 }
