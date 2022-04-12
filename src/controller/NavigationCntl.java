@@ -12,6 +12,9 @@ public class NavigationCntl implements ActionListener{
     
     public Employee employee;
     public HomeUI homeUI; 
+    private EmployeeCntl employeeCntl; 
+    private LoginCntl loginCntl; 
+    private ComplaintCntl complaintCntl; 
 
     public NavigationCntl(Employee employee) {
         homeUI = new HomeUI(this); 
@@ -34,11 +37,15 @@ public class NavigationCntl implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == homeUI.logOutBtn){
             homeUI.setVisible(false);
-            LoginCntl loginCntl = new LoginCntl(); //return to login screen
+            loginCntl = new LoginCntl(); //return to login screen
         }
         if (e.getSource() == homeUI.complaintsBtn){
             homeUI.setVisible(false);
-            ComplaintCntl complaintCntl = new ComplaintCntl(employee); 
+            complaintCntl = new ComplaintCntl(employee); 
+        }
+        if (e.getSource() == homeUI.employeeBtn){
+            homeUI.setVisible(false);
+            employeeCntl = new EmployeeCntl(employee); 
         }
         
     }
