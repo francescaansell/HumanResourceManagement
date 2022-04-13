@@ -1,17 +1,47 @@
 Preset Logins: 
 * username, password
-* frankieansell, 12345
-* vinces, 12345
+
+
+Admins
 * jenhod, 12345
+
+Supervisors
+* francescaansell, 12345
+* vinces, 12345
 * hannahk, 12345
 
+Employees 
+* guykane, 12345
 
-At the current state of our application a user can make a new account and then log in with that account. They will enter a home page where they can log out. 
+Pending 
+* josieansell, 12345
 
-The use case this application is supporting is Create New Employee. (That use case can be tested by clicking request account).
+Current Status: 
 
-If you make a new account you will be able to login with it. 
+(1) Authentication 
+* User cannot loging until approved by admin or supervisor 
+* User can login once approved
+* Can distinguish between supervisor and employee
+
+(2) Update Employee Information 
+* Employees can update their own information 
+
+(3) Approved and Update Employees
+* A supervisor can approve an employee 
+* A supervisor can update information about an employee such as pay scale, id, etc. 
+
+(4) Manage Complaints (Supervisor)
+* Can assign an supervsior to a complaint
+* Can view complaints assigned to them 
+* to be implemented 
+  * update information within complaint such as approved 
+
+(5) Create Complaint (Employee)
+* Can create an complaint with description, those involved, date of occurance, and date submitted 
+* to be implemented 
+  * view complaint status 
+    * this will include being able to see who has been assigned and what action has/or will be taken 
 
 
-
-THERE CAN ONLY BE ONE ADMIN ours will be jenhod 12345
+Other importants changes that need to be made: 
+* change .equals() for employee to check against more than just the last name
