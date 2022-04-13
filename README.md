@@ -22,6 +22,7 @@ Current Status:
 * User cannot loging until approved by admin or supervisor 
 * User can login once approved
 * Can distinguish between supervisor and employee
+  * ensure everyone has a unqiue ID
 
 (2) Update Employee Information 
 * Employees can update their own information 
