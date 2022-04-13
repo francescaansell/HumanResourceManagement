@@ -27,7 +27,7 @@ public class OnboardEmployeeUI extends JFrame{
     public OnboardEmployeeUI(OnboardCntl onboardCntl){
         
         retrievePendingBtn = new JButton("Get Employee"); 
-        chooseEmployee = new JLabel ("Enter an employees last name to search for their pending account");
+        chooseEmployee = new JLabel ("Enter an employees last name to search for their account");
         chooseEmployeeField = new JTextField(); 
         chooseEmployeeID = new JLabel("Enter Employee ID"); 
         chooseEmployeeIDField = new JTextField(); 

@@ -17,15 +17,16 @@ public class SupervisorComplaintCntl implements ActionListener {
 
     public Complaint complaint; 
     public SupervisorComplaintUI supervisorComplaintUI; 
-    private Employee employee; 
+    private Employee user; 
     private ComplaintList complaintList; 
     private SupervisorNavCntl supervisorNavCntl; 
+    private SupervisorComplaintCntl supervisorComplaintCntl; 
     private ArrayList<Complaint> assignedComplaints; 
     private ArrayList<Complaint> listOfComplaints; 
     private EmployeeList employeeList; 
     private Employee tempEmployee; 
 
-    public SupervisorComplaintCntl(Employee employee) {
+    public SupervisorComplaintCntl(Employee user) {
         supervisorComplaintUI = new SupervisorComplaintUI(this);
         supervisorComplaintUI.setTitle("Handle Complaints"); 
         supervisorComplaintUI.setVisible (true);
@@ -41,20 +42,25 @@ public class SupervisorComplaintCntl implements ActionListener {
         listOfComplaints = complaintList.getComplaintList(); 
         complaintList.printComplaintList(); 
 
-        this.employee = employee; 
-        System.out.println(this.employee); 
+        this.user = user; 
+        System.out.println(this.user); 
         assignedComplaints = new ArrayList<Complaint>(); 
         employeeList = new EmployeeList(); 
 
         updateAssignedComplaints(); 
-            supervisorComplaintUI.setTextField(this.assignedComplaints.toString()); 
+        String formated = "";
+        for (Complaint c: assignedComplaints){
+            formated = formated + c.toString() + "\r\n";
+        }
+        System.out.println(formated); 
+        supervisorComplaintUI.setTextField(formated); 
         
     }
 
     public void updateAssignedComplaints(){
         for (Complaint complaint: listOfComplaints){
             //System.out.println(complaint.getAssignedEmployee());
-            if ( (complaint.getAssignedEmployee()).equals(this.employee) ){
+            if ( (complaint.getAssignedEmployee()).equals(this.user) ){
                 this.assignedComplaints.add(complaint);
             }
         }
@@ -66,16 +72,19 @@ public class SupervisorComplaintCntl implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == supervisorComplaintUI.getBack()){
             supervisorComplaintUI.setVisible(false); 
-            supervisorNavCntl = new SupervisorNavCntl(employee); //return to home page 
+            supervisorNavCntl = new SupervisorNavCntl(user); //return to home page 
         }
         //TODO START HERE NEXT TIME so we can assign complaints to people 
         if (e.getSource() == supervisorComplaintUI.getAssignEmployeeBtn()){
             if (tempEmployee != null){
                 this.assignedComplaints.get(0).setAssignedEmployee(tempEmployee);
                 complaintList.writeComplaintListFile();
-                JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Assigned "+ tempEmployee.getFirstName() + " to " + this.assignedComplaints.get(0), "Handle Complaints", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Assigned "+ tempEmployee.getFirstName() + " to " + this.assignedComplaints.get(0), "Handle Complaints", JOptionPane.INFORMATION_MESSAGE);
                 updateAssignedComplaints();
                 System.out.println("Assigned Employee"); 
+                supervisorComplaintUI.dispose(); 
+                supervisorComplaintCntl = new SupervisorComplaintCntl(user); 
+                
             }  
             else {
                 JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Search for an employee", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
@@ -84,29 +93,31 @@ public class SupervisorComplaintCntl implements ActionListener {
 
         if (e.getSource() == supervisorComplaintUI.getSearchBtn()){
             Boolean found = false; 
-            for (Employee emp : employeeList.getemployeeList()){
-                if (supervisorComplaintUI.getEmployeeName().equalsIgnoreCase(emp.getLastName()) && emp.getRole().equalsIgnoreCase("Supervisor")){
-                    if (supervisorComplaintUI.getEmployeeName().equalsIgnoreCase(emp.getLastName()) && emp.getRole().equalsIgnoreCase("Supervisor") && supervisorComplaintUI.getEmployeeID().equals((emp.getEmployeeID()))){
+            for (Employee employee : employeeList.getemployeeList()){
+                if (supervisorComplaintUI.getEmployeeName().equalsIgnoreCase(employee.getLastName()) && employee.getRole().equalsIgnoreCase("Supervisor")){
+                    if (supervisorComplaintUI.getEmployeeName().equalsIgnoreCase(employee.getLastName()) && employee.getRole().equalsIgnoreCase("Supervisor") && supervisorComplaintUI.getEmployeeID().equals((employee.getEmployeeID()))){
                         System.out.println("Found"); 
-                        supervisorComplaintUI.setEmployeeInfo(emp.toString());
-                        tempEmployee = emp; 
+                        supervisorComplaintUI.setEmployeeInfo(employee.toString());
+                        tempEmployee = employee; 
                         found = true; 
                         break; 
                     } 
                 } 
-
+                //TODO should search by id instead of last name
                 else if (supervisorComplaintUI.getEmployeeName().equalsIgnoreCase(employee.getLastName()) && employee.getRole().equals("Employee")){
                     JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Employee Must be a Supervisor to be assinged to handle a complaint", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
+                    found = true; 
+                    supervisorComplaintUI.setEmployeeName("");
+                    supervisorComplaintUI.setEmployeeID("");
+                    supervisorComplaintUI.setEmployeeInfo("");
                 } 
             }
             if(!found){
                 JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Cannot Find Employee with those credentials", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
-            }
-        
-            if (supervisorComplaintUI.getEmployeeName().equals("")){
-                JOptionPane.showMessageDialog(this.supervisorComplaintUI, "No Matches", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
+                supervisorComplaintUI.setEmployeeName("");
+                supervisorComplaintUI.setEmployeeID("");
+                supervisorComplaintUI.setEmployeeInfo("");
             }
         }
-        
     }
 }

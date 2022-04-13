@@ -179,14 +179,17 @@ public class Employee implements Serializable{
     @Override
     public String toString()
     {
-        return "Employee{" + firstName + ", " + lastName + '}';
+        return "Employee{" + firstName + ", " + lastName + ", " + employeeID + '}';
     }
 
     public Boolean equals(Employee employee){
-        if ( (this.firstName.equals(employee.getFirstName())) && (this.lastName.equals(employee.getLastName())) && (this.employeeID == employee.getEmployeeID()) ){
-            return true; 
-        } else {
+        //TODO also check against ID
+        if (this.firstName.equals(employee.getFirstName()) && (this.lastName.equals(employee.getLastName()))){
+            //if((this.employeeID == employee.getEmployeeID()){
+                return true; 
+            } else {
             return false; 
         }
     }
 }
+

@@ -5,7 +5,7 @@ import controller.*;
 
 public class SupervisorComplaintUI extends JFrame {
     private JButton retrieveComplaintsBtn;
-    private JTextField textField; 
+    private JTextArea textArea; 
     private JButton backBtn; 
     private JTextField assignEmployeeField;
     private JButton assignEmployeeBtn; 
@@ -24,7 +24,7 @@ public class SupervisorComplaintUI extends JFrame {
         backBtn = new JButton("Back"); 
 
         //TODO this is prob gonna get changed to something else later
-        textField = new JTextField(); 
+        textArea = new JTextArea(); 
 
         assignEmployeeField = new JTextField();
         assignEmployeeBtn = new JButton("Assign Employee");  
@@ -43,7 +43,7 @@ public class SupervisorComplaintUI extends JFrame {
  
         //add (retrieveComplaintsBtn);
         add (backBtn); 
-        add (textField);
+        add (textArea);
         add (assignEmployeeField);
         add (assignEmployeeBtn); 
         add (employeeName);
@@ -56,7 +56,9 @@ public class SupervisorComplaintUI extends JFrame {
 
         backBtn.setBounds(5, 5, 100, 50); ;
         //retrieveComplaintsBtn.setBounds (5, 115, 100, 50);
-        textField.setBounds(110, 5, 800, 200);
+        textArea.setBounds(110, 5, 800, 200);
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
         assignEmployeeBtn.setBounds(530, 220, 200, 30); 
 
         employeeName.setBounds (110, 300, 400, 30); 
@@ -68,16 +70,17 @@ public class SupervisorComplaintUI extends JFrame {
         search.setBounds(110, 480, 400, 30); 
 
         employeeInfo.setBounds(530, 300, 300, 200); 
+        employeeInfo.setEditable(false);
     }
 
     public JButton getRetrieveComplaintsBtn(){
         return retrieveComplaintsBtn; 
     }
-    public JTextField getTextField(){
-        return textField;
+    public JTextArea getTextField(){
+        return textArea;
     }
     public void setTextField(String str){
-        this.textField.setText(str); 
+        this.textArea.setText(str); 
     }
     public JButton getBack(){
         return backBtn; 
@@ -94,10 +97,16 @@ public class SupervisorComplaintUI extends JFrame {
     public String getEmployeeName(){
         return employeeNameField.getText().trim(); 
     }
+    public void setEmployeeName(String str){
+        employeeNameField.setText(str);
+    }
     public void setEmployeeInfo(String str){
         employeeInfo.setText(str);
     }
     public Integer getEmployeeID(){
         return Integer.parseInt(employeeIDField.getText().trim());
+    }
+    public void setEmployeeID(String str){
+        employeeIDField.setText(str);
     }
 }
