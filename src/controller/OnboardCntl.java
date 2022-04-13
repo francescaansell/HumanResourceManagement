@@ -39,7 +39,7 @@ public class OnboardCntl implements ActionListener{
         if (e.getSource() == onboardEmployeeUI.getRetrievePendingButton()){
             for (Employee employee : employeeList.getemployeeList()){
                 
-                if (onboardEmployeeUI.getEmployeeNameField().getText().equalsIgnoreCase(employee.getLastName())){
+                if (onboardEmployeeUI.getEmployeeName().equalsIgnoreCase(employee.getLastName()) && onboardEmployeeUI.getChooseEmployeeID().equals(employee.getEmployeeID())){
                     onboardEmployeeUI.setFirstNameField(employee.getFirstName());
                     onboardEmployeeUI.setLastNameField(employee.getLastName());
                     onboardEmployeeUI.setIDField(employee.getEmployeeID());
@@ -55,7 +55,8 @@ public class OnboardCntl implements ActionListener{
         }
         if (e.getSource() == onboardEmployeeUI.getApproveBtn()){
             for (Employee employee : employeeList.getemployeeList()){
-                if (employee.getRole().equalsIgnoreCase("Pending") && onboardEmployeeUI.getEmployeeNameField().getText().equalsIgnoreCase(employee.getLastName())){
+                //TODO add id check
+                if (onboardEmployeeUI.getEmployeeName().equalsIgnoreCase(employee.getLastName()) && onboardEmployeeUI.getChooseEmployeeID().equals(employee.getEmployeeID())){
                     employee.setRole(onboardEmployeeUI.getRoleField().getText());
                     employee.setDepartment(onboardEmployeeUI.getDepartment());
                     employee.setPayScale(onboardEmployeeUI.getPayScale());

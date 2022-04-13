@@ -10,13 +10,13 @@ import model.Employee;
  */
 public class NavigationCntl implements ActionListener{
     
-    public Employee employee;
+    public Employee user;
     public HomeUI homeUI; 
     private EmployeeCntl employeeCntl; 
     private LoginCntl loginCntl; 
     private ComplaintCntl complaintCntl; 
 
-    public NavigationCntl(Employee employee) {
+    public NavigationCntl(Employee user) {
         homeUI = new HomeUI(this); 
         homeUI.setTitle("Home Page");
         homeUI.setVisible(true);
@@ -28,7 +28,7 @@ public class NavigationCntl implements ActionListener{
         homeUI.complaintsBtn.addActionListener(this); 
         homeUI.employeeBtn.addActionListener(this); 
 
-        this.employee = employee; 
+        this.user = user; 
         
 
     }
@@ -41,11 +41,11 @@ public class NavigationCntl implements ActionListener{
         }
         if (e.getSource() == homeUI.complaintsBtn){
             homeUI.setVisible(false);
-            complaintCntl = new ComplaintCntl(employee); 
+            complaintCntl = new ComplaintCntl(this.user); 
         }
         if (e.getSource() == homeUI.employeeBtn){
             homeUI.setVisible(false);
-            employeeCntl = new EmployeeCntl(employee); 
+            employeeCntl = new EmployeeCntl(this.user); 
         }
         
     }

@@ -7,7 +7,7 @@ import java.util.*;
  * @author Group1HRM
  */
 public class TimeSheet {
-    public int totalHours;
+    public Integer totalHours;
     public Date startTimeFrame; 
     public Date endTimeFrame; 
     public Employee employee;
@@ -25,11 +25,11 @@ public class TimeSheet {
      * This method will be used to calculate the total number of hours worked by the employee within the time frame given 
      * @return 
      */
-    public int calculateTotalHours(){
+    public Integer calculateTotalHours(){
         return 1; 
     }
 
-    public int getTotalHours() {
+    public Integer getTotalHours() {
         return totalHours;
     }
 

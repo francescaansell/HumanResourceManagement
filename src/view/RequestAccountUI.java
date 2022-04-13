@@ -15,7 +15,6 @@ public class RequestAccountUI extends JFrame{
     private JTextField username;
     private JLabel passwordlabel;
     private JTextField password;
-    private JCheckBox fullTime;
     private RequestAccountCntl requestAccountCntl; 
 
     public RequestAccountUI(RequestAccountCntl requestAccountCntl){
@@ -30,7 +29,7 @@ public class RequestAccountUI extends JFrame{
         username = new JTextField (5);
         passwordlabel = new JLabel ("Password");
         password = new JTextField (5);
-        fullTime = new JCheckBox ("Full Time");
+    
 
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
@@ -45,7 +44,7 @@ public class RequestAccountUI extends JFrame{
         add (username);
         add (passwordlabel);
         add (password);
-        add (fullTime);
+
 
         //set component bounds (only needed by Absolute Positioning)
         submit.setBounds (105, 360, 140, 20);
@@ -57,21 +56,21 @@ public class RequestAccountUI extends JFrame{
         username.setBounds (105, 185, 135, 25);
         passwordlabel.setBounds (105, 220, 100, 25);
         password.setBounds (105, 245, 135, 25);
-        fullTime.setBounds (100, 290, 100, 25);
+        
     }
 
     //Getters for requestAccountCntl to acsess things
     public String getUsername(){
-        return username.getText(); 
+        return username.getText().trim(); 
     }
     public String getPassword(){
-        return password.getText(); 
+        return password.getText().trim(); 
     }
     public String getFirstName(){
-        return fname.getText(); 
+        return fname.getText().trim(); 
     }
     public String getLastName(){
-        return lname.getText(); 
+        return lname.getText().trim(); 
     }
     public Boolean getFullTime(){
         //return JCheckBox.isSelected(); 

@@ -9,7 +9,7 @@ package model;
  */
 public class VacationRequest {
     public boolean approved; 
-    public int numDaysRequested;
+    public Integer numDaysRequested;
     public Employee assignedEmployee;
     public Employee requestingEmployee; 
     public VacationEligibility vacationEligibility; 
@@ -21,7 +21,7 @@ public class VacationRequest {
      * @param numDaysRequested the number of days the employee requested off
      * @param assignedEmployee the employee assigned to approve the request 
      */
-    public VacationRequest(boolean approved, int numDaysRequested, Employee assignedEmployee, VacationEligibility vacationEligibility, Employee requestingEmployee) {
+    public VacationRequest(boolean approved, Integer numDaysRequested, Employee assignedEmployee, VacationEligibility vacationEligibility, Employee requestingEmployee) {
         this.approved = approved;
         this.numDaysRequested = numDaysRequested;
         this.assignedEmployee = assignedEmployee; 
@@ -44,7 +44,7 @@ public class VacationRequest {
     public void setNumDaysRequested(int numDaysRequested){
         this.numDaysRequested = numDaysRequested; 
     }
-    public int getNumDaysRequested(){
+    public Integer getNumDaysRequested(){
         return this.numDaysRequested; 
     }
 

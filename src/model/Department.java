@@ -5,10 +5,10 @@ import java.util.*;
 
 public class Department implements Serializable{
     public String deptName; 
-    public int deptID; 
+    public Integer deptID; 
     public ArrayList<Employee> employeeList; 
 
-    public Department(String deptName, int deptID, ArrayList<Employee> employeeList) {
+    public Department(String deptName, Integer deptID, ArrayList<Employee> employeeList) {
         deptID = this.deptID; 
         deptName = this.deptName; 
         employeeList = this.employeeList; 
@@ -29,7 +29,7 @@ public class Department implements Serializable{
     public void setEmployeeList(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
     }
-    public int getDeptID() {
+    public Integer getDeptID() {
         return deptID;
     }
     public String getDeptName() {

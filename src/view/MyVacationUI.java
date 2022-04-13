@@ -8,6 +8,6 @@ import model.*;
  * @author Group1HRM
  */
 public class MyVacationUI {
-    public void printVacationDetails(boolean approved, int numDaysRequested, Employee assignedEmployee, VacationEligibility vacationEligibility, Employee requestingEmployee){
+    public void printVacationDetails(boolean approved, Integer numDaysRequested, Employee assignedEmployee, VacationEligibility vacationEligibility, Employee requestingEmployee){
     }
 }

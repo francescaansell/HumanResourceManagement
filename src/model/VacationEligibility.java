@@ -10,10 +10,10 @@ package model;
 public class VacationEligibility {
 
     protected String firstName, lastName, userName, department, timeWorked; 
-    protected int employeeID; 
-    protected int numLeaveDays;   //Paid Time Off based off of fulltime/parttime(PTO)
-    protected int numPurchasedDays; ////Paid Time Off that has been purchased by employee
-    protected int numTotPTO;
+    protected Integer employeeID; 
+    protected Integer numLeaveDays;   //Paid Time Off based off of fulltime/parttime(PTO)
+    protected Integer numPurchasedDays; ////Paid Time Off that has been purchased by employee
+    protected Integer numTotPTO;
     protected Employee employee; 
 
     //Empty Constructor
@@ -29,7 +29,7 @@ public class VacationEligibility {
         //To retrieve the number of leave days that the employee has based on their full-time/part-time classification
     }
 
-    public int getNumTotPTO(){
+    public Integer getNumTotPTO(){
         return numTotPTO;
     }
 
