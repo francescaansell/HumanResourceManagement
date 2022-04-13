@@ -19,12 +19,14 @@ public class Complaint implements Serializable{
    
 
     /**
-     * This is the default constructor
-     * @param assignedEmployee the employee assigned to the complaint
-     * @param openDate the date the complaint was opened 
-     * @param claimant the employee making the complaint
-     * @param open whether or not the complaint is currently open
-     * @param approved 
+     * 
+     * @param openDate
+     * @param claimant
+     * @param open
+     * @param approved
+     * @param involved
+     * @param description
+     * @param id
      */
     public Complaint(java.util.Date openDate, Employee claimant, Boolean open, Boolean approved, String involved, String description, Integer id) {
         this.openDate = openDate; 
@@ -74,10 +76,6 @@ public class Complaint implements Serializable{
         this.assignedEmployee = assign;
     }   
 
-    public void approveComplaint(){
-
-    }
-
     public Boolean getApproved() {
         return this.approved;
     }
@@ -89,17 +87,19 @@ public class Complaint implements Serializable{
     public String sendOutResponse(){
         return ""; 
     }
+
     public void setID(){
         Random rand = new Random();
         //TODO: while complaint in complaint list if id = this id then create a different id 
-        this.id = rand.nextInt(10000);
+        this.id = rand.nextInt(100);
     }
+
     public Integer getId(){
         return this.id; 
     }
+
     @Override
-    public String toString()
-    {
+    public String toString(){
         return "Complaint{" + "Assigned Employee: " + this.assignedEmployee + ", Open date: " + this.openDate + ", Claimant: " + this.claimant + ", Open: " + this.open + '}';
     }
 

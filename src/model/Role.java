@@ -36,5 +36,16 @@ public class Role implements Serializable{
     public String toString() {
         return super.toString() + "\n" + "Role Name: " + this.roleName + " Access Groups: " + this.accessLevel; 
         //super.toString will put all of the Employee class attributes, then manually added the Role classattributes
-    }    
+    }  
+
+
+    //TODO implemement this across application 
+    public Boolean equals(Role r){
+        if (r.getRoleName().equals(this.roleName)){
+            return true;
+        } else {
+            return false; 
+        }
+
+    }
 }

@@ -1,11 +1,8 @@
 package view;
 import java.awt.*;
-import java.awt.event.*;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
-
 import javax.swing.*;
 import controller.*;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -24,10 +21,7 @@ public class MyComplaintsUI extends JFrame {
     public JDatePanelImpl datePanel; 
     public JDatePickerImpl datePicker; 
  
-
-
     public MyComplaintsUI(ComplaintCntl complaintCntl) {
-        //construct components
         submitBtn = new JButton ("Submit");
         descriptionField = new JTextArea (5, 5);
         descripition = new JLabel ("Description");
@@ -45,12 +39,9 @@ public class MyComplaintsUI extends JFrame {
         datePanel = new JDatePanelImpl(model, p);
         datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
 
-
-        //adjust size and set layout
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
 
-        //add components
         add (submitBtn);
         add (descriptionField);
         add (descripition);
@@ -59,8 +50,6 @@ public class MyComplaintsUI extends JFrame {
         add (date);
         add (backBtn); 
         add (datePicker);
-
-        //set component bounds (only needed by Absolute Positioning)
         
         descriptionField.setBounds (45, 275, 230, 145);
         descripition.setBounds (45, 250, 100, 25);
@@ -72,10 +61,10 @@ public class MyComplaintsUI extends JFrame {
         backBtn.setBounds(5, 5, 100, 50); ;
         
     }
+
     public java.util.Date getDate(){
         java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
-        return selectedDate; 
-        
+        return selectedDate;       
     }
 
     public void setDate(String newDate){
@@ -95,6 +84,7 @@ public class MyComplaintsUI extends JFrame {
     public JButton getSubmit(){
         return submitBtn; 
     }
+
     public String getInvolved(){
         return involvedField.getText().trim();
     }
@@ -106,9 +96,11 @@ public class MyComplaintsUI extends JFrame {
     public void setInvolved(String str){
         this.involvedField.setText(str);
     }
+
     public void setDescription(String str){
         this.descriptionField.setText(str);
     }
+    
     public String getDescription(){
         return descriptionField.getText().trim();
     }
