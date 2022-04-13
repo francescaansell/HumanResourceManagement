@@ -56,6 +56,8 @@ public class EmployeeUI extends JFrame {
         passwordField = new JTextField (5);
         backBtn = new JButton("Back"); 
         updateBtn = new JButton("Update"); 
+        address = new JLabel("Address:"); 
+        addressField = new JTextField();
 
         //adjust size and set layout
         setPreferredSize (new Dimension (816, 589));
@@ -84,6 +86,8 @@ public class EmployeeUI extends JFrame {
         add (passwordField);
         add (backBtn);
         add (updateBtn);
+        add (addressField); 
+       
 
         //set component bounds (only needed by Absolute Positioning)
         firstName .setBounds (25, 170, 100, 25);
@@ -94,27 +98,31 @@ public class EmployeeUI extends JFrame {
 
         employeeId.setBounds (25, 260, 100, 25);
         employeeIdField.setBounds (105, 260, 170, 25);
+        employeeIdField.setEditable(false);
 
         supervisor.setBounds (25, 305, 100, 25);
         supervisorField.setBounds (105, 305, 170, 25);
+        supervisorField.setEditable(false);
 
         fullTime.setBounds (25, 350, 100, 25);
         //fullTimeField.setBounds (105, 350, 170, 25);
 
         payScale.setBounds (25, 395, 100, 25);
         payScaleField.setBounds (105, 395, 170, 25);
-
-        address.setBounds (25, 435, 100, 25);
-        addressField.setBounds (105, 435, 170, 25);
+        payScaleField.setEditable(false);
 
         role.setBounds (25, 475, 100, 25);
         roleField.setBounds (105, 475, 170, 25);
+        roleField.setEditable(false);
 
         username.setBounds (360, 170, 100, 25);
         userNameField.setBounds (445, 170, 195, 25);
 
         password.setBounds (360, 205, 100, 25);
         passwordField.setBounds (445, 205, 195, 25);
+
+        address.setBounds (360, 240, 100, 25);
+        addressField.setBounds (445, 240, 300, 25);
                 
         backBtn.setBounds(5, 5, 100, 50); ;
         updateBtn.setBounds(360, 475, 170, 25); 
@@ -154,6 +162,6 @@ public class EmployeeUI extends JFrame {
         return updateBtn; 
     }
     public String getAddress(){
-        return addressField.getText(); 
+        return addressField.getText().trim(); 
     }
 }

@@ -95,21 +95,21 @@ public class MyComplaintsUI extends JFrame {
     public JButton getSubmit(){
         return submitBtn; 
     }
-    public JTextArea getInvoledField(){
-        return involvedField;
+    public String getInvolved(){
+        return involvedField.getText().trim();
     }
 
     public JButton getBack(){
         return backBtn; 
     }
 
-    public void setInvoledField(String str){
+    public void setInvolved(String str){
         this.involvedField.setText(str);
     }
-    public void setDescriptionField(String str){
+    public void setDescription(String str){
         this.descriptionField.setText(str);
     }
-    public JTextArea getDescriptionField(){
-        return descriptionField;
+    public String getDescription(){
+        return descriptionField.getText().trim();
     }
 }

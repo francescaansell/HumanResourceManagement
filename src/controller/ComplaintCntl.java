@@ -53,14 +53,15 @@ public class ComplaintCntl implements ActionListener {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
             Random rand = new Random();
             Date date = new Date(System.currentTimeMillis());
-            Complaint complaint = new Complaint(new java.util.Date(formatter.format(date)), employee, true, false, myComplaintsUI.getInvoledField().getText(), myComplaintsUI.getDescriptionField().getText(), rand.nextInt(10000));
+            formatter.format(date); 
+            Complaint complaint = new Complaint(date, employee, true, false, myComplaintsUI.getInvolved(), myComplaintsUI.getDescription(), rand.nextInt(10000));
 
             //TODO Change this to ArrayList<Employee> at some point if possible
-            complaint.setInvoled(myComplaintsUI.getInvoledField().getText());
+            complaint.setInvoled(myComplaintsUI.getInvolved());
 
             complaint.setOpen(true);
             complaint.setOpenDate(myComplaintsUI.getDate());
-            complaint.setDescription(myComplaintsUI.getDescriptionField().getText());
+            complaint.setDescription(myComplaintsUI.getDescription());
             complaint.setID(); 
             complaint.setClaimant(employee); 
           
@@ -77,8 +78,8 @@ public class ComplaintCntl implements ActionListener {
             
             
             JOptionPane.showMessageDialog(this.myComplaintsUI, "Created Complaint: " + complaint.toString(), "Complaint", JOptionPane.DEFAULT_OPTION);
-            myComplaintsUI.setInvoledField("");
-            myComplaintsUI.setDescriptionField("");
+            myComplaintsUI.setInvolved("");
+            myComplaintsUI.setDescription("");
           
             listOfComplaints.add(complaint);
             complaintList.writeComplaintListFile();

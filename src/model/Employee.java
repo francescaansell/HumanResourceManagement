@@ -12,8 +12,8 @@ public class Employee implements Serializable{
     protected String userName;
     protected String pw;
     protected Department department; 
-    protected int employeeID; 
-    protected int numLeaveDays;
+    protected Integer employeeID; 
+    protected Integer numLeaveDays;
     protected Boolean fullTime; 
     protected ArrayList<TimeSheet> previousTimeSheets; 
     protected Role role; 
@@ -36,7 +36,7 @@ public class Employee implements Serializable{
 
      //TODO: make supervisor an employee attrivute or just use there id then search based on ID? thinking second one
     public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role,
-     int employeeID, int numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, Integer supervisorID, String address) {
+     Integer employeeID, Integer numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, Integer supervisorID, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -99,7 +99,7 @@ public class Employee implements Serializable{
         this.userName = userName;
     }
 
-    public int getEmployeeID() {
+    public Integer getEmployeeID() {
         return employeeID;
     }
 
@@ -126,7 +126,7 @@ public class Employee implements Serializable{
         this.department.setDeptName(department); 
     }
 
-    public int getNumLeaveDays() {
+    public Integer getNumLeaveDays() {
         return numLeaveDays;
     }
 
@@ -150,9 +150,13 @@ public class Employee implements Serializable{
         return this.previousTimeSheets; 
     }
 
+    //TODO add equals method in Role
     public String getRole() {
      
         return role.getRoleName(); 
+    }
+    public Role getRoleObject(){
+        return role; 
     }
 
     public void setRole(String roleName){

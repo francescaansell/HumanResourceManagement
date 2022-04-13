@@ -5,9 +5,8 @@ import javax.swing.*;
 public class OnboardEmployeeUI extends JFrame{
 
     private JLabel chooseEmployee;
-  
     private JButton retrievePendingBtn; 
-    private JTextField employeeNameField; 
+    private JTextField chooseEmployeeField; 
     private JLabel firstName;
     private JTextField firstNameField;
     private JLabel lastName;
@@ -22,12 +21,17 @@ public class OnboardEmployeeUI extends JFrame{
     private JTextField departmentField; 
     private JLabel payscale; 
     private JTextField payscaleField; 
+    private JLabel chooseEmployeeID; 
+    private JTextField chooseEmployeeIDField; 
 
     public OnboardEmployeeUI(OnboardCntl onboardCntl){
         
         retrievePendingBtn = new JButton("Get Employee"); 
         chooseEmployee = new JLabel ("Enter an employees last name to search for their pending account");
-        employeeNameField = new JTextField(); 
+        chooseEmployeeField = new JTextField(); 
+        chooseEmployeeID = new JLabel("Enter Employee ID"); 
+        chooseEmployeeIDField = new JTextField(); 
+
         firstName = new JLabel ("First Name:");
         firstNameField = new JTextField (5);
         lastName = new JLabel ("Last Name:");
@@ -51,7 +55,7 @@ public class OnboardEmployeeUI extends JFrame{
         //add components
         add (chooseEmployee);
         add (retrievePendingBtn);
-        add (employeeNameField); 
+        add (chooseEmployeeField); 
         add (firstName);
         add (firstNameField);
         add (lastName);
@@ -66,12 +70,16 @@ public class OnboardEmployeeUI extends JFrame{
         add (departmentField);
         add (payscale); 
         add (payscaleField);
+        add (chooseEmployeeID); 
+        add (chooseEmployeeIDField); 
 
        
         backBtn.setBounds(25, 5, 100, 50); ;
 
         chooseEmployee.setBounds (25, 120, 400, 30); 
-        employeeNameField.setBounds (25, 160, 200, 25);
+        chooseEmployeeField.setBounds (25, 160, 200, 25);
+        chooseEmployeeID.setBounds(25, 200, 400, 30); 
+        chooseEmployeeIDField.setBounds(25, 240, 200, 25);
 
         retrievePendingBtn.setBounds (25, 300, 390, 30); 
         
@@ -114,10 +122,10 @@ public class OnboardEmployeeUI extends JFrame{
     }
 
     public void setEmployeeNameField(String str){
-        this.employeeNameField.setText(str); 
+        this.chooseEmployeeField.setText(str); 
     }
-    public JTextField getEmployeeNameField(){
-        return employeeNameField; 
+    public String getEmployeeName(){
+        return chooseEmployeeField.getText().trim(); 
     }
     public JTextField getRoleField(){
         return roleField; 
@@ -142,16 +150,22 @@ public class OnboardEmployeeUI extends JFrame{
         this.idField.setText(""+ i); 
     }
     public String getPayScale(){
-        return payscaleField.getText(); 
+        return payscaleField.getText().trim(); 
     }
     public void setPayScale(String str){
         payscaleField.setText(str); 
     }
     public String getDepartment(){
-        return departmentField.getText();
+        return departmentField.getText().trim();
     }
     public void setDepartmentField(String department){
         this.departmentField.setText(department);
+    }
+    public Integer getChooseEmployeeID(){
+        return Integer.parseInt(chooseEmployeeIDField.getText().trim());
+    }
+    public void setChooseEmployeeID(Integer i){
+        this.chooseEmployeeIDField.setText("" + i); 
     }
   
 }

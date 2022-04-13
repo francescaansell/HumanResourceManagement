@@ -9,10 +9,18 @@ public class SupervisorComplaintUI extends JFrame {
     private JButton backBtn; 
     private JTextField assignEmployeeField;
     private JButton assignEmployeeBtn; 
+    private JLabel employeeName;
+    private JButton retrieveEmployee; 
+    private JTextField employeeNameField;
+    private JTextArea employeeInfo; 
+    private JLabel employeeIDLabel; 
+    private JTextField employeeIDField; 
+    private JButton search; 
+
   
     public SupervisorComplaintUI(SupervisorComplaintCntl supervisorComplaintCntl) {
         //construct components
-        retrieveComplaintsBtn = new JButton ("Retrieve \n Complaints");
+        retrieveComplaintsBtn = new JButton ("Retrieve");
         backBtn = new JButton("Back"); 
 
         //TODO this is prob gonna get changed to something else later
@@ -21,25 +29,45 @@ public class SupervisorComplaintUI extends JFrame {
         assignEmployeeField = new JTextField();
         assignEmployeeBtn = new JButton("Assign Employee");  
 
-        //adjust size and set layout
+        retrieveEmployee = new JButton("Get Employee"); 
+        employeeName = new JLabel ("Enter an employees last name to search for their account");
+        employeeNameField = new JTextField(); 
+
+        employeeIDLabel = new JLabel("Enter an employees ID to search for their account");
+        employeeIDField = new JTextField();
+        search = new JButton("Search"); 
+        employeeInfo = new JTextArea(); 
+
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
-
-        //add components
-        add (retrieveComplaintsBtn);
+ 
+        //add (retrieveComplaintsBtn);
         add (backBtn); 
         add (textField);
         add (assignEmployeeField);
         add (assignEmployeeBtn); 
-   
-        //set component bounds (only needed by Absolute Positioning)
-        backBtn.setBounds(5, 5, 100, 50); ;
-        retrieveComplaintsBtn.setBounds (5, 115, 100, 50);
-        textField.setBounds(110, 5, 800, 200);
-        assignEmployeeField.setBounds(110, 220, 100, 20); 
-        assignEmployeeBtn.setBounds(230, 220, 100, 20); 
+        add (employeeName);
+        add (retrieveEmployee);
+        add (employeeNameField);
+        add (employeeIDLabel);
+        add (employeeIDField); 
+        add (search); 
+        add (employeeInfo); 
 
-        
+        backBtn.setBounds(5, 5, 100, 50); ;
+        //retrieveComplaintsBtn.setBounds (5, 115, 100, 50);
+        textField.setBounds(110, 5, 800, 200);
+        assignEmployeeBtn.setBounds(530, 220, 200, 30); 
+
+        employeeName.setBounds (110, 300, 400, 30); 
+        employeeNameField.setBounds (110, 340, 200, 25);
+
+        employeeIDLabel.setBounds(110, 380, 400, 30);
+        employeeIDField.setBounds(110, 420, 200, 30); 
+
+        search.setBounds(110, 480, 400, 30); 
+
+        employeeInfo.setBounds(530, 300, 300, 200); 
     }
 
     public JButton getRetrieveComplaintsBtn(){
@@ -59,5 +87,17 @@ public class SupervisorComplaintUI extends JFrame {
     }
     public JTextField getAssignEmployeeField(){
         return assignEmployeeField; 
+    }
+    public JButton getSearchBtn(){
+        return search; 
+    }
+    public String getEmployeeName(){
+        return employeeNameField.getText().trim(); 
+    }
+    public void setEmployeeInfo(String str){
+        employeeInfo.setText(str);
+    }
+    public Integer getEmployeeID(){
+        return Integer.parseInt(employeeIDField.getText().trim());
     }
 }

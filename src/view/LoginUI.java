@@ -55,12 +55,18 @@ public class LoginUI extends JFrame  {
         return loginButton;
     }
 
-    public JTextField getUsernameTextField(){
-        return usernameTextField;
+    public String getUsername(){
+        return usernameTextField.getText().trim();
+    }
+    public void setUsername(String str){
+        usernameTextField.setText(str);
     }
 
     public JPasswordField getPasswordField(){
         return passwordField;
+    }
+    public void setPasswordField(String str){
+        passwordField.setText(str);
     }
 
     public JButton getResetButton(){

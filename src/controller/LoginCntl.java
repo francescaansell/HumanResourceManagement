@@ -32,12 +32,11 @@ public class LoginCntl implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        //TODO add functionality so that the user can choose to login as supervisor or employee
         if (e.getSource() == loginUI.getLoginBtn()) {
             String username;
             String password;
 
-            username = loginUI.getUsernameTextField().getText();
+            username = loginUI.getUsername();
             password = String.valueOf(loginUI.getPasswordField().getPassword());
 
             //System.out.println("USERNAME" + username);
@@ -76,8 +75,8 @@ public class LoginCntl implements ActionListener{
         }//end if click login 
 
         if (e.getSource() == loginUI.getResetButton()) {
-            loginUI.getUsernameTextField().setText("");
-            loginUI.getPasswordField().setText("");
+            loginUI.setUsername("");
+            loginUI.setPasswordField("");;
         }
         if (e.getSource() == loginUI.getShowPassword()) {
             if (loginUI.getShowPassword().isSelected()) {

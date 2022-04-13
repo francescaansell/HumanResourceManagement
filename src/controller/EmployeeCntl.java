@@ -26,6 +26,7 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setEmployeeIdField(employee.getEmployeeID());
         employeeUI.setUsernameField(employee.getUserName());
         employeeUI.setPasswordField(employee.getPw());
+        employeeUI.setAddressField(employee.getAddress());
         employeeUI.setRoleField(employee.getRole());
         employeeUI.setFullTime(employee.getFullTime());
         employeeUI.getBackBtn().addActionListener(this); 
