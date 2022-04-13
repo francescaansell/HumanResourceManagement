@@ -41,7 +41,12 @@ Current Status:
 * to be implemented 
   * view complaint status 
     * this will include being able to see who has been assigned and what action has/or will be taken 
+  * possibly find a way to indentify those involed as employees within the system rather than just a string
+  * add type attribute to complaint and allow supervisor to sort as such 
 
 
 Other importants changes that need to be made: 
 * change .equals() for employee to check against more than just the last name
+
+
+****** Would rather make what we have really good instead of trying to half implement multiple things ************
