@@ -31,7 +31,6 @@ public class LoginUI extends JFrame  {
 
     public LoginUI(LoginCntl loginCntl) {   
         this.loginCntl = loginCntl; 
-        
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();  
@@ -40,17 +39,19 @@ public class LoginUI extends JFrame  {
     public String getLogin(){
         return login; 
     }
+    
     public void setLogin(String login){
         this.login = login; 
     }
+
     public String getPw(){
         return pw; 
     }
+
     public void setPw(String pw){
         this.pw = pw; 
     }  
 
-    //Getters for LoginCntl to access things
     public JButton getLoginBtn(){
         return loginButton;
     }
@@ -81,7 +82,6 @@ public class LoginUI extends JFrame  {
         return requestAccessButton; 
     }
     
-    //JFrame 
     public void setLayoutManager() {
         container.setLayout(null);
     }

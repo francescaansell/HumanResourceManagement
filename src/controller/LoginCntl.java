@@ -7,13 +7,10 @@ import model.*;
 import view.*; 
 public class LoginCntl implements ActionListener{
 
-    public LoginUI loginUI;
-    public RequestAccountUI employeeUI;  
-    RequestAccountCntl requestAccountCntl; 
-    NavigationCntl navCntl; 
-    SupervisorNavCntl supervisorNavCntl; 
- 
-    public EmployeeList employeeList; 
+    private LoginUI loginUI;
+    private RequestAccountUI employeeUI;  
+    private RequestAccountCntl requestAccountCntl; 
+    private EmployeeList employeeList; 
 
     public LoginCntl(){
         loginUI = new LoginUI(this);
@@ -33,36 +30,21 @@ public class LoginCntl implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginUI.getLoginBtn()) {
-            String username;
-            String password;
-
-            username = loginUI.getUsername();
-            password = String.valueOf(loginUI.getPasswordField().getPassword());
-
-            //System.out.println("USERNAME" + username);
-            //System.out.println("PW" + password); 
+            String username = loginUI.getUsername();
+            String password = String.valueOf(loginUI.getPasswordField().getPassword()); 
             
-            for (Employee employee : employeeList.getemployeeList()){
-
-                //System.out.println(employee.getUserName());
-                //System.out.println(employee.getPw());
-            
+            for (Employee employee : employeeList.getemployeeList()){   
                 if (username.equalsIgnoreCase(employee.getUserName()) && password.equalsIgnoreCase(employee.getPw())) {           
-                    if (employee.getRole().equalsIgnoreCase("Admin") || employee.getRole().equalsIgnoreCase("Supervisor")){
-                        //this is a superviosr
-                        //System.out.println("Supervisor");
+                    if (employee.getRole().equalsIgnoreCase("Admin") || employee.getRole().equalsIgnoreCase("Supervisor")){ //this is a superviosr
                         System.out.println(employee); 
                         SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(employee); 
                         loginUI.setVisible(false);
                         
-                    } else if (employee.getRole().equals("Pending")){
-                        //this is an employee that is pending
+                    } else if (employee.getRole().equals("Pending")){ //this is an employee that is pending
                         JOptionPane.showMessageDialog(this.loginUI, "Your account is still pending", "Login", JOptionPane.ERROR_MESSAGE);
-                    }
-                    
-                    else {
-                        //this is a regular employee
-                        //System.out.println("Employee");
+                        LoginCntl loginCntl = new LoginCntl(); 
+                        loginUI.dispose();
+                    }else { //this is a regular employee
                         System.out.println(employee);
                         NavigationCntl navCntl = new NavigationCntl(employee); 
                         loginUI.setVisible(false); 

@@ -2,18 +2,15 @@ Preset Logins (as of 4/13 git hub push):
 * username, password
 
 Admins
-* jenhod, 12345
+* jah320, buddy123!
 
 Supervisors
-* francescaansell, 12345
-* vinces, 12345
+* fla568, ilovedogs7!
+* ves824, coffeelover0!
 * hannahk, 12345
 
 Employees 
-* guykane, 12345
-
-Pending 
-* josieansell, 12345
+* guykane, netflix2!
 
 Current Status: 
 

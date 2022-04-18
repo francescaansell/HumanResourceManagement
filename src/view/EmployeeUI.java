@@ -1,10 +1,6 @@
 package view;
-
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-
 import controller.*;
 import model.Employee;
 
@@ -31,6 +27,8 @@ public class EmployeeUI extends JFrame {
     private JTextField passwordField;
     private JButton backBtn; 
     private JButton updateBtn; 
+
+    //TODO change from useraname to ID
 
     public EmployeeUI(EmployeeCntl employeeCntl) {
         //construct components
@@ -92,9 +90,11 @@ public class EmployeeUI extends JFrame {
         //set component bounds (only needed by Absolute Positioning)
         firstName .setBounds (25, 170, 100, 25);
         firstNameField.setBounds (105, 170, 170, 25);
+        firstNameField.setEditable(false);
 
         lastName.setBounds (25, 215, 100, 25);
         lastNameField.setBounds (105, 215, 170, 25);
+        lastNameField.setEditable(false);
 
         employeeId.setBounds (25, 260, 100, 25);
         employeeIdField.setBounds (105, 260, 170, 25);
@@ -117,6 +117,7 @@ public class EmployeeUI extends JFrame {
 
         username.setBounds (360, 170, 100, 25);
         userNameField.setBounds (445, 170, 195, 25);
+        userNameField.setEditable(false);
 
         password.setBounds (360, 205, 100, 25);
         passwordField.setBounds (445, 205, 195, 25);
@@ -134,8 +135,8 @@ public class EmployeeUI extends JFrame {
     public void setLastNameField(String str){
         lastNameField.setText(str);
     }
-    public void setEmployeeIdField(int i){
-        employeeIdField.setText("" + i);
+    public void setEmployeeIdField(String str){
+        employeeIdField.setText(str);
     }
     public void setRoleField(String str){
         roleField.setText(str);
@@ -143,15 +144,15 @@ public class EmployeeUI extends JFrame {
     public void setUsernameField(String str){
         userNameField.setText(str);
     }
-    public void setSupervisorField(Employee employee){
-        supervisorField.setText(employee.toString());   
+    public void setSupervisorField(String str){
+        supervisorField.setText(str);   
     }
     public void setPasswordField(String str){
         passwordField.setText(str); 
     }
     public void setFullTime(Boolean b){
-        fullTime.setVisible(b);
-    }
+         fullTime.setVisible(b);
+     }
     public void setAddressField(String str){
         addressField.setText(str);
     }
@@ -164,4 +165,18 @@ public class EmployeeUI extends JFrame {
     public String getAddress(){
         return addressField.getText().trim(); 
     }
+    public void setPayScale(String str){
+        payScaleField.setText(str);
+    }
+    public void setDepartment(String str){
+
+    }
+    public String getPassword(){
+        return passwordField.getText();
+    }
+
+    public String getEmployeeID(){
+        return userNameField.getText().trim(); 
+    }
+ 
 }

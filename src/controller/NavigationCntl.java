@@ -16,21 +16,20 @@ public class NavigationCntl implements ActionListener{
     private LoginCntl loginCntl; 
     private ComplaintCntl complaintCntl; 
 
-    public NavigationCntl(Employee user) {
+    public NavigationCntl(Employee u) {
         homeUI = new HomeUI(this); 
         homeUI.setTitle("Home Page");
         homeUI.setVisible(true);
         homeUI.setBounds(10, 10, 1000, 600);
         homeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeUI.setResizable(true);
+
+        this.user = u; 
+        
         homeUI.logOutBtn.addActionListener(this);
         homeUI.hoursBtn.addActionListener(this); 
         homeUI.complaintsBtn.addActionListener(this); 
-        homeUI.employeeBtn.addActionListener(this); 
-
-        this.user = user; 
-        
-
+        homeUI.employeeBtn.addActionListener(this);         
     }
 
     @Override

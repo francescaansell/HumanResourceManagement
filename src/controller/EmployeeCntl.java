@@ -16,25 +16,28 @@ public class EmployeeCntl implements ActionListener{
     
 
     
-    public EmployeeCntl(Employee user){
+    public EmployeeCntl(Employee u){
         employeeUI = new EmployeeUI(this);
-        employeeUI.setTitle("Supervisor Home Page");
+        employeeUI.setTitle("Employee Information Page");
         employeeUI.setVisible(true);
         employeeUI.setBounds(10, 10, 1000, 600);
         employeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         employeeUI.setResizable(true);
 
-        this.user = user; 
+        this.user = u; 
         employeeList = new EmployeeList(); 
 
-        employeeUI.setFirstNameField(user.getFirstName());
-        employeeUI.setLastNameField(user.getLastName());
-        employeeUI.setEmployeeIdField(user.getEmployeeID());
-        employeeUI.setUsernameField(user.getUserName());
-        employeeUI.setPasswordField(user.getPw());
-        employeeUI.setAddressField(user.getAddress());
-        employeeUI.setRoleField(user.getRole());
-        employeeUI.setFullTime(user.getFullTime());
+        employeeUI.setFirstNameField(this.user.getFirstName());
+        employeeUI.setLastNameField(this.user.getLastName());
+        employeeUI.setEmployeeIdField(this.user.getEmployeeID());
+        employeeUI.setUsernameField(this.user.getUserName());
+        employeeUI.setPasswordField(this.user.getPw());
+        employeeUI.setAddressField(this.user.getAddress());
+        employeeUI.setRoleField(this.user.getRole());
+       // employeeUI.setFullTime(this.user.getFullTime());
+        employeeUI.setSupervisorField(this.user.getSupervisorID());
+        employeeUI.setPayScale(this.user.getPayScale());
+        
         employeeUI.getBackBtn().addActionListener(this); 
         employeeUI.getUpdateBtn().addActionListener(this);
 
@@ -51,7 +54,7 @@ public class EmployeeCntl implements ActionListener{
 
                 if ((this.user).equals(employee)){ //If found current user in employee list 
                     employee.setAddress(employeeUI.getAddress());
-                    //TODO add username password etc. 
+                    employee.setPassword(employeeUI.getPassword()); 
                     employeeList.writeEmployeeListFile();
                     JOptionPane.showMessageDialog(this.employeeUI, "Updated!!", "Employee", JOptionPane.INFORMATION_MESSAGE);
                     employeeUI.dispose();
@@ -60,19 +63,16 @@ public class EmployeeCntl implements ActionListener{
                     break; 
                 } 
 
-                //TODO start here how to verify the current user is the one in list 
+                //TODO how can we verify the current user is the one being acsessed in the list 
 
             }//end list search
             if (!updated){
                 JOptionPane.showMessageDialog(this.employeeUI, "Unable to Updated Information", "Employee", JOptionPane.ERROR_MESSAGE);
             }
         }         
-        
         if(e.getSource() == employeeUI.getBackBtn()){
             employeeUI.setVisible(false);
-            navigationCntl = new NavigationCntl(user);
+            navigationCntl = new NavigationCntl(this.user);
         }
-
     }
-    
 }

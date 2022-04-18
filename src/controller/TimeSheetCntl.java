@@ -14,8 +14,6 @@ public class TimeSheetCntl implements ActionListener{
     public TimeSheet timeSubmission; 
     public MyHoursUI myHoursUI; 
 
-
-
     public TimeSheetCntl(TimeSheet timeSubmission, MyHoursUI view) {
         this.timeSubmission = timeSubmission;
         myHoursUI = new MyHoursUI(this); 

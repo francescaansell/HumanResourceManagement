@@ -1,4 +1,3 @@
-//done 
 package controller; 
 import view.*;
 import model.*; 
@@ -24,9 +23,8 @@ public class ComplaintCntl implements ActionListener {
     private Employee employee; 
     private EmployeeList employeeList; 
     public ComplaintList complaintList;
-    private ArrayList<Complaint> listOfComplaints;   
-  
-
+    private ArrayList<Complaint> listOfComplaints; 
+   
     public ComplaintCntl(Employee employee) {
         myComplaintsUI = new MyComplaintsUI(this);
         myComplaintsUI.setTitle("My Complaints"); 
@@ -39,9 +37,27 @@ public class ComplaintCntl implements ActionListener {
         this.employee = employee; 
         employeeList = new EmployeeList(); 
         complaintList = new ComplaintList(); 
-        listOfComplaints = complaintList.getComplaintList(); 
+        listOfComplaints = complaintList.getcomplaintList(); 
     }
 
+    public Integer createComplaintID(){
+        ComplaintList complaintList = new ComplaintList(); 
+        Random rand = new Random();
+        Integer id = rand.nextInt(1000); 
+        ArrayList<Integer> employeeIDs = complaintList.getComplaintIDs(); 
+        int i = 0; 
+        while (i < employeeIDs.size()){
+            if (id == employeeIDs.get(i)){
+                id = rand.nextInt(1000); 
+                i = 0; 
+            } else {
+                i += 1; 
+            }
+        }
+        return id; 
+        
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -54,16 +70,11 @@ public class ComplaintCntl implements ActionListener {
             Random rand = new Random();
             Date date = new Date(System.currentTimeMillis());
             formatter.format(date); 
-            Complaint complaint = new Complaint(date, employee, true, false, myComplaintsUI.getInvolved(), myComplaintsUI.getDescription(), rand.nextInt(10000));
+            String complaintType = (String) myComplaintsUI.getComplaintType();
+            Integer i = 0; 
+            Complaint complaint = new Complaint(i, complaintType, null, date, myComplaintsUI.getDate(), employee, true, false, myComplaintsUI.getInvolved(), myComplaintsUI.getDescription());
 
-            //TODO Change this to ArrayList<Employee> at some point if possible
-            complaint.setInvoled(myComplaintsUI.getInvolved());
-
-            complaint.setOpen(true);
-            complaint.setOpenDate(myComplaintsUI.getDate());
-            complaint.setDescription(myComplaintsUI.getDescription());
-            complaint.setID(); 
-            complaint.setClaimant(employee); 
+            //TODO Change involved to ArrayList<Employee> at some point if possible
           
             try{
                 for (Employee employee : employeeList.getemployeeList()){
@@ -80,10 +91,12 @@ public class ComplaintCntl implements ActionListener {
             JOptionPane.showMessageDialog(this.myComplaintsUI, "Created Complaint: " + complaint.toString(), "Complaint", JOptionPane.DEFAULT_OPTION);
             myComplaintsUI.setInvolved("");
             myComplaintsUI.setDescription("");
+            myComplaintsUI.setType(""); 
+            myComplaintsUI.resetDate(); 
           
             listOfComplaints.add(complaint);
-            complaintList.writeComplaintListFile();
-            complaintList.printComplaintList();
+            complaintList.writecomplaintListFile();
+            complaintList.printcomplaintList();
             
           
         }

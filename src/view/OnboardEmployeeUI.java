@@ -1,12 +1,12 @@
 package view;
 import java.awt.Dimension;
 import controller.*;
+import model.Department;
+
 import javax.swing.*;
 public class OnboardEmployeeUI extends JFrame{
 
-    private JLabel chooseEmployee;
     private JButton retrievePendingBtn; 
-    private JTextField chooseEmployeeField; 
     private JLabel firstName;
     private JTextField firstNameField;
     private JLabel lastName;
@@ -14,23 +14,25 @@ public class OnboardEmployeeUI extends JFrame{
     private JLabel id;
     private JTextField idField;
     private JButton approveBtn; 
-    private JTextField roleField; 
+    private JComboBox<String> roleField; 
     private JButton backBtn; 
     private JLabel role; 
     private JLabel department; 
-    private JTextField departmentField; 
+    private JComboBox<String> departmentField; 
     private JLabel payscale; 
-    private JTextField payscaleField; 
+    private JComboBox<String> payscaleField; 
     private JLabel chooseEmployeeID; 
     private JTextField chooseEmployeeIDField; 
+    private JLabel supervisor; 
+    private JTextField supervisorField; 
 
     public OnboardEmployeeUI(OnboardCntl onboardCntl){
         
         retrievePendingBtn = new JButton("Get Employee"); 
-        chooseEmployee = new JLabel ("Enter an employees last name to search for their account");
-        chooseEmployeeField = new JTextField(); 
         chooseEmployeeID = new JLabel("Enter Employee ID"); 
         chooseEmployeeIDField = new JTextField(); 
+
+        //TODO add full time drop down 
 
         firstName = new JLabel ("First Name:");
         firstNameField = new JTextField (5);
@@ -38,24 +40,25 @@ public class OnboardEmployeeUI extends JFrame{
         lastNameField = new JTextField (5);
         id = new JLabel ("Employee ID:");
         idField = new JTextField (5);
-        approveBtn = new JButton ("Approve"); 
+        approveBtn = new JButton ("Update"); 
         role = new JLabel ("Role:"); 
-        roleField = new JTextField(); 
+        String[] roleOptions = {"", "Employee", "Pending", "Supervisor"};
+        roleField = new JComboBox(roleOptions); 
         backBtn = new JButton("Back"); 
         department = new JLabel("Department:");
-        departmentField = new JTextField(5); 
+        String[] departmentOptions = {"", "Shipping", "Sales", "Marketing", "Finance", "None of the listed"};
+        departmentField = new JComboBox(departmentOptions); 
         payscale = new JLabel("PayScale:"); 
-        payscaleField = new JTextField(5);
+        String[] payOptions = {"", "a - 10,000", "b - 40,000", "c - 60,000", "d - 100,000", "None of the listed"};
+        payscaleField = new JComboBox(payOptions); 
+        supervisor = new JLabel("Supervisor ID: ");
+        supervisorField = new JTextField(6); 
 
 
-        //adjust size and set layout
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
 
-        //add components
-        add (chooseEmployee);
         add (retrievePendingBtn);
-        add (chooseEmployeeField); 
         add (firstName);
         add (firstNameField);
         add (lastName);
@@ -72,12 +75,12 @@ public class OnboardEmployeeUI extends JFrame{
         add (payscaleField);
         add (chooseEmployeeID); 
         add (chooseEmployeeIDField); 
+        add (supervisor);
+        add (supervisorField); 
 
        
         backBtn.setBounds(25, 5, 100, 50); ;
 
-        chooseEmployee.setBounds (25, 120, 400, 30); 
-        chooseEmployeeField.setBounds (25, 160, 200, 25);
         chooseEmployeeID.setBounds(25, 200, 400, 30); 
         chooseEmployeeIDField.setBounds(25, 240, 200, 25);
 
@@ -102,36 +105,35 @@ public class OnboardEmployeeUI extends JFrame{
         payscale.setBounds(625, 240, 100, 25);
         payscaleField.setBounds(710, 240, 165, 20);
 
-        approveBtn.setBounds (625, 300, 265, 30); 
+        supervisor.setBounds(625, 280, 100, 25);
+        supervisorField.setBounds(710, 280, 165, 20); 
+
+        approveBtn.setBounds (625, 320, 265, 30); 
         
     }
 
-
-    //TODO change get Field to get String (.getText())
     public void setFirstNameField(String str){
         this.firstNameField.setText(str);
     }
-    public JTextField getFirstNameField(){
-        return firstNameField; 
+
+    public String getFirstName(){
+        return firstNameField.getText().trim(); 
     }
+
     public void setLastNameField(String str){
         this.lastNameField.setText(str);
     }
-    public JTextField getLastNameField(){
-        return lastNameField; 
+
+    public String getLastName(){
+        return lastNameField.getText().trim(); 
     }
 
-    public void setEmployeeNameField(String str){
-        this.chooseEmployeeField.setText(str); 
-    }
-    public String getEmployeeName(){
-        return chooseEmployeeField.getText().trim(); 
-    }
-    public JTextField getRoleField(){
-        return roleField; 
+    public Object getRole(){
+        return roleField.getSelectedItem(); 
     }
     public void setRole(String str){
-        this.roleField.setText(str);
+        //not gonna work 
+        this.roleField.setSelectedItem(str);;
     }
 
     public JButton getRetrievePendingButton(){
@@ -146,27 +148,36 @@ public class OnboardEmployeeUI extends JFrame{
     public JTextField getIDField(){
         return idField; 
     }
-    public void setIDField(int i){
-        this.idField.setText(""+ i); 
+    public void setIDField(String str){
+        this.idField.setText(str); 
     }
-    public String getPayScale(){
-        return payscaleField.getText().trim(); 
+    public Object getPayScale(){
+        return payscaleField.getSelectedItem();
+        
     }
     public void setPayScale(String str){
-        payscaleField.setText(str); 
+        System.out.println("cannot do that yet");
+        payscaleField.setSelectedItem(str);
     }
-    public String getDepartment(){
-        return departmentField.getText().trim();
+    public Object getDepartment(){
+        return departmentField.getSelectedItem(); 
     }
     public void setDepartmentField(String department){
-        this.departmentField.setText(department);
+        departmentField.setSelectedItem(department);
     }
-    public Integer getChooseEmployeeID(){
-        return Integer.parseInt(chooseEmployeeIDField.getText().trim());
+    public String getChooseEmployeeID(){
+        return chooseEmployeeIDField.getText().trim();
     }
     public void setChooseEmployeeID(Integer i){
         this.chooseEmployeeIDField.setText("" + i); 
     }
-  
+
+    public String getSupervsiorID(){
+        return supervisorField.getText().trim(); 
+    }
+
+    public void setSupervisorID(String str){
+        supervisorField.setText(str);
+    }
 }
 

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Group1HRM
@@ -14,38 +15,40 @@ public class RequestAccountCntl implements ActionListener{
     
     public EmployeeList employeeList; 
     public Employee employee;
-    public RequestAccountUI employeeUI;  
+    public RequestAccountUI requestAccountUI;  
     public ArrayList<Employee> listOfEmployees; 
     public LoginCntl loginCntl; 
     
     public RequestAccountCntl() {
-        employeeUI = new RequestAccountUI(this); 
-        employeeUI.setTitle("New Employee Form");
-        employeeUI.setVisible(true);
-        employeeUI.setBounds(10, 10, 370, 600);
-        employeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        employeeUI.setResizable(true);
-        employeeUI.getSubmitBtn().addActionListener(this); 
-
+        requestAccountUI = new RequestAccountUI(this); 
+        requestAccountUI.setTitle("New Employee Form");
+        requestAccountUI.setVisible(true);
+        requestAccountUI.setBounds(10, 10, 370, 600);
+        requestAccountUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        requestAccountUI.setResizable(true);
+        
         employeeList = new EmployeeList();
         listOfEmployees = employeeList.getemployeeList(); 
+
+        requestAccountUI.getSubmitBtn().addActionListener(this); 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if (e.getSource() == employeeUI.getSubmitBtn()){
-            Employee employee = new Employee(employeeUI.getFirstName(), employeeUI.getLastName(), employeeUI.getUsername(), employeeUI.getPassword());  
-            listOfEmployees.add(employee); 
-            employeeList.writeEmployeeListFile(); 
-           
-            //New Employee Does show up in this list 
-            employeeList.printEmployeeList();
+        if (e.getSource() == requestAccountUI.getSubmitBtn()){
+            if (requestAccountUI.getEmployeeID().length() != 3){
+                JOptionPane.showMessageDialog(this.requestAccountUI, "You must choose 3 characters for your ID", "Login", JOptionPane.ERROR_MESSAGE);
+                requestAccountUI.setEmployeeID("");
+            } else {
+                Employee employee = new Employee(requestAccountUI.getFirstName(), requestAccountUI.getLastName(), requestAccountUI.getEmployeeID(), requestAccountUI.getPassword());  
+                listOfEmployees.add(employee); 
+                employeeList.writeEmployeeListFile(); 
+                requestAccountUI.setVisible(false);
+                LoginCntl loginCntl = new LoginCntl(); 
 
-            employeeUI.setVisible(false);
-
-            LoginCntl loginCntl = new LoginCntl(); 
-
+            }
+            
         }
     }
  }
