@@ -1,4 +1,4 @@
-Preset Logins (as of 4/13 git hub push): 
+Preset Logins (as of 4/18 git hub push): 
 * username, password
 
 Admins
@@ -11,46 +11,53 @@ Supervisors
 
 Employees 
 * guykane, netflix2!
+* 
 
-Current Status: 
+
+The scope of our project has changed after meeting with proffessor Vora. This is a breakdown of our specfied scope (i.e. what use cases we implemented)
+Current Status and Capabilites : 
 
 (1) Authentication 
 * User cannot loging until approved by admin or supervisor 
 * User can login once approved
 * Can distinguish between supervisor and employee
-  * ensure everyone has a unqiue ID
+* Ensures everyone has a unqiue ID
+      * NOTE if you are testing the request an account feature you will need to view the terminal/output to see what number you are assigned. (This was discussed with Proffessor Vora)
 * could/should be implemented 
-  * ensuring unquie usernames 
-  * ensuring proper usernames 
   * ensuring proper passwords 
-  * request an account with an email and a name and then the SUPERVISOR creates the user name (auto generated using there name and random numbers)
  
 (2) Update Employee Information 
 * Employees can update their own information (but only information that the backend system allows)
 
 (3) Approved and Update Employees
 * A supervisor can approve an employee 
-* A supervisor can update information about an employee such as pay scale, id, etc. 
-* could/should be implemented 
-  * using a email api to notify employees when they have been approved 
-  * using a email api to notify employees when a change has been made by a supervisor 
+* A supervisor can update information about an employee such as pay scale, id, supervisor, etc. 
 
 (4) Manage Complaints (Supervisor)
 * Can assign an supervsior to a complaint
 * Can view complaints assigned to them 
-* to be implemented 
-  * update information within complaint such as approved 
-  * use an email API to notify people
+* Can filter complaints based on types 
+* To be implemented 
+  * Enable supervisors to update information within the complaint (other than just supervsior)
 
 (5) Create Complaint (Employee)
 * Can create an complaint with description, those involved, date of occurance, and date submitted 
 * to be implemented 
-  * view complaint status 
+  * "View complaint status"
     * this will include being able to see who has been assigned and what action has/or will be taken 
-  * possibly find a way to indentify those involed as employees within the system rather than just a string
-  * add type attribute to complaint and allow supervisor to sort as such 
 
-Other importants changes that need to be made: 
-* change .equals() for employee to check against more than just the last name
+Refactoring Changes 
+1. Unused Imports
+2. Unused Getters and Setters
+3. Unclear Naming
+4. Naming Convention Inconsistency: Controllers
+5. Naming Convention Inconsistency: User vs. Employee
+6. Naming Convention Inconsistency: Attributes
+7. Inefficient Use of Get Methods
+8. Inefficiently Utilizing ArrayList<Employee> Instead of Existing UserList Object 
+9. Lack a method to calculate amount of PTO remaining
+10. Using a for loop instead of a pipeline
 
-****** Would rather make what we have really good instead of trying to half implement multiple things ************
+
+
+ 
