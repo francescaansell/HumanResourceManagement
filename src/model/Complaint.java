@@ -1,5 +1,6 @@
 package model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -16,6 +17,7 @@ public class Complaint implements Serializable{
     //TODO GOAL protected ArrayList<Employee> involved; 
     protected String involved; 
     protected Integer id; 
+    protected String type; 
    
 
     /**
@@ -28,7 +30,7 @@ public class Complaint implements Serializable{
      * @param description
      * @param id
      */
-    public Complaint(java.util.Date openDate, Employee claimant, Boolean open, Boolean approved, String involved, String description, Integer id) {
+    public Complaint(Integer id, String type, Employee assignedEmployee, java.util.Date openDate, java.util.Date incidentDate, Employee claimant, Boolean open, Boolean approved, String involved, String description){
         this.openDate = openDate; 
         this.claimant = claimant; 
         this.open = open; 
@@ -37,6 +39,8 @@ public class Complaint implements Serializable{
         this.id = id; 
         this.claimant = claimant; 
         this.description = description; 
+        this.type = type; 
+        this.assignedEmployee = assignedEmployee; 
 
     }
 
@@ -88,10 +92,19 @@ public class Complaint implements Serializable{
         return ""; 
     }
 
-    public void setID(){
-        Random rand = new Random();
-        //TODO: while complaint in complaint list if id = this id then create a different id 
-        this.id = rand.nextInt(100);
+    public void setID(Integer newID){
+        this.id = newID; 
+
+    }
+
+  
+
+    public void setType(String str){
+        this.type = str; 
+    }
+
+    public String getType(){
+        return this.type; 
     }
 
     public Integer getId(){
@@ -100,7 +113,7 @@ public class Complaint implements Serializable{
 
     @Override
     public String toString(){
-        return "Complaint{" + "Assigned Employee: " + this.assignedEmployee + ", Open date: " + this.openDate + ", Claimant: " + this.claimant + ", Open: " + this.open + '}';
+        return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Open date: " + this.openDate + ", Claimant: " + this.claimant.getEmployeeID() + ", Open: " + this.open + ", Description: " + this.description + '}';
     }
 
     public void setDescription(String text) {

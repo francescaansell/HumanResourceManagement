@@ -1,12 +1,8 @@
-//done
 package view;
 
-import model.*; 
 import controller.*;
 import javax.swing.*; 
 import java.awt.*; 
-
-
 /**
  * This class will function as the user interface for entering hours 
  * @author Group1HRM

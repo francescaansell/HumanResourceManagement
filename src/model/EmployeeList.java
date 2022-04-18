@@ -19,9 +19,8 @@ public class EmployeeList {
             in = new ObjectInputStream(fis);
             this.employeeList = (ArrayList)in.readObject();
             in.close();
-            //if ( ! ((ArrayList)in.readObject()){
             if(!this.employeeList.isEmpty()){
-                System.out.println("There were updates in the file");
+                System.out.println("File Found");
             }
         }
         catch (FileNotFoundException ex){
@@ -44,7 +43,7 @@ public class EmployeeList {
                 in.close();
                 //if ( ! ((ArrayList)in.readObject()){
                 if(!employeeList.isEmpty()){
-                    System.out.println("There were updates in the file");
+                    System.out.println("File Found");
                 }
             }
             catch (FileNotFoundException ex){
@@ -57,28 +56,31 @@ public class EmployeeList {
                 ex.printStackTrace();
             }
         }
-        //printEmployeeList();
+        printEmployeeList();
     }
     
     public void createList(){
         Role admin = new Role("Admin", 10);
-        Employee employee = new Employee("Jen", "Hod", "jenhod", "12345", new Department(), admin, 1, 0, new ArrayList<TimeSheet>(), true, 0, "150 Main Street, State College PA, 16801");
+        Employee employee = new Employee("Jen", "Hod", "jah320", "buddy123!", new Department(), admin, 1, new ArrayList<TimeSheet>(), true, "admin", "150 Main Street, State College PA, 16801", "d - 100,000");
         employeeList.add(employee); 
 
         Role supervisor= new Role("Supervisor", 20); 
-        Employee employee2 = new Employee("Francesca", "Ansell", "francescaansell", "12345", new Department(), supervisor, 2, 0, new ArrayList<TimeSheet>(), true, 0, "150 Main Street, State College PA, 16801"); 
+        Employee employee2 = new Employee("Francesca", "Ansell", "fla568", "ilovedogs7!", new Department(), supervisor, 2, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
         employeeList.add(employee2); 
-        Employee employee3 = new Employee("Hannah", "K", "hannahk", "12345", new Department(), supervisor, 3, 0, new ArrayList<TimeSheet>(), true, 0, "150 Main Street, State College PA, 16801"); 
+        Employee employee3 = new Employee("Hannah", "Kitchell", "hak920", "hek908", new Department(), supervisor, 3, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
         employeeList.add(employee3); 
-        Employee employee4 = new Employee("Vincent", "S", "vinces", "12345", new Department(), supervisor, 4, 0, new ArrayList<TimeSheet>(), true, 0, "150 Main Street, State College PA, 16801"); 
+        Employee employee4 = new Employee("Vincent", "Semru", "ves824", "coffeelover0!", new Department(), supervisor, 4, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
         employeeList.add(employee4); 
 
         Role r = new Role("Employee", 40); 
-        Employee employee5 = new Employee("Guy", "Kane", "guykane", "12345", new Department(), r, 5, 0, new ArrayList<TimeSheet>(), true, 0, "150 Main Street, State College PA, 16802");
+        Employee employee5 = new Employee("Guy", "Kane", "gpk509", "netflix2!", new Department(), r, 5, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16802", "d - 100,000");
         employeeList.add(employee5);
+        Employee employee6 = new Employee("a", "b", "abc123", "12345", new Department(), r, 5, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16802", "d - 100,000");
+        employeeList.add(employee6);
+
+
+        printEmployeeList();
         
-        Employee employee6 = new Employee("Josie", "Ansell", "josieansell", "12345"); 
-        employeeList.add(employee6); 
     }
     
     public void writeEmployeeListFile(){
@@ -103,5 +105,13 @@ public class EmployeeList {
     
     public ArrayList<Employee> getemployeeList(){
         return employeeList;
+    }
+
+    public ArrayList<String> getEmployeeIDs(){
+        ArrayList<String> employeeIDs = new ArrayList<>(); 
+        for (Employee employee: employeeList){
+            employeeIDs.add(employee.getEmployeeID()); 
+        }
+        return employeeIDs; 
     }
 }

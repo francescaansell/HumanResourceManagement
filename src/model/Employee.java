@@ -9,15 +9,15 @@ import java.util.*;
 public class Employee implements Serializable{
     protected String firstName;
     protected String lastName;
-    protected String userName;
+    protected String employeeID;
     protected String pw;
     protected Department department; 
-    protected Integer employeeID; 
+    protected EmployeeList employeeList; 
     protected Integer numLeaveDays;
     protected Boolean fullTime; 
     protected ArrayList<TimeSheet> previousTimeSheets; 
     protected Role role; 
-    protected Integer supervisorID; 
+    protected String supervisorID; 
     protected String address; 
     protected String payscale; 
 
@@ -26,20 +26,18 @@ public class Employee implements Serializable{
      * This is the default constructor 
      * @param firstName employee first name
      * @param lastName employee last name
-     * @param userName employee user name
+     * @param employeeID employee user name
      * @param pw employee password
      * @param employeeID employee ID number
      * @param numLeaveDays the number of leave days an employee has left 
      * @param department the department in which the employee works for 
      * @param previousTimeSheets 
      */
-
-     //TODO: make supervisor an employee attrivute or just use there id then search based on ID? thinking second one
-    public Employee(String firstName, String lastName, String userName, String pw, Department department, Role role,
-     Integer employeeID, Integer numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, Integer supervisorID, String address) {
+    public Employee(String firstName, String lastName, String employeeID, String pw, Department department, Role role,
+     Integer numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, String supervisorID, String address, String payscale) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.employeeID = employeeID;
         this.department = department; 
         this.role = role; 
         this.pw = pw; 
@@ -49,32 +47,47 @@ public class Employee implements Serializable{
         this.previousTimeSheets = previousTimesheets; 
         this.supervisorID = supervisorID;
         this.address = address;  
-        //TODO: change later
-        this.payscale = ""; 
+        this.payscale = payscale; 
         
     }
     
     //Information Employee Can Enter
-    public Employee(String firstName, String lastName, String userName, String pw) {
+    public Employee(String firstName, String lastName, String employeeID, String pw) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.employeeID = createEmployeeID(employeeID);
         this.pw = pw; 
     
         //null for now 
-        this.fullTime = null; 
+        this.fullTime = true; 
         this.address = ""; 
-        this.supervisorID = 0; 
+        this.supervisorID = ""; 
         this.department = new Department();  
-        this.employeeID = 0;
         this.numLeaveDays = 0;  
         this.previousTimeSheets = null; 
         this.role = new Role();
         this.role.setRoleName("Pending");  
-        this.employeeID = 2345678;
         this.payscale = ""; 
     }
     
+    public String createEmployeeID(String employeeID){
+        EmployeeList employeeList = new EmployeeList(); 
+        Random rand = new Random();
+        String id = employeeID + rand.nextInt(1000); 
+        ArrayList<String> employeeIDs = employeeList.getEmployeeIDs(); 
+        int i = 0; 
+        while (i < employeeIDs.size()){
+            if (id == employeeIDs.get(i)){
+                id = employeeID + rand.nextInt(1000); 
+                i = 0; 
+            } else {
+                i += 1; 
+            }
+        }
+        return id; 
+        
+        
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -92,18 +105,18 @@ public class Employee implements Serializable{
     }
 
     public String getUserName() {
-        return userName;
+        return employeeID;
     }
     
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.employeeID = userName;
     }
 
-    public Integer getEmployeeID() {
+    public String getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(int employeeID) {
+    public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -123,6 +136,7 @@ public class Employee implements Serializable{
     }
 
     public void setDepartment(String department) {
+        //TODO fix in future 
         this.department.setDeptName(department); 
     }
 
@@ -149,10 +163,7 @@ public class Employee implements Serializable{
     public ArrayList<TimeSheet> getPreviousTimesheets(){
         return this.previousTimeSheets; 
     }
-
-    //TODO add equals method in Role
     public String getRole() {
-     
         return role.getRoleName(); 
     }
     public Role getRoleObject(){
@@ -166,26 +177,40 @@ public class Employee implements Serializable{
     public void setAddress(String str){
         this.address = str; 
     }
+
     public String getAddress(){
         return address; 
     }
+
+    public void setPassword(String str){
+        this.pw = str; 
+    }
+
     public void setPayScale(String str){
         this.payscale = str; 
     }
+
     public String getPayScale(){
         return this.payscale; 
+    }
+
+    public String getSupervisorID(){
+        return supervisorID; 
+    }
+
+    public void setSupervisorID(String str){
+        supervisorID = str; 
     }
 
     @Override
     public String toString()
     {
-        return "Employee{" + firstName + ", " + lastName + ", " + employeeID + '}';
+        //return "Employee{" + firstName + ", " + lastName + ", " + employeeID + '}';
+        return "Employee{" + firstName + ", " + lastName + ", " + employeeID  + ", "  + supervisorID + ", " + department.getDeptName() + ", " +  payscale  + ", }";
     }
 
     public Boolean equals(Employee employee){
-        //TODO also check against ID
-        if (this.firstName.equals(employee.getFirstName()) && (this.lastName.equals(employee.getLastName()))){
-            //if((this.employeeID == employee.getEmployeeID()){
+        if (this.employeeID.equals(employee.getEmployeeID())){
                 return true; 
             } else {
             return false; 

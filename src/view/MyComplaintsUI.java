@@ -20,6 +20,7 @@ public class MyComplaintsUI extends JFrame {
     public UtilDateModel model; 
     public JDatePanelImpl datePanel; 
     public JDatePickerImpl datePicker; 
+    public JComboBox complaintType; 
  
     public MyComplaintsUI(ComplaintCntl complaintCntl) {
         submitBtn = new JButton ("Submit");
@@ -29,6 +30,8 @@ public class MyComplaintsUI extends JFrame {
         involved = new JLabel ("Persons Involed");
         date = new JLabel ("Date the incident occured");
         backBtn = new JButton("Back"); 
+        String[] types = {"", "Management", "Payroll/Salary", "Sexual Misconduct", "Discrimination"}; 
+        complaintType = new JComboBox<>(types); 
 
         model = new UtilDateModel();
         Properties p = new Properties();
@@ -50,6 +53,7 @@ public class MyComplaintsUI extends JFrame {
         add (date);
         add (backBtn); 
         add (datePicker);
+        add (complaintType); 
         
         descriptionField.setBounds (45, 275, 230, 145);
         descripition.setBounds (45, 250, 100, 25);
@@ -58,7 +62,8 @@ public class MyComplaintsUI extends JFrame {
         datePicker.setBounds(360, 140, 200, 30);
         submitBtn.setBounds (360, 400, 140, 20);
         date.setBounds (360, 115, 165, 25);
-        backBtn.setBounds(5, 5, 100, 50); ;
+        complaintType.setBounds(360, 195, 165, 25);
+        backBtn.setBounds(5, 5, 100, 50); 
         
     }
 
@@ -103,5 +108,24 @@ public class MyComplaintsUI extends JFrame {
     
     public String getDescription(){
         return descriptionField.getText().trim();
+    }
+
+    public Object getComplaintType(){
+        return this.complaintType.getSelectedItem(); 
+    }
+
+    public void setType(Object obj){
+        this.complaintType.setSelectedItem(obj);
+    }
+
+    public void resetDate(){
+        model = new UtilDateModel();
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+
+        datePanel = new JDatePanelImpl(model, p);
+        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
     }
 }

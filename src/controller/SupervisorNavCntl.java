@@ -7,33 +7,31 @@ import model.Employee;
 
 public class SupervisorNavCntl implements ActionListener{
 
-    public Employee employee; 
+    public Employee user; 
     public SupervisorHomeUI supervisorHomeUI; 
     public OnboardCntl onbaordCntl; 
 
-    public SupervisorNavCntl(Employee employee){
+    public SupervisorNavCntl(Employee u){
         supervisorHomeUI = new SupervisorHomeUI(this);
         supervisorHomeUI.setTitle("Supervisor Home Page");
         supervisorHomeUI.setVisible(true);
         supervisorHomeUI.setBounds(10, 10, 1000, 600);
         supervisorHomeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         supervisorHomeUI.setResizable(true);
+        
+        this.user = u; 
+
         supervisorHomeUI.getOnboardEmployeeBtn().addActionListener(this); 
         supervisorHomeUI.getLogOutBtn().addActionListener(this);
         supervisorHomeUI.getComplaintsBtn().addActionListener(this);
-        supervisorHomeUI.getVacationApprButton().addActionListener(this);
         supervisorHomeUI.getEmployeePortal().addActionListener(this);
-
-        this.employee = employee; 
-       
-        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == supervisorHomeUI.getOnboardEmployeeBtn()){
             supervisorHomeUI.setVisible(false);
-            OnboardCntl onboardCntl = new OnboardCntl(employee); 
+            OnboardCntl onboardCntl = new OnboardCntl(this.user); 
         }
         if (e.getSource() == supervisorHomeUI.getLogOutBtn()){
             supervisorHomeUI.setVisible(false);
@@ -41,14 +39,12 @@ public class SupervisorNavCntl implements ActionListener{
         }
         if (e.getSource() == supervisorHomeUI.getComplaintsBtn()){
             supervisorHomeUI.setVisible(false);
-            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(this.employee); 
-
+            SupervisorComplaintCntl supervisorComplaintCntl = new SupervisorComplaintCntl(this.user); 
         }
         if (e.getSource() == supervisorHomeUI.getEmployeePortal()){
             supervisorHomeUI.setVisible(false);
-            NavigationCntl navigationCntl = new NavigationCntl(employee); 
-        }
-        
+            NavigationCntl navigationCntl = new NavigationCntl(this.user); 
+        } 
     }
 }
     
