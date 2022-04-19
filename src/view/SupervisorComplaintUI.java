@@ -1,6 +1,13 @@
 package view;
 import java.awt.*;
+import java.util.Properties;
+
 import javax.swing.*;
+
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import controller.*;
 
 public class SupervisorComplaintUI extends JFrame {
@@ -16,74 +23,143 @@ public class SupervisorComplaintUI extends JFrame {
     private JButton search; 
     private JTextField complaintIDField; 
     private JLabel complaintLabel; 
-    private JComboBox complaintType; 
+    private JComboBox<String> complaintType; 
     private JLabel complaintTypeLabel; 
+    private JScrollPane scroll; 
 
-  
+
+    private JButton submitBtn;
+    private JTextArea descriptionField;
+    private JLabel descripition;
+    private JTextArea involvedField;
+    private JLabel involved;
+    private JLabel date;
+    public UtilDateModel model; 
+    public JDatePanelImpl datePanel; 
+    public JDatePickerImpl datePicker; 
+    public JComboBox<String> updateComplaintType; 
+    public JLabel updateComplaintTypeLabel; 
+    public JLabel heading; 
+     
     public SupervisorComplaintUI(SupervisorComplaintCntl supervisorComplaintCntl) {
         retrieveComplaintsBtn = new JButton ("Retrieve");
         backBtn = new JButton("Back"); 
 
-        //TODO this is prob gonna get changed to something else later
         textArea = new JTextArea(); 
 
         assignEmployeeField = new JTextField();
-        assignEmployeeBtn = new JButton("Assign Employee");  
+        assignEmployeeBtn = new JButton("Update Complaint");  
 
-        retrieveEmployee = new JButton("Get Employee"); 
- 
-        employeeIDLabel = new JLabel("Enter an employees ID to search for their account");
+        employeeIDLabel = new JLabel("Assigned Supervisor ID");
         employeeIDField = new JTextField();
 
         complaintIDField = new JTextField();
-        complaintLabel = new JLabel("Enter the complaint ID number you want to assign this employee too.");
+        complaintLabel = new JLabel("Complaint ID:");
         search = new JButton("Search"); 
         employeeInfo = new JTextArea(); 
         String[] types = {"", "Management", "Payroll/Salary", "Sexual Misconduct", "Discrimination"}; 
         complaintType = new JComboBox<>(types); 
         complaintTypeLabel = new JLabel("Select a type of complaint to filter the list"); 
 
-
-        //TODO add complaint ID field
+        heading = new JLabel("FILL OUT FIELDS YOU WISH TO UPDATE (You can leave fields you dont want to change blank but you must include a complaint ID)");
 
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
 
         add (backBtn); 
-        add (textArea);
+ 
         add (assignEmployeeField);
         add (assignEmployeeBtn); 
-        add (retrieveEmployee);
         add (employeeIDLabel);
         add (employeeIDField); 
-        add (search); 
+        //add (search); 
         add (employeeInfo); 
         add (complaintIDField);
         add (complaintLabel);
         add (complaintType); 
         add (complaintTypeLabel); 
+        add (heading);
+
+        heading.setBounds(100, 285, 800, 30);
 
         backBtn.setBounds(5, 5, 100, 50); 
 
         complaintType.setBounds(410, 5, 165, 30);
         complaintTypeLabel.setBounds(140, 5, 400, 30); 
         
-        textArea.setBounds(110, 80, 800, 200);
+        
         textArea.setEditable(false);
         textArea.setLineWrap(true);
 
-        employeeIDLabel.setBounds(110, 320, 400, 30); 
-        employeeIDField.setBounds(110, 350, 200, 30);
-        search.setBounds(110, 385, 200, 30); 
 
-        employeeInfo.setBounds(110, 440, 300, 100); 
-        employeeInfo.setEditable(false);
-        employeeInfo.setLineWrap(true);
+        scroll = new JScrollPane(textArea);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(5, 80, 900, 200);
+    
+        add (scroll);
 
-        complaintLabel.setBounds(490, 320, 450, 30);
-        complaintIDField.setBounds(490, 350, 100, 30);
-        assignEmployeeBtn.setBounds(490, 385, 200, 30);
+        employeeIDLabel.setBounds(5, 320, 400, 30); 
+        employeeIDField.setBounds(5, 350, 200, 30);
+        search.setBounds(5, 385, 200, 30); 
+
+        // employeeInfo.setBounds(5, 440, 300, 30); 
+        // employeeInfo.setEditable(false);
+        // employeeInfo.setLineWrap(true);
+
+        complaintLabel.setBounds(310, 320, 450, 30);
+        complaintIDField.setBounds(310, 350, 100, 30);
+
+
+        assignEmployeeBtn.setBounds(610, 485, 200, 50);
+
+
+
+     
+        submitBtn = new JButton ("Submit");
+        descriptionField = new JTextArea (5, 5);
+        descripition = new JLabel ("Description");
+        involvedField = new JTextArea (5, 5);
+        involved = new JLabel ("Persons Involed");
+        date = new JLabel ("Date the incident occured");
         
+
+        updateComplaintType = new JComboBox<>(types); 
+        updateComplaintTypeLabel = new JLabel("Update Complaint Type");
+
+        model = new UtilDateModel();
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+
+        datePanel = new JDatePanelImpl(model, p);
+        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+
+        setPreferredSize (new Dimension (816, 589));
+        setLayout (null);
+
+        add (submitBtn);
+        add (descriptionField);
+        add (descripition);
+        add (involvedField);
+        add (involved);
+        add (date);
+        add (backBtn); 
+        add (datePicker);
+        add (complaintType); 
+        add (complaintTypeLabel);
+        
+        involved.setBounds (5, 400, 100, 25);
+        involvedField.setBounds (5, 430, 500, 70);
+        
+        date.setBounds(5, 530, 165, 25);
+        datePicker.setBounds(5, 560, 200, 30);
+
+        descripition.setBounds (5, 620, 100, 25);
+        descriptionField.setBounds (5, 640, 500, 145);
+
+        updateComplaintTypeLabel.setBounds(5, 715, 100, 25);
+        updateComplaintType.setBounds(5, 745, 165, 25);
     }
 
     public JButton getRetrieveComplaintsBtn(){
@@ -123,7 +199,12 @@ public class SupervisorComplaintUI extends JFrame {
     }
 
     public Integer getComplaintID(){
-        return Integer.parseInt(complaintIDField.getText().trim());
+        try {
+            return Integer.parseInt(complaintIDField.getText().trim());
+        } catch (Exception ex){
+            return null; 
+        }
+        
         
     }
 
@@ -139,7 +220,38 @@ public class SupervisorComplaintUI extends JFrame {
         this.complaintType.setSelectedItem(obj);
     }
 
-    public JComboBox getTypePicker(){
+    public JComboBox<String> getTypePicker(){
         return this.complaintType; 
     }
+
+    public String getInvoled(){
+        return this.involvedField.getText().trim(); 
+    }
+    public void setInvoled(String str){
+        this.involvedField.setText(str);
+    }
+
+    public String getDescriptoin(){
+        return this.descriptionField.getText().trim();
+    }
+    public void setDescription(String str){
+        this.descriptionField.setText(str);
+    }
+
+    public java.util.Date getDate(){
+        java.util.Date selectedDate = (java.util.Date) datePicker.getModel().getValue();
+        return selectedDate;      
+    }
+
+    public void resetDate(){
+        model = new UtilDateModel();
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+
+        this.datePanel = new JDatePanelImpl(model, p);
+        this.datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+    }
+
 }

@@ -43,7 +43,7 @@ public class ComplaintList {
             try{
                 fis = new FileInputStream(complaintsFileName);
                 in = new ObjectInputStream(fis);
-                complaintList = (ArrayList)in.readObject();
+                complaintList = (ArrayList<Complaint>)in.readObject();
                 in.close();
                 //if ( ! ((ArrayList)in.readObject()){
                 if(!complaintList.isEmpty()){

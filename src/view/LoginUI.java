@@ -15,6 +15,7 @@ public class LoginUI extends JFrame  {
 
     protected String login; 
     protected String pw; 
+    protected LoginCntl loginCntl; 
 
     //Frame
     Container container = getContentPane();
@@ -26,8 +27,6 @@ public class LoginUI extends JFrame  {
     public JButton resetButton = new JButton("RESET");
     public JButton requestAccessButton = new JButton("Request New Account");
     public JCheckBox showPassword = new JCheckBox("Show Password");
-    private LoginCntl loginCntl;
-
 
     public LoginUI(LoginCntl loginCntl) {   
         this.loginCntl = loginCntl; 

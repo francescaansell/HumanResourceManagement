@@ -20,7 +20,9 @@ public class MyComplaintsUI extends JFrame {
     public UtilDateModel model; 
     public JDatePanelImpl datePanel; 
     public JDatePickerImpl datePicker; 
-    public JComboBox complaintType; 
+    public JComboBox<String> complaintType; 
+    public JLabel complaintTypeLabel; 
+   
  
     public MyComplaintsUI(ComplaintCntl complaintCntl) {
         submitBtn = new JButton ("Submit");
@@ -32,6 +34,7 @@ public class MyComplaintsUI extends JFrame {
         backBtn = new JButton("Back"); 
         String[] types = {"", "Management", "Payroll/Salary", "Sexual Misconduct", "Discrimination"}; 
         complaintType = new JComboBox<>(types); 
+        complaintTypeLabel = new JLabel("Complaint Type");
 
         model = new UtilDateModel();
         Properties p = new Properties();
@@ -54,17 +57,27 @@ public class MyComplaintsUI extends JFrame {
         add (backBtn); 
         add (datePicker);
         add (complaintType); 
-        
-        descriptionField.setBounds (45, 275, 230, 145);
-        descripition.setBounds (45, 250, 100, 25);
-        involvedField.setBounds (45, 140, 225, 70);
-        involved.setBounds (45, 115, 100, 25);
-        datePicker.setBounds(360, 140, 200, 30);
-        submitBtn.setBounds (360, 400, 140, 20);
-        date.setBounds (360, 115, 165, 25);
-        complaintType.setBounds(360, 195, 165, 25);
+        add (complaintTypeLabel);
+
+          // create the middle panel components
+
+  
+
         backBtn.setBounds(5, 5, 100, 50); 
         
+        involved.setBounds (5, 70, 100, 25);
+        involvedField.setBounds (5, 100, 500, 70);
+        
+        date.setBounds(5, 170, 165, 25);
+        datePicker.setBounds(5, 190, 200, 30);
+
+        descripition.setBounds (5, 240, 100, 25);
+        descriptionField.setBounds (5, 260, 500, 145);
+
+        complaintTypeLabel.setBounds(5, 410, 100, 25);
+        complaintType.setBounds(5, 430, 165, 25);
+
+        submitBtn.setBounds (5, 500, 140, 20);
     }
 
     public java.util.Date getDate(){
@@ -125,7 +138,7 @@ public class MyComplaintsUI extends JFrame {
         p.put("text.month", "Month");
         p.put("text.year", "Year");
 
-        datePanel = new JDatePanelImpl(model, p);
-        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+        this.datePanel = new JDatePanelImpl(model, p);
+        this.datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
     }
 }

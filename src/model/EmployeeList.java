@@ -17,7 +17,7 @@ public class EmployeeList {
         try{
             fis = new FileInputStream(this.employeesFileName);
             in = new ObjectInputStream(fis);
-            this.employeeList = (ArrayList)in.readObject();
+            this.employeeList = (ArrayList<Employee>)in.readObject();
             in.close();
             if(!this.employeeList.isEmpty()){
                 System.out.println("File Found");
@@ -39,9 +39,8 @@ public class EmployeeList {
             try{
                 fis = new FileInputStream(employeesFileName);
                 in = new ObjectInputStream(fis);
-                employeeList = (ArrayList)in.readObject();
+                employeeList = (ArrayList<Employee>)in.readObject();
                 in.close();
-                //if ( ! ((ArrayList)in.readObject()){
                 if(!employeeList.isEmpty()){
                     System.out.println("File Found");
                 }

@@ -1,7 +1,6 @@
 package model;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Random;
+
 
 /**
  *
@@ -113,7 +112,7 @@ public class Complaint implements Serializable{
 
     @Override
     public String toString(){
-        return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Open date: " + this.openDate + ", Claimant: " + this.claimant.getEmployeeID() + ", Open: " + this.open + ", Description: " + this.description + '}';
+        return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Open date: " + this.openDate + ", Claimant: " + this.claimant.getEmployeeID() + ", Open: " + this.open + ", Involed: " + this.involved + ", Description: " + this.description + '}';
     }
 
     public void setDescription(String text) {

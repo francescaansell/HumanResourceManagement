@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import model.*;
 
-public class EmployeeCntl implements ActionListener{
+public class EmployeeInfoCntl implements ActionListener{
 
     private Employee user; 
     private EmployeeUI employeeUI; 
@@ -16,11 +16,11 @@ public class EmployeeCntl implements ActionListener{
     
 
     
-    public EmployeeCntl(Employee u){
+    public EmployeeInfoCntl(Employee u){
         employeeUI = new EmployeeUI(this);
         employeeUI.setTitle("Employee Information Page");
         employeeUI.setVisible(true);
-        employeeUI.setBounds(10, 10, 1000, 600);
+        employeeUI.setBounds(10, 10, 1000, 700);
         employeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         employeeUI.setResizable(true);
 
@@ -34,7 +34,7 @@ public class EmployeeCntl implements ActionListener{
         employeeUI.setPasswordField(this.user.getPw());
         employeeUI.setAddressField(this.user.getAddress());
         employeeUI.setRoleField(this.user.getRole());
-       // employeeUI.setFullTime(this.user.getFullTime());
+        employeeUI.setFullTime(this.user.getFullTime());
         employeeUI.setSupervisorField(this.user.getSupervisorID());
         employeeUI.setPayScale(this.user.getPayScale());
         
@@ -48,23 +48,16 @@ public class EmployeeCntl implements ActionListener{
         if(e.getSource() == employeeUI.getUpdateBtn()){
             Boolean updated = false; 
             for (Employee employee: employeeList.getemployeeList()){
-                // System.out.println(this.user.equals(employee)); 
-                // System.out.println(this.user);
-                // System.out.println(employee);
-
                 if ((this.user).equals(employee)){ //If found current user in employee list 
                     employee.setAddress(employeeUI.getAddress());
                     employee.setPassword(employeeUI.getPassword()); 
                     employeeList.writeEmployeeListFile();
                     JOptionPane.showMessageDialog(this.employeeUI, "Updated!!", "Employee", JOptionPane.INFORMATION_MESSAGE);
                     employeeUI.dispose();
-                    EmployeeCntl employeeCntl = new EmployeeCntl(employee); 
+                    EmployeeInfoCntl employeeCntl = new EmployeeInfoCntl(employee); 
                     updated = true; 
                     break; 
                 } 
-
-                //TODO how can we verify the current user is the one being acsessed in the list 
-
             }//end list search
             if (!updated){
                 JOptionPane.showMessageDialog(this.employeeUI, "Unable to Updated Information", "Employee", JOptionPane.ERROR_MESSAGE);

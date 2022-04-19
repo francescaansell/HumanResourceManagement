@@ -23,7 +23,7 @@ public class RequestAccountCntl implements ActionListener{
         requestAccountUI = new RequestAccountUI(this); 
         requestAccountUI.setTitle("New Employee Form");
         requestAccountUI.setVisible(true);
-        requestAccountUI.setBounds(10, 10, 370, 600);
+        requestAccountUI.setBounds(10, 10, 1000, 700);
         requestAccountUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         requestAccountUI.setResizable(true);
         
