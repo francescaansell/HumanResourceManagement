@@ -1,7 +1,6 @@
 package HumanResourceManagement.design;
 import controller.*; 
-import model.*;
-import java.util.ArrayList;
+
 /**
  *
  * @author Group1HRM

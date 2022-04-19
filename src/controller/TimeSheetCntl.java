@@ -19,7 +19,7 @@ public class TimeSheetCntl implements ActionListener{
         myHoursUI = new MyHoursUI(this); 
         myHoursUI.setTitle("MyHours");
         myHoursUI.setVisible(true);
-        myHoursUI.setBounds(10, 10, 370, 600);
+        myHoursUI.setBounds(10, 10, 1000, 700);
         myHoursUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myHoursUI.setResizable(true);
     }

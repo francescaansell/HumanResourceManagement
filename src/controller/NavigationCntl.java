@@ -12,7 +12,7 @@ public class NavigationCntl implements ActionListener{
     
     public Employee user;
     public HomeUI homeUI; 
-    private EmployeeCntl employeeCntl; 
+    private EmployeeInfoCntl employeeCntl; 
     private LoginCntl loginCntl; 
     private ComplaintCntl complaintCntl; 
 
@@ -20,7 +20,7 @@ public class NavigationCntl implements ActionListener{
         homeUI = new HomeUI(this); 
         homeUI.setTitle("Home Page");
         homeUI.setVisible(true);
-        homeUI.setBounds(10, 10, 1000, 600);
+        homeUI.setBounds(10, 10, 1000, 700);
         homeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeUI.setResizable(true);
 
@@ -44,7 +44,7 @@ public class NavigationCntl implements ActionListener{
         }
         if (e.getSource() == homeUI.employeeBtn){
             homeUI.setVisible(false);
-            employeeCntl = new EmployeeCntl(this.user); 
+            employeeCntl = new EmployeeInfoCntl(this.user); 
         }
         
     }

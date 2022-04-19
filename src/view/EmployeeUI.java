@@ -2,7 +2,7 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 import controller.*;
-import model.Employee;
+
 
 public class EmployeeUI extends JFrame {
     private JLabel firstName ;
@@ -10,16 +10,15 @@ public class EmployeeUI extends JFrame {
     private JTextField firstNameField;
     private JLabel employeeId;
     private JLabel supervisor;
-    private JLabel fullTime;
+    
     private JLabel payScale;
     private JLabel address;
     private JLabel role;
-    private JLabel username;
+    private JLabel employeeID;
     private JLabel password;
     private JTextField lastNameField;
     private JTextField employeeIdField;
     private JTextField supervisorField;
-    private JCheckBox fullTimeField;
     private JTextField payScaleField;
     private JTextField addressField;
     private JTextField roleField;
@@ -28,25 +27,26 @@ public class EmployeeUI extends JFrame {
     private JButton backBtn; 
     private JButton updateBtn; 
 
-    //TODO change from useraname to ID
 
-    public EmployeeUI(EmployeeCntl employeeCntl) {
+    private JLabel fullTimeLabel;
+    private JTextField fullTime; 
+
+    public EmployeeUI(EmployeeInfoCntl employeeCntl) {
         //construct components
         firstName  = new JLabel ("First Name: ");
         lastName = new JLabel ("Last Name: ");
         firstNameField = new JTextField (5);
         employeeId = new JLabel ("Employee Id: ");
         supervisor = new JLabel ("Supervisor: ");
-        fullTime = new JLabel ("Full Time");
+        fullTimeLabel = new JLabel ("Full Time");
         payScale = new JLabel ("Pay Scale: ");
         address = new JLabel ("Address: ");
         role = new JLabel ("Role: ");
-        username = new JLabel ("Username: ");
+        employeeID = new JLabel ("Username: ");
         password = new JLabel ("Password: ");
         lastNameField = new JTextField (5);
         employeeIdField = new JTextField (5);
         supervisorField = new JTextField (5);
-        fullTimeField = new JCheckBox();
         payScaleField = new JTextField (5);
         addressField = new JTextField (5);
         roleField = new JTextField (5);
@@ -56,6 +56,7 @@ public class EmployeeUI extends JFrame {
         updateBtn = new JButton("Update"); 
         address = new JLabel("Address:"); 
         addressField = new JTextField();
+        fullTime = new JTextField();
 
         //adjust size and set layout
         setPreferredSize (new Dimension (816, 589));
@@ -67,16 +68,16 @@ public class EmployeeUI extends JFrame {
         add (firstNameField);
         add (employeeId);
         add (supervisor);
-        add (fullTime);
+        add (fullTimeLabel);
         add (payScale);
         add (address);
         add (role);
-        add (username);
+        add (employeeID);
         add (password);
         add (lastNameField);
         add (employeeIdField);
         add (supervisorField);
-        add (fullTimeField);
+        add (fullTime);
         add (payScaleField);
         add (addressField);
         add (roleField);
@@ -85,6 +86,7 @@ public class EmployeeUI extends JFrame {
         add (backBtn);
         add (updateBtn);
         add (addressField); 
+        add (fullTime);
        
 
         //set component bounds (only needed by Absolute Positioning)
@@ -104,10 +106,11 @@ public class EmployeeUI extends JFrame {
         supervisorField.setBounds (105, 305, 170, 25);
         supervisorField.setEditable(false);
 
-        fullTime.setBounds (25, 350, 100, 25);
-        //fullTimeField.setBounds (105, 350, 170, 25);
-
-        payScale.setBounds (25, 395, 100, 25);
+        fullTimeLabel.setBounds (25, 350, 100, 25);
+        fullTime.setBounds (105, 350, 170, 25);
+        fullTime.setEditable(false);
+        
+        payScale.setBounds(25, 395, 100, 25);
         payScaleField.setBounds (105, 395, 170, 25);
         payScaleField.setEditable(false);
 
@@ -115,7 +118,7 @@ public class EmployeeUI extends JFrame {
         roleField.setBounds (105, 475, 170, 25);
         roleField.setEditable(false);
 
-        username.setBounds (360, 170, 100, 25);
+        employeeID.setBounds (360, 170, 100, 25);
         userNameField.setBounds (445, 170, 195, 25);
         userNameField.setEditable(false);
 
@@ -150,9 +153,6 @@ public class EmployeeUI extends JFrame {
     public void setPasswordField(String str){
         passwordField.setText(str); 
     }
-    public void setFullTime(Boolean b){
-         fullTime.setVisible(b);
-     }
     public void setAddressField(String str){
         addressField.setText(str);
     }
@@ -177,6 +177,21 @@ public class EmployeeUI extends JFrame {
 
     public String getEmployeeID(){
         return userNameField.getText().trim(); 
+    }
+
+    public void setFullTime(Boolean b){
+        if(b){
+            this.fullTime.setText("Yes");
+        } else {
+            this.fullTime.setText("No - Part Time only"); 
+        }
+    }
+    public Boolean getFullTime(){
+        if(this.fullTime.getText().equals("Yes")){
+            return true; 
+        } else {
+            return false; 
+        }
     }
  
 }

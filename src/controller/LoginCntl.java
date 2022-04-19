@@ -16,7 +16,7 @@ public class LoginCntl implements ActionListener{
         loginUI = new LoginUI(this);
         loginUI.setTitle("Login Form");
         loginUI.setVisible(true);
-        loginUI.setBounds(10, 10, 370, 600);
+        loginUI.setBounds(20, 20, 370, 600);
         loginUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginUI.setResizable(true);
         loginUI.loginButton.addActionListener(this);

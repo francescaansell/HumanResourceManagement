@@ -8,17 +8,17 @@ import java.awt.event.ActionListener;
 import model.Employee;
 import model.EmployeeList; 
 
-public class OnboardCntl implements ActionListener{
+public class SupervisorUpdateInfoCntl implements ActionListener{
 
     public OnboardEmployeeUI onboardEmployeeUI; 
     public Employee user; 
     public EmployeeList employeeList; 
 
-    public OnboardCntl(Employee user){
+    public SupervisorUpdateInfoCntl(Employee user){
         onboardEmployeeUI = new OnboardEmployeeUI(this);
         onboardEmployeeUI.setTitle("Onboard New Employee");
         onboardEmployeeUI.setVisible(true);
-        onboardEmployeeUI.setBounds(10, 10, 1000, 600);
+        onboardEmployeeUI.setBounds(10, 10, 1000, 700);
         onboardEmployeeUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         onboardEmployeeUI.setResizable(true);
         
@@ -26,8 +26,9 @@ public class OnboardCntl implements ActionListener{
         employeeList = new EmployeeList(); 
 
         onboardEmployeeUI.getRetrievePendingButton().addActionListener(this);
-        onboardEmployeeUI.getApproveBtn().addActionListener(this); 
+        onboardEmployeeUI.getUpdateBtn().addActionListener(this); 
         onboardEmployeeUI.getBackBtn().addActionListener(this);
+        
 
     }
 
@@ -44,14 +45,15 @@ public class OnboardCntl implements ActionListener{
                     onboardEmployeeUI.setPayScale(employee.getPayScale());
                     onboardEmployeeUI.setSupervisorID(employee.getSupervisorID());
                     onboardEmployeeUI.setDepartmentField(employee.getDepartmentName());
-                    System.out.println("Found"); 
+                    onboardEmployeeUI.setFullTimeBox(employee.getFullTime());
+                    System.out.println("Found Employee"); 
                 }
             }
             if (onboardEmployeeUI.getFirstName().equals("")){
                 JOptionPane.showMessageDialog(this.onboardEmployeeUI, "No Matches", "Onboard Employee", JOptionPane.ERROR_MESSAGE);
             }
         }
-        if (e.getSource() == onboardEmployeeUI.getApproveBtn()){
+        if (e.getSource() == onboardEmployeeUI.getUpdateBtn()){
             for (Employee employee : employeeList.getemployeeList()){
                 if (onboardEmployeeUI.getChooseEmployeeID().equals(employee.getEmployeeID())){
                     String role = (String) onboardEmployeeUI.getRole(); 
@@ -64,13 +66,14 @@ public class OnboardCntl implements ActionListener{
                     employee.setPayScale(payscale);
 
                     employee.setSupervisorID(onboardEmployeeUI.getSupervsiorID());
+                    employee.setFullTime(onboardEmployeeUI.getFullTime());
 
                     employeeList.writeEmployeeListFile();
                     System.out.println("Updated Employee Information"); 
                     JOptionPane.showMessageDialog(this.onboardEmployeeUI, "Updated Employee Information: " + employee.toString(), "Onboard Employee", JOptionPane.DEFAULT_OPTION);
 
                     onboardEmployeeUI.dispose(); 
-                    OnboardCntl onboardCntl = new OnboardCntl(user);
+                    SupervisorUpdateInfoCntl onboardCntl = new SupervisorUpdateInfoCntl(user);
                     
                 } 
             }
