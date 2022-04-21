@@ -7,14 +7,14 @@ import controller.*;
 
 public class SupervisorHomeUI extends JFrame{
     private JButton hoursApproval;
-    private JButton complaints;
+    private JButton complaintsBtn;
     private JButton onboardEmployee;
     private JButton logOut; 
     private JButton employeePortal; 
 
     public SupervisorHomeUI(SupervisorNavCntl supervisorNavCntl){
         hoursApproval = new JButton ("Hours Approval");
-        complaints = new JButton ("Handle Complaints");
+        complaintsBtn = new JButton ("Handle Complaints");
         onboardEmployee = new JButton ("Update and Onboard Employees");
         logOut = new JButton ("Log Out"); 
         employeePortal = new JButton("Go to Employee Portal"); 
@@ -23,15 +23,16 @@ public class SupervisorHomeUI extends JFrame{
         setLayout (null);
 
         add (hoursApproval);
-        add (complaints);
+        add (complaintsBtn);
         add (onboardEmployee);
         add (logOut); 
         add (employeePortal); 
    
         logOut.setBounds(5, 5, 100, 50);
-        hoursApproval.setBounds (155, 120, 235, 140);
-        complaints.setBounds (475, 120, 235, 140);
-        onboardEmployee.setBounds (475, 320, 235, 140);
+
+        onboardEmployee.setBounds(195, 200, 235, 140);
+        complaintsBtn.setBounds (555, 200, 235, 140);
+        
         employeePortal.setBounds(800, 5, 180, 50); 
     }
 
@@ -44,7 +45,7 @@ public class SupervisorHomeUI extends JFrame{
     }
 
     public JButton getComplaintsBtn(){
-        return complaints; 
+        return complaintsBtn; 
     }
 
     public JButton getEmployeePortal(){

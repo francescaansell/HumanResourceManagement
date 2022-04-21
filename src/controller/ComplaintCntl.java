@@ -69,7 +69,8 @@ public class ComplaintCntl implements ActionListener {
             formatter.format(date); 
             String complaintType = (String) myComplaintsUI.getComplaintType();
             Integer i = createComplaintID(); 
-            Complaint complaint = new Complaint(i, complaintType, null, date, myComplaintsUI.getDate(), employee, true, false, myComplaintsUI.getInvolved(), myComplaintsUI.getDescription());          
+              //(Integer id, String, Employee assignedEmployee, java.util.Date openDate, java.util.Date incidentDate, Employee claimant, String involved, String description, Boolean open, java.util.Date closedDate)
+            Complaint complaint = new Complaint(i, complaintType, null, myComplaintsUI.getDate(), myComplaintsUI.getDate(), this.employee, myComplaintsUI.getInvolved(), myComplaintsUI.getDescription(), true, null);
             try{
                 for (Employee employee : employeeList.getemployeeList()){
                     if (employee.getRole().equals("Admin")){

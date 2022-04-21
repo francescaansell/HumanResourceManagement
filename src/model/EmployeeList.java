@@ -60,26 +60,22 @@ public class EmployeeList {
     
     public void createList(){
         Role admin = new Role("Admin", 10);
-        Employee employee = new Employee("Jen", "Hod", "jah320", "buddy123!", new Department(), admin, 1, new ArrayList<TimeSheet>(), true, "admin", "150 Main Street, State College PA, 16801", "d - 100,000");
+        Employee employee = new Employee("Jen", "Hod", "jah320", "Buddy123!".toCharArray(), "Shipping", admin, 1, true, "admin", "150 Main Street, State College PA, 16801", "d - 100,000");
         employeeList.add(employee); 
 
         Role supervisor= new Role("Supervisor", 20); 
-        Employee employee2 = new Employee("Francesca", "Ansell", "fla568", "ilovedogs7!", new Department(), supervisor, 2, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
+        Employee employee2 = new Employee("Francesca", "Ansell", "fla568", "Ilovedogs7!".toCharArray(), "Shipping", supervisor, 2, true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
         employeeList.add(employee2); 
-        Employee employee3 = new Employee("Hannah", "Kitchell", "hak920", "hek908", new Department(), supervisor, 3, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
+        Employee employee3 = new Employee("Hannah", "Kitchell", "hak920", "Psustudent!".toCharArray(), "Shipping", supervisor, 3,  true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
         employeeList.add(employee3); 
-        Employee employee4 = new Employee("Vincent", "Semru", "ves824", "coffeelover0!", new Department(), supervisor, 4, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
+        Employee employee4 = new Employee("Vincent", "Semru", "ves824", "Coffeelover0!".toCharArray(), "Shipping", supervisor, 4, true, employee.getEmployeeID(), "150 Main Street, State College PA, 16801", "d - 100,000"); 
         employeeList.add(employee4); 
 
         Role r = new Role("Employee", 40); 
-        Employee employee5 = new Employee("Guy", "Kane", "gpk509", "netflix2!", new Department(), r, 5, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16802", "d - 100,000");
+        Employee employee5 = new Employee("Guy", "Kane", "gpk509", "Netflix2!".toCharArray(), "Shipping", r, 5,true, employee.getEmployeeID(), "150 Main Street, State College PA, 16802", "d - 100,000");
         employeeList.add(employee5);
-        Employee employee6 = new Employee("a", "b", "abc123", "12345", new Department(), r, 5, new ArrayList<TimeSheet>(), true, employee.getEmployeeID(), "150 Main Street, State College PA, 16802", "d - 100,000");
+        Employee employee6 = new Employee("test", "test", "abc123", "12345".toCharArray(), "Shipping", r, 5, true, employee.getEmployeeID(), "150 Main Street, State College PA, 16802", "d - 100,000");
         employeeList.add(employee6);
-
-
-        printEmployeeList();
-        
     }
     
     public void writeEmployeeListFile(){

@@ -16,7 +16,7 @@ public class Department implements Serializable{
 
     public Department() {
         deptID = 1; 
-        deptName = "None"; 
+        deptName = ""; 
         employeeList = new ArrayList<Employee>(); 
     }
 
@@ -37,6 +37,9 @@ public class Department implements Serializable{
     }
     public ArrayList<Employee> getEmployeeList() {
         return employeeList;
+    }
+    public void addEmployee(Employee emp){
+        employeeList.add(emp); 
     }
 
     @Override

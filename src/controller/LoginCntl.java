@@ -27,14 +27,17 @@ public class LoginCntl implements ActionListener{
         employeeList = new EmployeeList(); 
     }
     
+   
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginUI.getLoginBtn()) {
             String username = loginUI.getUsername();
-            String password = String.valueOf(loginUI.getPasswordField().getPassword()); 
+            char[] password = loginUI.getPassword(); 
             
             for (Employee employee : employeeList.getemployeeList()){   
-                if (username.equalsIgnoreCase(employee.getUserName()) && password.equalsIgnoreCase(employee.getPw())) {           
+                if (username.equalsIgnoreCase(employee.getUserName()) && java.util.Arrays.equals(password, employee.getPw())) {         
                     if (employee.getRole().equalsIgnoreCase("Admin") || employee.getRole().equalsIgnoreCase("Supervisor")){ //this is a superviosr
                         System.out.println(employee); 
                         SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(employee); 

@@ -10,16 +10,16 @@ public class Employee implements Serializable{
     protected String firstName;
     protected String lastName;
     protected String employeeID;
-    protected String pw;
-    protected Department department; 
+    protected char[] pw;
+    protected String department; 
     protected EmployeeList employeeList; 
     protected Integer numLeaveDays;
     protected Boolean fullTime; 
-    protected ArrayList<TimeSheet> previousTimeSheets; 
     protected Role role; 
     protected String supervisorID; 
     protected String address; 
     protected String payscale; 
+
 
     
     /**
@@ -33,8 +33,8 @@ public class Employee implements Serializable{
      * @param department the department in which the employee works for 
      * @param previousTimeSheets 
      */
-    public Employee(String firstName, String lastName, String employeeID, String pw, Department department, Role role,
-     Integer numLeaveDays, ArrayList<TimeSheet> previousTimesheets, Boolean fullTime, String supervisorID, String address, String payscale) {
+    public Employee(String firstName, String lastName, String employeeID, char[] pw, String department, Role role,
+     Integer numLeaveDays, Boolean fullTime, String supervisorID, String address, String payscale) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeID = employeeID;
@@ -44,15 +44,15 @@ public class Employee implements Serializable{
         this.employeeID = employeeID;
         this.numLeaveDays = numLeaveDays;  
         this.fullTime = fullTime; 
-        this.previousTimeSheets = previousTimesheets; 
         this.supervisorID = supervisorID;
         this.address = address;  
         this.payscale = payscale; 
         
+        
     }
     
     //Information Employee Can Enter
-    public Employee(String firstName, String lastName, String employeeID, String pw) {
+    public Employee(String firstName, String lastName, String employeeID, char[] pw) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeID = createEmployeeID(employeeID);
@@ -62,9 +62,8 @@ public class Employee implements Serializable{
         this.fullTime = true; 
         this.address = ""; 
         this.supervisorID = ""; 
-        this.department = new Department();  
+        this.department = "";
         this.numLeaveDays = 0;  
-        this.previousTimeSheets = null; 
         this.role = new Role();
         this.role.setRoleName("Pending");  
         this.payscale = ""; 
@@ -120,24 +119,26 @@ public class Employee implements Serializable{
         this.employeeID = employeeID;
     }
 
-    public String getPw() {
+    public char[] getPw() {
         return pw;
     }
+    public String getPwString(){
+        return pw.toString(); 
+    }
 
-    public void setPw(String pw) {
+    public void setPw(char[] pw) {
         this.pw = pw;
     }
 
-    public Department getDepartment() {
+ 
+    public String getDepartmentName(){
         return department;
     }
-    public String getDepartmentName(){
-        return department.getDeptName(); 
-    }
 
-    public void setDepartment(String department) {
-        //TODO fix in future 
-        this.department.setDeptName(department); 
+    public void setDepartment(String d) {
+       
+        this.department = d;
+
     }
 
     public Integer getNumLeaveDays() {
@@ -154,14 +155,6 @@ public class Employee implements Serializable{
 
     public void setFullTime(Boolean fullTime){
         this.fullTime = true;
-    }
-
-    public void setPreviousTimesheets(ArrayList<TimeSheet> previousTimesheets){
-        this.previousTimeSheets = previousTimesheets; 
-    }
-
-    public ArrayList<TimeSheet> getPreviousTimesheets(){
-        return this.previousTimeSheets; 
     }
     public String getRole() {
         return role.getRoleName(); 
@@ -183,7 +176,7 @@ public class Employee implements Serializable{
     }
 
     public void setPassword(String str){
-        this.pw = str; 
+        this.pw = str.toCharArray();
     }
 
     public void setPayScale(String str){
@@ -206,7 +199,7 @@ public class Employee implements Serializable{
     public String toString()
     {
         //return "Employee{" + firstName + ", " + lastName + ", " + employeeID + '}';
-        return "Employee{" + firstName + ", " + lastName + ", " + employeeID  + ", "  + supervisorID + ", " + department.getDeptName() + ", " +  payscale  + ", }";
+        return "Employee{" + firstName + ", " + lastName + ", " + employeeID  + ", "  + supervisorID + ", " + department + ", " +  payscale  + ", }";
     }
 
     public Boolean equals(Employee employee){

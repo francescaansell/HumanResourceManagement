@@ -13,12 +13,13 @@ Employees
 * guykane, netflix2!
 
 ### IMPORTANT NOTES
-If you are having trouble running our program you may need to add the JAR file to your reference library in VS code. 
+Our project was completed in VS code. 
+If you are having trouble running our program you may need to add the JAR file to your reference library in VS code. It should however run without any changes. 
 If you are testing the request an account feature you will need to view the terminal/output to see what number you are assigned. (This was discussed with Proffessor Vora)
 
 ### Current Status and Capabilites : 
 
-The scope of our project has changed after meeting with proffessor Vora. This is a breakdown of our specfied scope (i.e. what use cases we implemented)
+The scope of our project has changed after meeting with proffessor Vora. This is a breakdown of our specfied scope (i.e. what use cases we implemented) The bolded headings are those in which where focused on for the assignment due on 4/20. 
 
 
 (1) Authentication 
@@ -32,7 +33,7 @@ The scope of our project has changed after meeting with proffessor Vora. This is
 (2) Update Employee Information 
 * Employees can update their own information (but only information that the backend system allows)
 
-(3) Approved and Update Employees
+# (3) Approved and Update Employees
 * A supervisor can approve an employee 
 * A supervisor can update information about an employee such as pay scale, id, supervisor, etc. 
 
@@ -45,8 +46,9 @@ The scope of our project has changed after meeting with proffessor Vora. This is
   * Close Complaint
   * View open complaints, closed complaints, or both
 
-(5) Create Complaint (Employee)
+# (5) Create Complaint (Employee)
 * Can create an complaint with description, those involved, date of occurance, and date submitted 
+* Complaints are stored and able to be acsessed later in an organized way 
 * Will be implemented in later iterations
   * requiring nessisary fields to be completed before submitting complaint
 
@@ -65,6 +67,7 @@ The scope of our project has changed after meeting with proffessor Vora. This is
 7. Inefficient Use of Get Methods
 8. Inefficiently Utilizing ArrayList<Employee> Instead of Existing UserList Object 
 9. Lack a method to calculate amount of PTO remaining
+Was not implemented because this use case has been removed from scope. 
 10. Using a for loop instead of a pipeline
 
 

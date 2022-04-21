@@ -150,8 +150,8 @@ public class EmployeeUI extends JFrame {
     public void setSupervisorField(String str){
         supervisorField.setText(str);   
     }
-    public void setPasswordField(String str){
-        passwordField.setText(str); 
+    public void setPasswordField(char[] c){
+        passwordField.setText(String.valueOf(c)); 
     }
     public void setAddressField(String str){
         addressField.setText(str);

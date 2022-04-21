@@ -1,5 +1,6 @@
 package view;
 
+import javax.security.auth.callback.PasswordCallback;
 import javax.swing.*;
 
 import controller.LoginCntl;
@@ -14,7 +15,7 @@ import java.awt.*;
 public class LoginUI extends JFrame  {
 
     protected String login; 
-    protected String pw; 
+    protected char[] pw; 
     protected LoginCntl loginCntl; 
 
     //Frame
@@ -43,11 +44,8 @@ public class LoginUI extends JFrame  {
         this.login = login; 
     }
 
-    public String getPw(){
-        return pw; 
-    }
 
-    public void setPw(String pw){
+    public void setPw(char[] pw){
         this.pw = pw; 
     }  
 
@@ -64,6 +62,9 @@ public class LoginUI extends JFrame  {
 
     public JPasswordField getPasswordField(){
         return passwordField;
+    }
+    public char[] getPassword(){
+        return passwordField.getPassword(); 
     }
     public void setPasswordField(String str){
         passwordField.setText(str);

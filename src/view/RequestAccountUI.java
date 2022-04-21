@@ -65,8 +65,8 @@ public class RequestAccountUI extends JFrame{
         return employeeID.getText().trim(); 
     }
 
-    public String getPassword(){
-        return password.getText().trim(); 
+    public char[] getPassword(){
+        return password.getText().trim().toCharArray(); 
     }
 
     public String getFirstName(){
@@ -94,5 +94,7 @@ public class RequestAccountUI extends JFrame{
     public void setEmployeeID(String str){
         employeeID.setText(str);
     }
-  
+    public void setPw(String str){
+        password.setText(str);
+    }
 }

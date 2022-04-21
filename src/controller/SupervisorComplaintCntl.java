@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList; 
 
 /**
@@ -37,6 +38,7 @@ public class SupervisorComplaintCntl implements ActionListener {
         supervisorComplaintUI.getAssignEmployeeBtn().addActionListener(this); 
         supervisorComplaintUI.getSearchBtn().addActionListener(this);
         supervisorComplaintUI.getTypePicker().addActionListener(this);
+        supervisorComplaintUI.getFilterOpenBox().addActionListener(this); 
        
         
         complaintList = new ComplaintList(); 
@@ -49,19 +51,8 @@ public class SupervisorComplaintCntl implements ActionListener {
         employeeList = new EmployeeList(); 
 
         updateAssignedComplaints(); 
-        String formated = "";
-        for (Complaint c: assignedComplaints){
-            formated = formated + c.toString() + "\n" + "----------------------------------------------------------------------" + "\n";
-        }
-        if (!formated.isEmpty()){
-            supervisorComplaintUI.setTextField(formated);
-            System.out.println(formated); 
-             
-        } else {
-            supervisorComplaintUI.setTextField("No currrent complaints assigned to you");
-            System.out.println("No currrent complaints assigned to you");
-            
-        }
+        formatComplaintList();
+        
     }
 
     public void updateAssignedComplaints(){
@@ -73,6 +64,38 @@ public class SupervisorComplaintCntl implements ActionListener {
 
     }
 
+    public void formatComplaintList(){
+        ArrayList<Complaint> filteredList = new ArrayList<>(); 
+        for (Complaint complaint: assignedComplaints){
+            if(supervisorComplaintUI.getComplaintType().equals("") && !supervisorComplaintUI.getFilterOpen().equals("")){ // filter only open 
+                if(complaint.formatOpen().equals((supervisorComplaintUI.getFilterOpen()))){
+                    filteredList.add(complaint);
+                } 
+            } if (!supervisorComplaintUI.getComplaintType().equals("") && supervisorComplaintUI.getFilterOpen().equals("")) { //filter by only type
+                if(complaint.getType().equals(supervisorComplaintUI.getComplaintType())){ 
+                    filteredList.add(complaint);
+                }  
+            } if (!supervisorComplaintUI.getComplaintType().equals("") && !supervisorComplaintUI.getFilterOpen().equals("")) { //filter by both
+                if(complaint.getType().equals(supervisorComplaintUI.getComplaintType()) && (complaint.formatOpen().equals(supervisorComplaintUI.getFilterOpen()))){ 
+                    filteredList.add(complaint);
+                } 
+            } if (supervisorComplaintUI.getComplaintType().equals("") && supervisorComplaintUI.getFilterOpen().equals("")) { //no filters applied
+                    filteredList.add(complaint);
+            } 
+        } 
+        String formated = "";
+        if (filteredList.size() > 0){
+            for (Complaint c: filteredList){
+                formated = formated + c.toString() + "\n" + "----------------------------------------------------------------------" + "\n";
+            }
+            supervisorComplaintUI.setTextField(formated);
+        } else {
+            supervisorComplaintUI.setTextField("No Complaints that match that status are assigned to you");
+        
+            System.out.println("No Complaints that match that status are assigned to you");
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == supervisorComplaintUI.getBack()){
@@ -80,65 +103,81 @@ public class SupervisorComplaintCntl implements ActionListener {
             SupervisorNavCntl supervisorNavCntl = new SupervisorNavCntl(this.user); //return to home page 
         }
         if (e.getSource() == supervisorComplaintUI.getAssignEmployeeBtn()){ //update complaint
-            Boolean sucess = false; 
+            Boolean sucess = false;  
             Complaint tempComplaint = null; 
             if (!this.assignedComplaints.isEmpty() && supervisorComplaintUI.getComplaintID() != null){
-                                    for (Complaint complaint : this.assignedComplaints){
-                                        if(complaint.getId().equals(supervisorComplaintUI.getComplaintID())){
-                                            //System.out.println("IDs match"); 
-                                            tempComplaint = complaint; 
+                for (Complaint complaint : this.assignedComplaints){
+                    if(complaint.getId().equals(supervisorComplaintUI.getComplaintID())){
+                        //System.out.println("IDs match"); 
+                        tempComplaint = complaint; 
 
-                                            Boolean found = false; 
-                                            for (Employee employee : employeeList.getemployeeList()){
-                                                if (employee.getRole().equalsIgnoreCase("Supervisor") && supervisorComplaintUI.getEmployeeID().equals((employee.getEmployeeID()))){
-                                                    System.out.println("Found Employee"); 
-                                                    //supervisorComplaintUI.setEmployeeInfo(employee.toString());
-                                                    tempEmployee = employee; 
-                                                    found = true; 
-                                                    break; 
-                                                } 
-                                                
-                                                else if (supervisorComplaintUI.getEmployeeID().equalsIgnoreCase(employee.getEmployeeID()) && employee.getRole().equals("Employee")){
-                                                    JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Employee Must be a Supervisor to be assinged to handle a complaint", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
-                                                    found = true; 
-                                                    supervisorComplaintUI.setEmployeeID("");
-                                                    supervisorComplaintUI.setEmployeeInfo("");
-                                                    sucess = false; 
-                                                    break;  
-                                                } 
-                                            }
-                                            // if(!found){
-                                            //     JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Cannot Find Employee with those credentials", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
-                                            //     supervisorComplaintUI.setEmployeeID("");
-                                            //     supervisorComplaintUI.setEmployeeInfo("");
-                                            //     return; 
+                        Boolean found = false; 
+                        for (Employee employee : employeeList.getemployeeList()){
+                            if (employee.getRole().equalsIgnoreCase("Supervisor") && supervisorComplaintUI.getEmployeeID().equals((employee.getEmployeeID()))){
+                                System.out.println("Found Employee"); 
+                                //supervisorComplaintUI.setEmployeeInfo(employee.toString());
+                                tempEmployee = employee; 
+                                found = true; 
+                                break; 
+                            } 
+                            
+                            else if (supervisorComplaintUI.getEmployeeID().equalsIgnoreCase(employee.getEmployeeID()) && employee.getRole().equals("Employee")){
+                                JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Employee Must be a Supervisor to be assinged to handle a complaint", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
+                                found = true; 
+                                supervisorComplaintUI.setEmployeeID("");
+                                supervisorComplaintUI.setEmployeeInfo("");
+                                sucess = false; 
+                                return;  
+                            } 
+                        }
 
-                                            // }
 
-                                            if(supervisorComplaintUI.getDate() != null){
-                                                complaint.setOpenDate(supervisorComplaintUI.getDate()); 
-                                            } else if(!supervisorComplaintUI.getInvoled().equals("")){
-                                                complaint.setInvoled(supervisorComplaintUI.getInvoled());
-                                            } else if(tempEmployee != null){
-                                                complaint.setAssignedEmployee(tempEmployee);
-                                            }  
-                                            else if(!supervisorComplaintUI.getDescriptoin().equals("")){
-                                                complaint.setDescription(supervisorComplaintUI.getDescriptoin()); 
-                                            }
-                                            sucess = true; 
 
-                                        }
-                    
-                                    }
-                                    }
+                        // if(!found){
+                        //     JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Cannot Find Employee with those credentials", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
+                        //     supervisorComplaintUI.setEmployeeID("");
+                        //     supervisorComplaintUI.setEmployeeInfo("");
+                        //     return; 
+
+                        // }
+
+                        if(supervisorComplaintUI.getDate() != null){
+                            complaint.setOpenDate(supervisorComplaintUI.getDate()); 
+                        } else if(!supervisorComplaintUI.getInvoled().equals("")){
+                            complaint.setInvoled(supervisorComplaintUI.getInvoled());
+                        } else if(tempEmployee != null){
+                            complaint.setAssignedEmployee(tempEmployee);
+                        }  
+                        else if(!supervisorComplaintUI.getDescriptoin().equals("")){
+                            complaint.setDescription(supervisorComplaintUI.getDescriptoin()); 
+                        }
+                        if(supervisorComplaintUI.getClosed().equals("Closed") && complaint.formatOpen().equals("Open")){ //closes a previously open complaint and adds a close date 
+                            
+                            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                            java.util.Date date = new java.util.Date(System.currentTimeMillis());
+                            formatter.format(date); 
+                            complaint.setClosedDate(date);
+                            complaint.setOpen(false); 
+                        
+                        } else if (supervisorComplaintUI.getClosed().equals("Open") && complaint.formatOpen().equals("Closed")){ //opens a previously closed complaints and removes closed date
+                            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                            java.util.Date date = new java.util.Date(System.currentTimeMillis());
+                            formatter.format(date); 
+                            complaint.setOpenDate(date);
+                            complaint.setClosedDate(null);
+                            complaint.setOpen(true); 
+                        }
+                        sucess = true; 
+
+                    }// end of if(complaint.getId().equals(supervisorComplaintUI.getComplaintID())){ 
+
+                    }// end of for (Complaint complaint : this.assignedComplaints){
+                }// end of if (!this.assignedComplaints.isEmpty() && supervisorComplaintUI.getComplaintID() != null){
                 if (sucess){
                     complaintList.writecomplaintListFile();
                         JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Updated Complaint "+  tempComplaint, "Handle Complaints", JOptionPane.INFORMATION_MESSAGE);
                         updateAssignedComplaints();
                         System.out.println("Updated Complaint"); 
-                        
-                        // TODO complaint.setOpen(open);
-
                         supervisorComplaintUI.dispose(); 
                         supervisorComplaintCntl = new SupervisorComplaintCntl(this.user); 
                         return; 
@@ -146,32 +185,14 @@ public class SupervisorComplaintCntl implements ActionListener {
               
                 System.out.println("Compalint IDs do not match");
                 JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Error, Fill out all required Fields", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
-             
-                       
-            
-        
-    }///////////end of update complaint
+    
+        }///////////end of update complaint
 
         if (e.getSource() == supervisorComplaintUI.getTypePicker()){
-            ArrayList<Complaint> complaintType = new ArrayList<>(); 
-            for (Complaint complaint : this.assignedComplaints){
-                if(complaint.getType().equals(supervisorComplaintUI.getComplaintType())){
-                    complaintType.add(complaint);
-                } 
-            }
-            String formated = ""; 
-            for (Complaint c: complaintType){
-                formated = formated + c.toString() + "\n" + "----------------------------------------------------------------------" + "\n";
-            }
-            if (!formated.isEmpty()){
-                supervisorComplaintUI.setTextField(formated);
-                System.out.println(formated); 
-                 
-            } else {
-                supervisorComplaintUI.setTextField("No Complaints that match that type");
-                System.out.println("No Complaints that match that type");
-                
-            }
+            formatComplaintList();    
+        }
+        if (e.getSource() == supervisorComplaintUI.getFilterOpenBox()){
+            formatComplaintList();
         }
     }
 }

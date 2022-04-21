@@ -22,6 +22,8 @@ public class MyComplaintsUI extends JFrame {
     public JDatePickerImpl datePicker; 
     public JComboBox<String> complaintType; 
     public JLabel complaintTypeLabel; 
+    private JLabel currentComplaitns; 
+    private JTextArea currentComplaintField; 
    
  
     public MyComplaintsUI(ComplaintCntl complaintCntl) {
@@ -45,6 +47,9 @@ public class MyComplaintsUI extends JFrame {
         datePanel = new JDatePanelImpl(model, p);
         datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
 
+        currentComplaintField = new JTextArea(); 
+        currentComplaitns = new JLabel("Current Open Complaints");
+
         setPreferredSize (new Dimension (816, 589));
         setLayout (null);
 
@@ -58,6 +63,8 @@ public class MyComplaintsUI extends JFrame {
         add (datePicker);
         add (complaintType); 
         add (complaintTypeLabel);
+        add (currentComplaintField);
+        add (currentComplaitns);
 
           // create the middle panel components
 
@@ -77,7 +84,12 @@ public class MyComplaintsUI extends JFrame {
         complaintTypeLabel.setBounds(5, 410, 100, 25);
         complaintType.setBounds(5, 430, 165, 25);
 
+        currentComplaitns.setBounds(520, 60, 300, 30);
+        currentComplaintField.setBounds(520, 90, 400, 500);
+
         submitBtn.setBounds (5, 500, 140, 20);
+
+        
     }
 
     public java.util.Date getDate(){

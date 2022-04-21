@@ -23,9 +23,9 @@ public class HomeUI extends JFrame{
         add (employeeBtn);
         add (logOutBtn); 
 
-        hoursBtn.setBounds (155, 120, 235, 140);
-        complaintsBtn.setBounds (475, 120, 235, 140);
-        employeeBtn.setBounds (475, 320, 235, 140);
+
+        employeeBtn.setBounds(195, 200, 235, 140);
+        complaintsBtn.setBounds (555, 200, 235, 140);
         logOutBtn.setBounds(5, 5, 100, 50);
     }
 
