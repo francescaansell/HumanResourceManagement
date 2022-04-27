@@ -31,7 +31,7 @@ public class MyComplaintsUI extends JFrame {
         descriptionField = new JTextArea (5, 5);
         descripition = new JLabel ("Description");
         involvedField = new JTextArea (5, 5);
-        involved = new JLabel ("Persons Involed");
+        involved = new JLabel ("Persons Involved");
         date = new JLabel ("Date the incident occured");
         backBtn = new JButton("Back"); 
         String[] types = {"", "Management", "Payroll/Salary", "Sexual Misconduct", "Discrimination"}; 

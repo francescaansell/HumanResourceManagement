@@ -46,7 +46,7 @@ public class Complaint implements Serializable{
 
 
 
-    public void setInvoled(String involved){
+    public void setInvolved(String involved){
         this.involved = involved; 
     }
 
@@ -126,9 +126,9 @@ public class Complaint implements Serializable{
     public String toString(){
         //(Integer id, String type, Employee assignedEmployee, java.util.Date openDate, java.util.Date incidentDate, Employee claimant, String involved, String description, Boolean open, java.util.Date closedDate)
         if(this.open){
-            return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Type: " + type + " , Open date: " + this.openDate + ", Incident Date: " + incidentDate +  ", Claimant: " + this.claimant.getEmployeeID()  + ", Involed: " + this.involved + ", Description: " + this.description + ", " + formatOpen() + '}';
+            return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Type: " + type + " , Open date: " + this.openDate + ", Incident Date: " + incidentDate +  ", Claimant: " + this.claimant.getEmployeeID()  + ", Involved: " + this.involved + ", Description: " + this.description + ", " + formatOpen() + '}';
         } else {
-            return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Type: " + type + ", Open date: " + this.openDate + ", Incident Date: " + incidentDate +  ", Claimant: " + this.claimant.getEmployeeID()  + ", Involed: " + this.involved + ", Description: " + this.description + ", " + formatOpen() + ", " + "Closed Date: " + closedDate + '}';
+            return "Complaint{" + "ID: " + this.id + ", Assigned Employee: " + this.assignedEmployee.getEmployeeID() + ", Type: " + type + ", Open date: " + this.openDate + ", Incident Date: " + incidentDate +  ", Claimant: " + this.claimant.getEmployeeID()  + ", Involved: " + this.involved + ", Description: " + this.description + ", " + formatOpen() + ", " + "Closed Date: " + closedDate + '}';
         }
     }
 

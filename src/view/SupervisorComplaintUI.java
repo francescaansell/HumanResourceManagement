@@ -136,7 +136,7 @@ public class SupervisorComplaintUI extends JFrame {
         descriptionField = new JTextArea (5, 5);
         descripition = new JLabel ("Description");
         involvedField = new JTextArea (5, 5);
-        involved = new JLabel ("Persons Involed");
+        involved = new JLabel ("Persons Involved");
         date = new JLabel ("Date the incident occured");
         
 
@@ -243,10 +243,10 @@ public class SupervisorComplaintUI extends JFrame {
         return this.filterType; 
     }
 
-    public String getInvoled(){
+    public String getInvolved(){
         return this.involvedField.getText().trim(); 
     }
-    public void setInvoled(String str){
+    public void setInvolved(String str){
         this.involvedField.setText(str);
     }
 

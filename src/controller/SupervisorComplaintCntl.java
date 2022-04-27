@@ -143,8 +143,8 @@ public class SupervisorComplaintCntl implements ActionListener {
 
                         if(supervisorComplaintUI.getDate() != null){
                             complaint.setOpenDate(supervisorComplaintUI.getDate()); 
-                        } else if(!supervisorComplaintUI.getInvoled().equals("")){
-                            complaint.setInvoled(supervisorComplaintUI.getInvoled());
+                        } else if(!supervisorComplaintUI.getInvolved().equals("")){
+                            complaint.setInvolved(supervisorComplaintUI.getInvolved());
                         } else if(tempEmployee != null){
                             complaint.setAssignedEmployee(tempEmployee);
                         }  
