@@ -73,19 +73,22 @@ public class MyComplaintsUI extends JFrame {
         backBtn.setBounds(5, 5, 100, 50); 
         
         involved.setBounds (5, 70, 100, 25);
-        involvedField.setBounds (5, 100, 500, 70);
+        involvedField.setBounds (5, 100, 250, 70);
         
         date.setBounds(5, 170, 165, 25);
         datePicker.setBounds(5, 190, 200, 30);
 
         descripition.setBounds (5, 240, 100, 25);
-        descriptionField.setBounds (5, 260, 500, 145);
+        descriptionField.setBounds (5, 260, 250, 145);
+        descriptionField.setLineWrap(true);
 
         complaintTypeLabel.setBounds(5, 410, 100, 25);
         complaintType.setBounds(5, 430, 165, 25);
 
-        currentComplaitns.setBounds(520, 60, 300, 30);
-        currentComplaintField.setBounds(520, 90, 400, 500);
+        currentComplaitns.setBounds(290, 60, 350, 30);
+        currentComplaintField.setBounds(290, 90, 650, 500);
+        currentComplaintField.setEditable(false);
+        currentComplaintField.setLineWrap(true);
 
         submitBtn.setBounds (5, 500, 140, 20);
 
@@ -132,6 +135,13 @@ public class MyComplaintsUI extends JFrame {
 
     public void setType(Object obj){
         this.complaintType.setSelectedItem(obj);
+    }
+
+    public void setCurrentComplaints(String str){
+        this.currentComplaintField.setText(str);
+    }
+    public String getCurrentComplaints(){
+        return this.currentComplaintField.getText(); 
     }
 
 }

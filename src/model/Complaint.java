@@ -17,7 +17,7 @@ public class Complaint implements Serializable{
     //TODO GOAL protected ArrayList<Employee> involved; 
     protected String involved; 
     protected Integer id; 
-    protected String type; 
+    protected Object type; 
     protected java.util.Date incidentDate; 
 
     /**
@@ -30,7 +30,8 @@ public class Complaint implements Serializable{
      * @param description
      * @param id
      */
-    public Complaint(Integer id, String type, Employee assignedEmployee, java.util.Date openDate, java.util.Date incidentDate, Employee claimant, String involved, String description, Boolean open, java.util.Date closedDate){
+    public Complaint(Integer id, String type, Employee assignedEmployee, java.util.Date openDate, java.util.Date incidentDate, Employee claimant, String involved, String description, 
+    Boolean open, java.util.Date closedDate){
         this.openDate = openDate; 
         this.claimant = claimant; 
         this.open = open; 
@@ -43,8 +44,6 @@ public class Complaint implements Serializable{
         this.incidentDate = incidentDate; 
 
     }
-
-
 
     public void setInvolved(String involved){
         this.involved = involved; 
@@ -96,11 +95,11 @@ public class Complaint implements Serializable{
 
     }
     
-    public void setType(String str){
+    public void setComplaintType(String str){
         this.type = str; 
     }
 
-    public String getType(){
+    public Object getComplaintType(){
         return this.type; 
     }
 
@@ -116,10 +115,11 @@ public class Complaint implements Serializable{
         }
     }
 
-    public void setDescription(String text) {
+    public void setDescription(String str) {
+        this.description = str; 
     }
     public void setClosedDate(java.util.Date date){
-        this.openDate = date; 
+        this.closedDate = date; 
     }
 
     @Override

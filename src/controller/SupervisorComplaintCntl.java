@@ -30,7 +30,7 @@ public class SupervisorComplaintCntl implements ActionListener {
         supervisorComplaintUI = new SupervisorComplaintUI(this);
         supervisorComplaintUI.setTitle("Handle Complaints"); 
         supervisorComplaintUI.setVisible (true);
-        supervisorComplaintUI.setBounds(10, 10, 1000, 900);
+        supervisorComplaintUI.setBounds(10, 10, 1000, 1000);
         supervisorComplaintUI.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         supervisorComplaintUI.setResizable(true);
         supervisorComplaintUI.getBack().addActionListener(this); 
@@ -67,19 +67,19 @@ public class SupervisorComplaintCntl implements ActionListener {
     public void formatComplaintList(){
         ArrayList<Complaint> filteredList = new ArrayList<>(); 
         for (Complaint complaint: assignedComplaints){
-            if(supervisorComplaintUI.getComplaintType().equals("") && !supervisorComplaintUI.getFilterOpen().equals("")){ // filter only open 
+            if(supervisorComplaintUI.getFilterType().equals("") && !supervisorComplaintUI.getFilterOpen().equals("")){ // filter only open 
                 if(complaint.formatOpen().equals((supervisorComplaintUI.getFilterOpen()))){
                     filteredList.add(complaint);
                 } 
-            } if (!supervisorComplaintUI.getComplaintType().equals("") && supervisorComplaintUI.getFilterOpen().equals("")) { //filter by only type
-                if(complaint.getType().equals(supervisorComplaintUI.getComplaintType())){ 
+            } if (!supervisorComplaintUI.getFilterType().equals("") && supervisorComplaintUI.getFilterOpen().equals("")) { //filter by only type
+                if(complaint.getComplaintType().equals(supervisorComplaintUI.getFilterType())){ 
                     filteredList.add(complaint);
                 }  
-            } if (!supervisorComplaintUI.getComplaintType().equals("") && !supervisorComplaintUI.getFilterOpen().equals("")) { //filter by both
-                if(complaint.getType().equals(supervisorComplaintUI.getComplaintType()) && (complaint.formatOpen().equals(supervisorComplaintUI.getFilterOpen()))){ 
+            } if (!supervisorComplaintUI.getFilterType().equals("") && !supervisorComplaintUI.getFilterOpen().equals("")) { //filter by both
+                if(complaint.getComplaintType().equals(supervisorComplaintUI.getFilterType()) && (complaint.formatOpen().equals(supervisorComplaintUI.getFilterOpen()))){ 
                     filteredList.add(complaint);
                 } 
-            } if (supervisorComplaintUI.getComplaintType().equals("") && supervisorComplaintUI.getFilterOpen().equals("")) { //no filters applied
+            } if (supervisorComplaintUI.getFilterType().equals("") && supervisorComplaintUI.getFilterOpen().equals("")) { //no filters applied
                     filteredList.add(complaint);
             } 
         } 
@@ -131,31 +131,26 @@ public class SupervisorComplaintCntl implements ActionListener {
                             } 
                         }
 
-
-
-                        // if(!found){
-                        //     JOptionPane.showMessageDialog(this.supervisorComplaintUI, "Cannot Find Employee with those credentials", "Handle Complaints", JOptionPane.ERROR_MESSAGE);
-                        //     supervisorComplaintUI.setEmployeeID("");
-                        //     supervisorComplaintUI.setEmployeeInfo("");
-                        //     return; 
-
-                        // }
-
                         if(supervisorComplaintUI.getDate() != null){
                             complaint.setOpenDate(supervisorComplaintUI.getDate()); 
-                        } else if(!supervisorComplaintUI.getInvolved().equals("")){
+                        }if(!supervisorComplaintUI.getInvolved().equals("")){
                             complaint.setInvolved(supervisorComplaintUI.getInvolved());
-                        } else if(tempEmployee != null){
+                        }if(tempEmployee != null){
                             complaint.setAssignedEmployee(tempEmployee);
-                        }  
-                        else if(!supervisorComplaintUI.getDescriptoin().equals("")){
-                            complaint.setDescription(supervisorComplaintUI.getDescriptoin()); 
+                        }if(!supervisorComplaintUI.getDescription().equals("")){
+                            complaint.setDescription(supervisorComplaintUI.getDescription()); 
+
+                        }
+                        String t = (String) (supervisorComplaintUI.getUpdateType()); 
+                        if(!t.equals("")){
+                            complaint.setComplaintType(t);
                         }
                         if(supervisorComplaintUI.getClosed().equals("Closed") && complaint.formatOpen().equals("Open")){ //closes a previously open complaint and adds a close date 
                             
                             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
                             java.util.Date date = new java.util.Date(System.currentTimeMillis());
                             formatter.format(date); 
+                            System.out.println(date);
                             complaint.setClosedDate(date);
                             complaint.setOpen(false); 
                         

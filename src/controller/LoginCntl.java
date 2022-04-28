@@ -55,7 +55,7 @@ public class LoginCntl implements ActionListener{
                 } 
             }//end for loop 
             if (loginUI.isVisible()){
-                JOptionPane.showMessageDialog(this.loginUI, "Invalid Username or Password, create a new account or wait while your are approved", "Login", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.loginUI, "Invalid Username or Password", "Login", JOptionPane.ERROR_MESSAGE);
             }
         }//end if click login 
 

@@ -44,6 +44,7 @@ public class SupervisorComplaintUI extends JFrame {
     public JLabel updateComplaintTypeLabel; 
     public JLabel heading; 
     private JComboBox<String> closed; 
+
    
      
     public SupervisorComplaintUI(SupervisorComplaintCntl supervisorComplaintCntl) {
@@ -67,6 +68,7 @@ public class SupervisorComplaintUI extends JFrame {
         String[] ifopen = {"", "Open", "Closed"}; 
         filterOpen = new JComboBox<>(ifopen); 
         filterLabel = new JLabel("Adjust drop downs to filter the list"); 
+        closedLabel = new JLabel("Status");
 
 
         heading = new JLabel("FILL OUT FIELDS YOU WISH TO UPDATE (You can leave fields you dont want to change blank but you must include a complaint ID)");
@@ -109,7 +111,7 @@ public class SupervisorComplaintUI extends JFrame {
 
         scroll = new JScrollPane(textArea);
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scroll.setBounds(5, 80, 900, 200);
+        scroll.setBounds(5, 80, 980, 200);
     
         add (scroll);
 
@@ -141,7 +143,7 @@ public class SupervisorComplaintUI extends JFrame {
         
 
         updateComplaintType = new JComboBox<>(types); 
-        updateComplaintTypeLabel = new JLabel("Update Complaint Type");
+        updateComplaintTypeLabel = new JLabel("Complaint Type");
 
         model = new UtilDateModel();
         Properties p = new Properties();
@@ -165,6 +167,9 @@ public class SupervisorComplaintUI extends JFrame {
         add (datePicker);
         add (filterType); 
         add (filterLabel);
+        add (closedLabel);
+        add (updateComplaintType);
+        add (updateComplaintTypeLabel);
         
         involved.setBounds (5, 400, 100, 25);
         involvedField.setBounds (5, 430, 500, 70);
@@ -173,12 +178,13 @@ public class SupervisorComplaintUI extends JFrame {
         datePicker.setBounds(5, 560, 200, 30);
 
         descripition.setBounds (5, 620, 100, 25);
-        descriptionField.setBounds (5, 640, 500, 145);
+        descriptionField.setBounds (5, 640, 500, 80);
 
-        updateComplaintTypeLabel.setBounds(5, 715, 100, 25);
-        updateComplaintType.setBounds(5, 745, 165, 25);
+        updateComplaintTypeLabel.setBounds(5, 730, 300, 25);
+        updateComplaintType.setBounds(5, 755, 165, 25);
 
-        closed.setBounds(5, 810, 100, 25); 
+        closedLabel.setBounds(5, 820, 100, 25);
+        closed.setBounds(5, 845, 100, 25); 
     }
 
     public JButton getRetrieveComplaintsBtn(){
@@ -231,12 +237,19 @@ public class SupervisorComplaintUI extends JFrame {
         employeeIDField.setText(str);
     }
 
-    public Object getComplaintType(){
+    public Object getFilterType(){
         return filterType.getSelectedItem();
     }
+    public Object getUpdateType(){
+        return updateComplaintType.getSelectedItem();
+    }
 
-    public void setComplaintType(Object obj){
+
+    public void setFilterType(Object obj){
         this.filterType.setSelectedItem(obj);
+    }
+    public void setUpdateType(Object obj){
+        this.updateComplaintType.setSelectedItem(obj);
     }
 
     public JComboBox<String> getTypePicker(){
@@ -250,7 +263,7 @@ public class SupervisorComplaintUI extends JFrame {
         this.involvedField.setText(str);
     }
 
-    public String getDescriptoin(){
+    public String getDescription(){
         return this.descriptionField.getText().trim();
     }
     public void setDescription(String str){
@@ -285,5 +298,7 @@ public class SupervisorComplaintUI extends JFrame {
     public JComboBox getFilterOpenBox(){
         return filterOpen; 
     }
+    
+
 
 }
