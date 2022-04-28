@@ -2,15 +2,19 @@
 * username, password
 
 Admins
-* jah320, buddy123!
+* jah320, Buddy123!
 
 Supervisors
-* fla568, ilovedogs7!
-* ves824, coffeelover0!
-* hannahk, 12345
+* fla568, Ilovedogs7!
+* ves824, Coffeelover0!
+* hah920, Psustudent22!
 
 Employees 
-* guykane, netflix2!
+* guykane, Netflix2!
+
+Pending Accounts 
+* bet114, Goldengirls1!
+* wad364, MickeyMouse1!
 
 ### IMPORTANT NOTES
 Our project was completed in VS code. 
@@ -33,7 +37,7 @@ The scope of our project has changed after meeting with proffessor Vora. This is
 (2) Update Employee Information 
 * Employees can update their own information (but only information that the backend system allows)
 
-# (3) Approved and Update Employees
+(3) Approved and Update Employees
 * A supervisor can approve an employee 
 * A supervisor can update information about an employee such as pay scale, id, supervisor, etc. 
 
@@ -46,15 +50,14 @@ The scope of our project has changed after meeting with proffessor Vora. This is
   * Close Complaint
   * View open complaints, closed complaints, or both
 
-# (5) Create Complaint (Employee)
+(5) Create Complaint (Employee)
 * Can create an complaint with description, those involved, date of occurance, and date submitted 
 * Complaints are stored and able to be acsessed later in an organized way 
 * Will be implemented in later iterations
   * requiring nessisary fields to be completed before submitting complaint
 
-### Use Cases to be implemented 
-  * "View complaint status"
-    * this will include being able to see who has been assigned and what action has/or will be taken 
+ (6) View complaint status (Employee)
+ * This includes being able to see who has been assigned and what action has/or will be taken 
   
 
 ### Refactoring Changes 
